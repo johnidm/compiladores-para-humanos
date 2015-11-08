@@ -56,8 +56,6 @@ Interpretadores mistos: Traduzem todo o script em código intermediário e depoi
 
 
 
-
-
 [^5] Compiladores cruzados ou cross-compilers são compiladores que geram código objeto para outras máquinas que não são hospedeiras
 
 [^4] Tradutores auto residentes ou self-resident-translator geram códigos de máquinas hospedeiras nas quais eles mesmo executam. 
