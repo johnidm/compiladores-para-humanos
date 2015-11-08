@@ -1,7 +1,7 @@
 Introdução e visão geral da estrutura de um compilador
 ======
 
-### INtrudução ao estudo de compiladores
+### Intrudução ao estudo de compiladores
 
 O estudo e escrita de compiladores abrange conceitos de linguagens de programação, arquitetura de máquina, teorias de linguagens de programação, algoritmos e engenharia de software (AHO, 2008).
 Nesse documento será aprestado uma introdução ao processo de compilação dando ao aluno uma visão de alto nível da estrutura de um compilador.
@@ -29,14 +29,36 @@ Cálculos aritméticos ou lógicos.
 Controle de fluxo.
 As linguagens de 3ª geração foram projetadas para serem utilizadas por profissionais específicos conhecidos como engenheiros de software ou simplesmente programadores. Já as linguagens de 4ª geração formam projetadas para serem utilizadas por usuários finais sendo de fácil programação permitindo que os próprios usuários possam resolver os seus problemas, exemplos são: Excel; Access; SQL, etc. As linguagens de 5ª são utilizadas em programas de Inteligência Artificial, simulando comportamentos inteligentes, como exemplo temos o PROLOG (PRICE, 2001).
 
-[^1] Mnemônicos são símbolos que substituem o padrão de bits. Como exemplo o ADD equivale a soma e em bits significa 00100011.
+#### Tradutores 
 
-[^2] Desmontador também chamado de Desassemblador faz o processo inverso ao montador, ou seja, pega o código de máquina e transforma em código Assembly. 
+Os tradutores são sistemas que aceitam como entrada um programa escrito em uma linguagem e produzem como resultado um programa equivalente em outra linguagem. De acordo com PRICE (2001) os tradutores podem ser classificados em:
+Montadores: também chamados de assemblers, eles mapeiam instruções em linguagem simbólica para instruções em linguagem de máquina.
+Macro-assemblers: funcionam da mesma forma que os montadores, porém podem ser criados “macros” que são uma sequência de comandos simbólicos.
+Compiladores: mapeiam programas escritos em linguagem de alto nível para linguagem simbólica ou de máquina. 
+Pré-compiladores: também chamados de pré-processadores ou filtros são programas que convertem uma linguagem de alto nível estendida de uma linguagem de programação original, para outra linguagem de alto nível.
+Interpretadores: Possuem como entrada uma linguagem intermediária ou a própria linguagem fonte e um programa compilado produz o efeito de execução.
+
+#### Compiladores x Interpretadores
+
+Um programa objeto gerado por um compilador é muito mais rápido do que um programa executado por um interpretador. Porem um interpretador oferece melhorares opções de diagnósticos de erros pois executa instrução por instrução (AHO, 2008). 
+
+### Estrutura de um compilador
+
+O processo de compilação ou interpretação é muito complexo, existe uma estrutura básica que divide esse processo em fases, essas fases estão representadas por tarefas divididas em análise e síntese (PRICE, 2001).
+Todo o processo de compilação é dividido em fases e tem como objetivo dar uma visão explicita e detalhada do processo de compilação. A parte de análise também chamada de front-end divide o programa fonte em partes e impõe uma estrutura gramatical sobre elas, uma das principais responsabilidades da parte de análise é garantir que a sintática e semântica do programa fonte estejam corretos. A parte da síntese constrói o programa objeto a partir da representação criada na parte de análise. A síntese e conhecida também é back-end (AHO, 2008).
 
 
 
 
+[^5] Compiladores cruzados ou cross-compilers são compiladores que geram código objeto para outras máquinas que não são hospedeiras
 
+[^4] Tradutores auto residentes ou self-resident-translator geram códigos de máquinas hospedeiras nas quais eles mesmo executam. 
+
+[^3] Tempo de compilação é o intervalo de tempo de conversão de um programa fonte para um programa objeto. Já o programa objeto é executado no intervalo de tempo chamado tempo de execução.
+
+[^2] Mnemônicos são símbolos que substituem o padrão de bits. Como exemplo o ADD equivale a soma e em bits significa 00100011.
+
+[^1] Desmontador também chamado de Desassemblador faz o processo inverso ao montador, ou seja, pega o código de máquina e transforma em código Assembly. 
 
 
 
