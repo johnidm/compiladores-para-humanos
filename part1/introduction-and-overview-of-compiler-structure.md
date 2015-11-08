@@ -1,8 +1,6 @@
 Introdução e visão geral da estrutura de um compilador
 ======
 
-### Intrudução ao estudo de compiladores
-
 O estudo e escrita de compiladores abrange conceitos de linguagens de programação, arquitetura de máquina, teorias de linguagens de programação, algoritmos e engenharia de software (AHO, 2008).
 Nesse documento será aprestado uma introdução ao processo de compilação dando ao aluno uma visão de alto nível da estrutura de um compilador.
 
@@ -46,6 +44,17 @@ Um programa objeto gerado por um compilador é muito mais rápido do que um prog
 
 O processo de compilação ou interpretação é muito complexo, existe uma estrutura básica que divide esse processo em fases, essas fases estão representadas por tarefas divididas em análise e síntese (PRICE, 2001).
 Todo o processo de compilação é dividido em fases e tem como objetivo dar uma visão explicita e detalhada do processo de compilação. A parte de análise também chamada de front-end divide o programa fonte em partes e impõe uma estrutura gramatical sobre elas, uma das principais responsabilidades da parte de análise é garantir que a sintática e semântica do programa fonte estejam corretos. A parte da síntese constrói o programa objeto a partir da representação criada na parte de análise. A síntese e conhecida também é back-end (AHO, 2008).
+
+![](../images/compilation-steps.png)
+
+Caso o compilador tenha sido cuidadosamente projeto podemos produzir compiladores de diferentes linguagens fonte para diferentes máquinas alvo. Combinando diferentes front-end para um únido back-end e um único front-end para diferentes back-ends. 
+De acordo com TUCKER(2008) processo de compilação inicia com a analisador léxico que varre todo o programa fonte e o transforma em um fluxo de tokens, logo em seguida vem a análise sintática que lê o fluxo de tokens e cria a árvore sintática, a terceira fase e a análise semântica responsável por garantir as regras semânticas. A próxima faze e a geração de código intermediário que cria uma abstração do código, logo após tem a fase de otimização do código e pôr fim a geração do código que tem como objetivo gerar o código de baixo nível baseado na arquitetura da máquina alvo.
+Em contraste temos os interpretadores que de acordo com TUCKER(2008) é uma forma de tradutor no qual as duas últimas fases do compilador são substituídas por um programa que executa o código intermediário.
+O interpretador pode ser divido em dois tipos:
+Interpretador puro: Cada instrução e “quebrada “em tokens, analisada, verificada semanticamente e interpretada a cada vez que é executada. Como exemplo temos integradores de comandos shell tradutores Basic.
+Interpretadores mistos: Traduzem todo o script em código intermediário e depois interpretam esse código.
+
+
 
 
 
