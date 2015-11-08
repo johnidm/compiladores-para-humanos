@@ -15,7 +15,14 @@ Uma linguagem de programação é considera de alto nível quando sua representa
 
 ![](compilation-process.png)
 
-
+Na imagem acima demonstrada por DELAMARO(2004) podemos ver um diagrama que representa o processo de compilação onde a entrada é um programa fonte e a saída é um programa objeto.
+De acordo com PRICE (2001) as linguagens de programação podem ser classificadas em 5 gerações:
+1ª linguagens de máquina – baixo nível 
+2ª linguagens simbólicas ou montagem (Assembly) – baixo nível
+3ª linguagens orientadas a usuário – alto nível
+4ª linguagens orientadas a aplicação – alto nível 
+5 linguagens de conhecimento – alto nível
+Nós primórdios da computação os computadores eram programados em linguagem de máquina utilizando notação binaria, dessa forma os algoritmos eram complexos e de difícil implementação. A 2ª geração denominada de linguagens simbólicas ou de montagem foi utilizada para minimizar a complexidade da 1ª geração é utilizavam mnêmicos que substituíam as instruções binárias. As instruções eram convertidas em código de máquina antes de serem executados, esse processo é conhecido como montagem (PRICE, 2001).
 
 
 
