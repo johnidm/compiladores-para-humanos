@@ -1,4 +1,5 @@
-# Sumário
+Sumário
+======
 
 * [Parte I](part1/README.md)
     * [Introdução e visão geral de uma estrutura de compilador](part1/introduction-and-overview-of-compiler-structure.md)

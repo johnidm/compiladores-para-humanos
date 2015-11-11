@@ -1,4 +1,1 @@
-Parte teórica
-
-
-
+O estudo sobre a construção de compiladores e uma introdução a técnicas de tradução e aperfeiçoamento de programas, quase todo o software utilizado é traduzido de alguma forma por um comilador. Os compiladores são projetados de maneira cuidadosa e envolvem processos grandes e complexos que incluem milhares de linhas de código que são organizados em componentes que interagem de maneira a gerar um processo de compilação eficiente e rápido. 
