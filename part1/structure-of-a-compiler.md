@@ -1,9 +1,11 @@
 Estrutura de um Compilador
 ======
 
+O compiladore opera em uma sequencia de fases cada uma transformando o programa fonte em uma represetacao para a etapa seguinte.
+
 ### Analise Léxica
 
-É a primeira fase do processo de compilação, também é conhecida como leitura ou scanning. O objetivo nessa faze é identificar unidades léxicas (lexemas). O compilador lê todos os caracteres do programa fonte e verifica se eles pertencem ao alfabeto da linguagem, caso não pertença deve gerado um erro. 
+É a primeira fase do processo de compilação, também é conhecida como leitura ou scanning. O objetivo nessa fase é identificar unidades léxicas (lexemas). O compilador lê todos os caracteres do programa fonte e verifica se eles pertencem ao alfabeto da linguagem, caso não pertença deve ser gerado um erro. 
 
 Os comentários e espaços em branco são ignorados. Esse processo resulta um conjunto de tokens que são formados por palavras reservadas, identificadores, delimitadores, etc.  Nesse momento é iniciado a construção da tabela de símbolos. Tudo o que a análise léxica deve fazer é quebrar o programa em símbolos e verificar a categoria ao qual eles pertencem. 
 
@@ -105,7 +107,11 @@ T2 = id3 * t1
 T3 = id2 + t2
 id1 = t3
 ```
+
+Essa representacao segue o seguinte formato `x = y op z` onde op é uma operador binario y e z sao endereços para os operadndo e x e o endereco para o resultado.
+
 Uma das vantagens de gerar um código intermediário é a possibilidade de obter um código final mais eficiente.
+
 
 ### Otimização de Código
 
@@ -154,6 +160,8 @@ Os seguintes atributos costumam ser utilizados:
 * Procedimentos/sub-rotinas: classe(proc), número de parâmetros.
 
 A tabelas de símbolos é estrutura de dados utilizado durante todo o processo de compilação a fim de inserir e extrair informações de forma rápida. A tabela de símbolos é utilizada em todas as fazes do processo de compilação (AHO, 2008).
+
+
 
 [ˆ1] Sintático tem o sentido de verificação de forma, estrutura sem referência a significado.
 

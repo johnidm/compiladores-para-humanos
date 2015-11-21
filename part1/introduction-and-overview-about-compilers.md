@@ -17,6 +17,16 @@ Quando nos geramos um compilador nos já temos uma linguagem de programação qu
 
 Um exemplo muito comum de um processo de compilação, que não esta diretamente relacionado ao linguagem de programação é o uso de PostScript, uma linguagem especializada para visualização de informações, onde podemos ter um programa de composição tipográfica, que produz o PostScript, ele tem como entrado um documento que ira produzir com saída um arquivo PostScript, esse arquivo vai descrever uma imagem, isso é considerado um processo de compilação. O código que transforma o PostScript em pixel é chamado de interpretador.
 
+Existem dois princípios fundamentais na construção de compiladores:
+
+1. O compilador deve preservar o significado do programa a ser compilado.
+
+2. O compilador deve melhorar o programa de entada de alguma forma perceptível.
+
+O compilador precisa traduzir um conjunto infinito de programas escrito em uma linguagem de programação é o resultado desse processo deve ser um código eficiente que deve ser executado em diversas arquiteturas e processadores.
+
+Um termo muito comum no estudo de compiçadores é a **otimização** que se refera as tentivas de produzir um compilador que gere um código mais eficiente, essa é uma etapa cada vez mais importante e complexa devida a grande variadede de aquitetura de compuatadore e processadores. O tempo de compilação é outro fator muito importante que deve ser levado em consideracao na contrução de compialdores.
+
 ### Linguagens de programação
 
 Podemos definir uma linguagem comumente chamada de língua ou idioma como um meio de comunicação entre pessoas. Em programação definimos a linguagem como o meio de comunicação entre o pensamento humano e as ações de um computador. Todo o software executado em todos os computadores foi escrito em alguma linguagem de programação e antes que ele possa rodar um programa deve ser utilizado para traduzir a linguagem para um formato que possa ser executado pelo computador. 
@@ -53,6 +63,15 @@ As linguagens de 3ª geração são voltadas para a solução de problemas espec
 
 As linguagens de 3ª geração foram projetadas para serem utilizadas por profissionais específicos conhecidos como engenheiros de software ou simplesmente programadores. Já as linguagens de 4ª geração formam projetadas para serem utilizadas por usuários finais sendo de fácil utilização permitindo que os próprios usuários possam resolver os seus problemas.  Exemplos são: Excel; Access; SQL, etc. As linguagens de 5ª geração são utilizadas em programas de inteligência artificial simulando comportamentos inteligentes, como exemplo temos o PROLOG.
 
+Cada vez mais os compiladores e as linguagem de programacao assumente tarefa que antes eram de responsabildiade do programado como por exemplo gerenciamento de memória, verificacao de tipos e execucao paralela.
+
+O primeiros passos para tornar a lingaugem mais inteligivei por humos ocorreu na decada de 50 com o desenvilvimento de lingaugem simbolicadas ou assembly, as intruçções em assembly represetavam menmonicos das intruções de maquina, maos tarde surgiram os macro assembler que permitiam abreviaturas parametrizadas de uma sequencia de intruções.
+
+O surigmento de lingaugem de programacao como o FORTRAM, COloe influenciaram a contrução de compialdores pois permitiam que contruções de alto nivel fossem possiveis ser escritas de forma mais facil. Posteriormente com o surgimento de novas linguagem de progracao com recurso cadas vez mais inivadores os compiladores se tornaram ferramentas muito mais sofisticadas.
+
+Os programadoes que utilizam lingaugem de baixo nivel tem mais controle sobre a execucao de seu programas e poder produzir um codigo mais eficiente, mas esse programas sao dificei de serem escritos e executados em outras máquinas, com a evolução dos compiladores os programadas escritos em lingaugem de alto nivel podem ser otimizados para que sejam tao eficientes quanto programas esxritos em lingagem de baixo nivel. Lingagem de alto nivel possuiem muitos recursos como loops, tipos de dados, controle de fluxo, que facilitam a escrita de programas, esse recursos sao traduzidos para lingaugem de baixo nivel e executadas com isntrucoes equivalents em processadores. 
+
+
 ### Tradutores 
 
 Os tradutores são sistemas que aceitam como entrada um programa escrito em uma linguagem e produzem como resultado um programa equivalente na mesma linguagem ou em outra linguagem. Os tradutores podem ser classificados em:
@@ -70,6 +89,8 @@ Um interpretador pode ser entendido como um processo que em vez de visar um conj
 Diferente do compilador o interpretador recebe como estrada uma especificação executável e produz com saída a execução dessa especificação, linguagems com PHP, Scheme, Python são interpretadas, os compiladores e interpretadores possuem muito em comum, pois executam as mesmas tarefas, como por exemplo analisar um programa escrito em uma linguagem e determinar se ele é valido ou não.
 
 Um caso muito interessante é o da linguagem Java que combina compilação e interpretação. Temos o processo de compilação que gera um formato de código chamado de *bytecode*, e o processo de interpretação feito do *bytecode* feito pela JVM, outro detalhe implementação na JVM é um processo chamado de JIT, Just in Time, que permite que algumas instruções, as mais utilizadas, sejam compiladas para para código de maquina a fim de otimizar essas instruções.
+
+Um programa objeto gerado por um compilador é muito mais rápido do que um programa executado por um interpretador. Porem um interpretador oferece melhorares opções de diagnósticos de erros pois executa instrução por instrução (AHO, 2008). 
 
 ### Estrutura de um compilador
 
@@ -107,6 +128,8 @@ A etapa de analise ou *front-end* é efetuada através de algoritmos de complexi
 [^6] Cross-compiling: é o processo de compilação que permite a um compilador compilar um programa para diversos processadores ou arquiteturas.
 
 [ˆ7] Byte code é uma representação de código fonte que será interpretada por uma máquina virtual.
+
+[ˆ8] 
 
 Exercícios
 ------
