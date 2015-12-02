@@ -1,9 +1,11 @@
 Introdução e visão geral sobre compiladores
 ======
 
-A construção de compiladores abrange diversas áreas de estudo na área de ciências da computação como por exemplo conceitos de linguagens de programação, arquitetura de máquina, algoritmos e engenharia de software. Nesse *ebook* será apresentado uma introdução ao processo de compilação mostrando uma visão de alto nível da estrutura de um compilador. As linguagens de programação e a arquitetura de computadores evoluem e estão cada vez mais sofisticados, o desafio dos projetistas de compiladores é criar algoritmos mais eficientes que visam obter um melhor desempenho no uso de memória e processamento.
+A construção de compiladores abrange diversas áreas de estudo em ciências da computação, como por exemplo conceitos de linguagens de programação, arquitetura de máquina, algoritmos e engenharia de software. Nesse *ebook* será apresentado uma introdução ao processo de compilação mostrando uma visão de alto nível da estrutura de um compilador. 
 
-O estudo de compiladores é essencial para entender a ligação entre engenharia de software, linguagem de programação, sistemas operacionais e arquitetura de computadores. Nessa primeira parte do *ebook*, vamos apresentar as etapas envolvidas no processo de compilação e como ela se relaciona com uma linguagem de programação.
+As linguagens de programação e a arquitetura de computadores evoluem e estão cada vez mais sofisticados, o desafio dos projetistas de compiladores é criar algoritmos mais eficientes que visam obter um melhor desempenho no uso de memória e processamento.
+
+Conhecer como um compilador funciona é essencial para entender a ligação entre engenharia de software, linguagens de programação, sistemas operacionais e arquitetura de computadores. Nessa primeira parte do *ebook* vamos apresentar as etapas envolvidas no processo de compilação e como elas se relacionam entre si e com as linguagens de programação.
 
 ### O Compilador
 
