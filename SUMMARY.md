@@ -8,5 +8,5 @@
   * [Expressões Regulares](part1/regular-expressions.md)
   * [Gramáticas Livres de Contexto](part1/context-free-grammars.md)
 * [Parte II](part2/README.md)
-  * [Escrevendo um analisador léxico em Lua](part2/writing-a-lexical-analyser-in-lua.md)
+  * [Utilizando o JFlex e Java CUP](part2/using-jflex-java-cup.md.md)
 * [Referências](REFERENCES.md)
