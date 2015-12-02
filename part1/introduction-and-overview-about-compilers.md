@@ -9,7 +9,7 @@ Conhecer como um compilador funciona é essencial para entender a ligação entr
 
 ### O Compilador
 
-O compilador é um software complexo que converte uma linguagem fonte, ou origem, em uma linguagem destino, ou objeto, ou seja, converte um programa originado de uma linguagem de programação para uma linguagem que possa ser entendida e executada por um computador. Durante a compilação são executadas tarefas que geram a descrição de uma linguagem em outra.
+O compilador é um software complexo que converte uma linguagem fonte, ou linguagem origem, em uma linguagem destino, ou linguagem objeto, ou seja, converte um programa originado de uma linguagem de programação para uma linguagem que possa ser entendida e executada por um computador. Durante a compilação são executadas tarefas que geram a descrição de uma linguagem em outra.
 
 Existem dois princípios fundamentais na construção de compiladores:
 
@@ -17,17 +17,17 @@ Existem dois princípios fundamentais na construção de compiladores:
 
 2. O compilador deve melhorar o programa de entrada de alguma forma perceptível.
 
-As etapas de compilação são complexas e exigiam um esforço significativo, os primeiros compiladores eram escritos em binário e salvo na memória ROM, hoje nos temos um conjunto de ferramentas que facilitam a criação e manutenção de compiladores, muitas delas escritas em linguagem como Java, C e C++ e já automatizam boa parte dessas etapas.
+As etapas de compilação são complexas e exigiam um esforço significativo, os primeiros compiladores eram escritos em binário e salvo na memória ROM, hoje nós temos um conjunto de ferramentas que facilitam a criação e manutenção de compiladores, muitas delas escritas em linguagem como Java, C e C++ e já automatizam boa parte dessas tarefas.
 
-Essas ferramentas geram códigos que podem ser incluídos no projeto do compilador. Um exemplo são os geradores de analisadores léxicos, que com base em expressões reguladores constroem um conjunto de elementos léxicos, os tokens, que são utilizandos nas etapas subsequentes da compilação. 
+Essas ferramentas geram códigos que podem ser incluídos no projeto do compilador. Um exemplo são os geradores de analisadores léxicos, que com base em expressões reguladores geram uma algoritmo capaz de identificar os elementos léxicos de uma lingaugem de programação. 
 
-Quando nos geramos um compilador nos já temos uma linguagem de programação que pode ser utilizada e manutenida, vamos chamar a nova linguagem de **Sexta Fase**, essa linguagem foi gerada com base em uma já existente, Python por exemplo. É importante ressaltar que a linguagem **Sexta Fase** já esta suficientemente completa e com ela podemos gerar seu próprio compilador, isso nos obriga a desenvolver um novo compilador utilizando agora a linguagem **Sexta Fase**. Isso é uma premissa muito importante na construção onde temos um ciclo autossuficiente para a nova uma linguagem.
+Quando nos geramos um compilador nos já temos uma linguagem de programação que pode ser utilizada e manutenida, vamos supor que nós criamos uma linguagem chamada **Sexta Fase**, essa linguagem foi gerada com base em uma já existente, Python por exemplo. É importante ressaltar que a linguagem **Sexta Fase** já esta suficientemente completa e com ela podemos gerar seu próprio compilador, isso nos obriga a desenvolver um novo compilador utilizando agora a linguagem **Sexta Fase**. Isso é uma premissa muito importante na construção de compiladores onde temos um ciclo autossuficiente de uma linguagem.
 
-Um exemplo muito comum de um processo de compilação, que não esta diretamente relacionado ao linguagem de programação é o uso de PostScript, uma linguagem especializada para visualização de informações, onde podemos ter um programa de composição tipográfica, que produz o PostScript, ele tem como entrada um documento que ira produzir com saída um arquivo PostScript, esse arquivo vai descrever uma imagem, isso é considerado um processo de compilação. O código que transforma o PostScript em pixel é chamado de interpretador.
+Um exemplo muito comum de um processo de compilação, que não esta diretamente relacionado ao linguagens de programação é o uso de PostScript, uma linguagem especializada para visualização de informações onde podemos ter por exemplo um programa de composição tipográfica, que produz o PostScript, ele tem como entrada um documento que ira produzir um arquivo PostScript, esse arquivo vai descrever uma imagem, isso é considerado um processo de compilação. O código que transforma o PostScript em pixel é chamado de interpretador.
 
 O compilador precisa traduzir um conjunto infinito de programas escrito em uma linguagem de programação é o resultado desse processo deve ser um código eficiente que deve ser executado em diversas arquiteturas e processadores.
 
-Um termo muito comum no estudo de compiladores é a **otimização** que se refere as atentivas de produzir um compilador que gere um código mais eficiente, essa é uma etapa cada vez mais importante e complexa devida a grande variedade de arquitetura de computadores e processadores. O tempo de compilação é outro fator muito importante que deve ser levado em consideração na construção de compiladores.
+Um conceito muito importante no estudo de compiladores é a **otimização** que se refere as atentivas de produzir um compilador que gere um código mais eficiente. Essa é uma etapa cada vez mais importante e complexa devida a grande variedade de arquitetura de computadores e processadores. O **tempo** de compilação é outro fator muito importante que deve ser levado em consideração durante o desenvolvimento de um compilador.
 
 ### Linguagens de programação
 
@@ -132,6 +132,8 @@ A etapa de analise ou *front-end* é efetuada através de algoritmos de complexi
 
 Exercícios
 ------
+
+1. Existem dois princípios fundamentais na construção de compiladores, explique con suas palavras o que significa esses dois princípios.
 
 1. Explique as diferenças entre um compilador e um interpretador?
 2. Quais as cincos classificações das linguagens de programação?
