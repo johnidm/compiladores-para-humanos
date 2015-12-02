@@ -9,7 +9,7 @@ Conhecer como um compilador funciona é essencial para entender a ligação entr
 
 ### O Compilador
 
-O compilador é um software complexo que converte uma linguagem fonte, ou origem, em uma linguagem destino, ou seja, converte um programa originado de uma linguagem de programação para uma linguagem que possa ser entendida e executada por um computador, esse etapa preserva a significado do programa fonte original. Durante a compilação são executadas tarefas que geram uma descrição de linguagem em outra.
+O compilador é um software complexo que converte uma linguagem fonte, ou origem, em uma linguagem destino, ou objeto, ou seja, converte um programa originado de uma linguagem de programação para uma linguagem que possa ser entendida e executada por um computador. Durante a compilação são executadas tarefas que geram a descrição de uma linguagem em outra.
 
 Existem dois princípios fundamentais na construção de compiladores:
 
