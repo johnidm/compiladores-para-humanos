@@ -51,39 +51,39 @@ O processo de tradução de uma linguagem de alto nível para linguagem de baixo
 
 ![](../images/compilation-process.gif)
 
-Na imagem acima podemos ver um diagrama que representa o processo de compilação onde a entrada é um programa fonte e a saída é um programa objeto.
+Na imagem acima podemos ver um diagrama que representa o processo de compilação onde a entrada é um programa fonte e a saída é um programa objeto. Posteriormente outros processos estão envolvidos na compilação - ligador e carregado - para que o programa possa ser executado.
 
 As linguagens de programação podem ser classificadas em 5 gerações:
 
-* 1ª linguagens de máquina – baixo nível 
-* 2ª linguagens simbólicas ou montagem (Assembly) – baixo nível
-* 3ª linguagens orientadas a usuário – alto nível
-* 4ª linguagens orientadas a aplicação – alto nível 
-* 5ª linguagens de conhecimento – alto nível
+* 1ª linguagens de máquina – baixo nível. 
+* 2ª linguagens simbólicas ou montagem (Assembly) – baixo nível.
+* 3ª linguagens orientadas a usuário – alto nível.
+* 4ª linguagens orientadas a aplicação – alto nível. 
+* 5ª linguagens de conhecimento – alto nível.
 
-Nós primórdios da computação os computadores eram programados em linguagem de máquina utilizando notação binaria, dessa forma os algoritmos eram complexos e de difícil implementação. A 2ª geração denominada de linguagens simbólicas ou de montagem foi utilizada para minimizar a complexidade da 1ª geração é utilizavam mnêmicos que substituíam as instruções binárias. As instruções eram convertidas em código de máquina antes de serem executados, esse processo é conhecido como montagem.
+Nós primórdios da computação os computadores eram programados em linguagem de máquina, 1ª geração, utilizando notação binaria, dessa forma os algoritmos eram complexos e de difícil implementação. A 2ª geração denominada de linguagens simbólicas ou de montagem foi utilizada para minimizar a complexidade da 1ª geração é utilizavam mnêmicos que substituíam as instruções binárias. As instruções eram convertidas em código de máquina antes de serem executados, esse processo é conhecido como montagem.
 
-As linguagens de 3ª geração são voltadas para a solução de problemas específicos, por exemplo o uso em aplicações comerciais e cientificas, nesse momento surgem linguagens como COBOL, Pascal, Ada, FORTRAN, etc. Essas linguagens são classificas como procedimentais, declarativas, imperativas, lógicas, orientadas a objetos, etc. e os programas descrevem como os problemas serão resolvidos através de instruções denominados: entrada/saída; cálculos aritméticos ou lógicos e controle de fluxo.
+As linguagens de 3ª geração são voltadas para a solução de problemas específicos, por exemplo o uso em aplicações comerciais e cientificas, nesse momento surgem linguagens como COBOL, Pascal, Ada, FORTRAN, etc. Essas linguagens são classificas como procedimentais, declarativas, imperativas, lógicas, orientadas a objetos, etc. e os programas descrevem como os problemas serão resolvidos através de instruções denominados: entrada/saída; cálculos aritméticos; cálculos lógicos e controle de fluxo.
 
 As linguagens de 3ª geração foram projetadas para serem utilizadas por profissionais específicos conhecidos como engenheiros de software ou simplesmente programadores. Já as linguagens de 4ª geração formam projetadas para serem utilizadas por usuários finais sendo de fácil utilização permitindo que os próprios usuários possam resolver os seus problemas.  Exemplos são: Excel; Access; SQL, etc. As linguagens de 5ª geração são utilizadas em programas de inteligência artificial simulando comportamentos inteligentes, como exemplo temos o PROLOG.
 
 Cada vez mais os compiladores e as linguagem de programação assumem tarefa que antes eram de responsabilidade do programador, como por exemplo gerenciamento de memória, verificação de tipos e execução paralela.
 
-O primeiros passos para tornar a linguagem mais inteligível por humanos ocorreu na década de 50 com o desenvolvimento de linguagem simbolizadas ou Assembly, as intrusões em Assembly representavam mnemônicos das instruções de maquina, mais tarde surgiram os macro Assembler que permitiam abreviaturas parametrizadas de uma sequencia de instruções.
+O primeiros passos para tornar a linguagem mais inteligível por humanos ocorreu na década de 50 com o desenvolvimento de linguagem simbólicas ou Assembly. As instruções em Assembly representavam mnemônicos das instruções de maquina, mais tarde surgiram ferramentas conhecidas como macro Assemblers que permitiam abreviaturas parametrizadas de uma sequencia de instruções Assembly.
 
 O surgimento das linguagens de programação como o FORTRAM e Cobol influenciaram o desenvolvimento de compiladores pois permitiam que construções de alto nível fossem possíveis de serem escritas de forma mais fácil. Posteriormente com o surgimento de novas linguagem de programação com recursos cada vez mais inovadores os compiladores se tornaram ferramentas muito mais sofisticadas.
 
-Os programados que utilizam linguagem de baixo nível tem mais controle sobre a execução de seu programas e poder produzir um código mais eficiente, mas esse programas são difíceis de serem escritos e executados em outras máquinas, com a evolução dos compiladores os programadas escritos em linguagem de alto nível podem ser otimizados para que sejam tão eficientes quanto programas escritos em linguagem de baixo nível. Linguagem de alto nível possuem muitos recursos como loops, tipos de dados, controle de fluxo, que facilitam a escrita de programas, esse recursos são traduzidos para linguagem de baixo nível e executadas com instruções equivalente em processadores. 
+Os programados que utilizam linguagem de baixo nível tem mais controle sobre a execução de seu programas e poderm produzir um código mais eficiente, mas esse programas são difíceis de serem escritos e executados em outras máquinas. Com a evolução dos compiladores os programas escritos em linguagem de alto nível podem ser otimizados para que sejam tão eficientes quanto programas escritos em linguagens de baixo nível. Linguagens de alto nível possuem muitos recursos como loops, tipagem de dados, controle de fluxo, etc. que facilitam a escrita de programas. Esses recursos são traduzidos para linguagens de baixo nível e executadas diretamente nos processadores atrávez de instruções de máquina. 
 
 ### Tradutores 
 
 Os tradutores são sistemas que aceitam como entrada um programa escrito em uma linguagem e produzem como resultado um programa equivalente na mesma linguagem ou em outra linguagem. Os tradutores podem ser classificados em:
 
-* Montadores: também chamados de assemblers, eles mapeiam instruções em linguagem simbólica para instruções em linguagem de máquina. Disasembler ou desmontadores fazer o processo inverso.
-* Macro-assemblers: funcionam da mesma forma que os montadores, porém podem ser criados “macros” que são uma sequência de comandos simbólicos.
-* Compiladores: mapeiam programas escritos em linguagem de alto nível para linguagem simbólica ou de máquina. 
-* Pré-compiladores: também chamados de pré-processadores ou filtros são programas que convertem uma linguagem de alto nível estendida de uma linguagem de programação.
-* Interpretadores: Possuem como entrada uma linguagem intermediária ou a própria linguagem fonte e um programa compilado produz o efeito de execução.
+* **Montadores**: também chamados de assemblers, eles mapeiam instruções em linguagem simbólica para instruções em linguagem de máquina. Disasembler ou desmontadores fazer o processo inverso.
+* **Macro assemblers**: funcionam da mesma forma que os montadores, porém podem ser criados “macros” que refresentam uma sequência de comandos simbólicos.
+* **Compiladores**: mapeiam programas escritos em linguagem de alto nível para linguagem simbólica ou de máquina. 
+* **Pré-compiladores**: também chamados de pré-processadores ou filtros são programas que extendem a sintaxe de uma linguagem de alto nível.
+* **Interpretadores**: Possuem como entrada uma linguagem intermediária ou a própria linguagem fonte, e um programa compilado produz o efeito de execução.
 
 #### Compiladores x Interpretadores
 
@@ -139,9 +139,12 @@ Exercícios
 
 2. Escreva o que você entende por linguagem de prograação
 
-1. Explique as diferenças entre um compilador e um interpretador?
-2. Quais as cincos classificações das linguagens de programação?
-3. Cite os 5 tipos de tradutores e o significado de cada um?
+3. Quais as cincos classificações das linguagens de programação, de exemplos?
+
+4. Cite os 5 tipos de tradutores e o significado de cada um?
+
+5. Explique as diferenças entre um compilador e um interpretador?
+
 4. Quais as fazes de um processo de compilação?
 5. Cite as fazes que pertencem a parte de análise ou front-end do processo de compilação?
 6. Cite as fazes que pertence a parte de análise ou back-end do processo de compilação?
