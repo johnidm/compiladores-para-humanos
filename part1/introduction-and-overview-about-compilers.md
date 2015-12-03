@@ -19,11 +19,11 @@ Existem dois princípios fundamentais na construção de compiladores:
 
 As etapas de compilação são complexas e exigiam um esforço significativo, os primeiros compiladores eram escritos em binário e salvo na memória ROM, hoje nós temos um conjunto de ferramentas que facilitam a criação e manutenção de compiladores, muitas delas escritas em linguagem como Java, C e C++ e já automatizam boa parte dessas tarefas.
 
-Essas ferramentas geram códigos que podem ser incluídos no projeto do compilador. Um exemplo são os geradores de analisadores léxicos, que com base em expressões reguladores geram uma algoritmo capaz de identificar os elementos léxicos de uma lingaugem de programação. 
+Essas ferramentas geram códigos que podem ser incluídos no projeto do compilador. Um exemplo são os geradores de analisadores léxicos, que com base em expressões reguladores geram uma algoritmo capaz de identificar os elementos léxicos de uma linguagem de programação. 
 
-Quando nos geramos um compilador nos já temos uma linguagem de programação que pode ser utilizada e manutenida, vamos supor que nós criamos uma linguagem chamada **Sexta Fase**, essa linguagem foi gerada com base em uma já existente, Python por exemplo. É importante ressaltar que a linguagem **Sexta Fase** já esta suficientemente completa e com ela podemos gerar seu próprio compilador, isso nos obriga a desenvolver um novo compilador utilizando agora a linguagem **Sexta Fase**. Isso é uma premissa muito importante na construção de compiladores onde temos um ciclo autossuficiente de uma linguagem.
+Quando geramos um compilador nós já temos uma linguagem de programação que pode ser utilizada e manutenida. Vamos supor que criamos uma linguagem chamada **Sexta Fase**, essa linguagem foi gerada com base em uma já existente, Python por exemplo. É importante ressaltar que a linguagem **Sexta Fase** já esta suficientemente completa e com ela podemos gerar seu próprio compilador, isso nos obriga a desenvolver um novo compilador utilizando agora a linguagem **Sexta Fase**. Isso é uma premissa muito importante na construção de compiladores onde temos um ciclo autossuficiente de uma linguagem.
 
-Um exemplo muito comum de um processo de compilação, que não esta diretamente relacionado ao linguagens de programação é o uso de PostScript, uma linguagem especializada para visualização de informações onde podemos ter por exemplo um programa de composição tipográfica, que produz o PostScript, ele tem como entrada um documento que ira produzir um arquivo PostScript, esse arquivo vai descrever uma imagem, isso é considerado um processo de compilação. O código que transforma o PostScript em pixel é chamado de interpretador.
+Um exemplo muito comum de um processo de compilação, que não esta diretamente relacionado a linguagens de programação é o uso de PostScript, uma linguagem especializada na visualização de informações onde podemos ter por exemplo um programa de composição tipográfica, que produz o PostScript, ele tem como entrada um documento que ira produzir um arquivo PostScript, esse arquivo vai descrever uma imagem, isso é considerado um processo de compilação, pois transforma uma representação em outra. O código que traduz o PostScript em pixel é chamado de interpretador.
 
 O compilador precisa traduzir um conjunto infinito de programas escrito em uma linguagem de programação é o resultado desse processo deve ser um código eficiente que deve ser executado em diversas arquiteturas e processadores.
 
@@ -31,11 +31,13 @@ Um conceito muito importante no estudo de compiladores é a **otimização** que
 
 ### Linguagens de programação
 
-Podemos definir uma linguagem comumente chamada de língua ou idioma como um meio de comunicação entre pessoas. Em programação definimos a linguagem como o meio de comunicação entre o pensamento humano e as ações de um computador. Todo o software executado em todos os computadores foi escrito em alguma linguagem de programação e antes que ele possa rodar, um programa deve ser utilizado para traduzir a linguagem para um formato que possa ser executado pelo computador. 
+Podemos definir uma linguagem comumente chamada de língua ou idioma como um meio de comunicação entre pessoas. Em programação definimos a linguagem como o meio de comunicação entre o pensamento humano e as ações de um computador. Todo o software executado em todos os computadores foi escrito em alguma linguagem de programação e antes que ele possa executar instruções, um programa deve ser utilizado para traduzir a linguagem para um formato que possa ser executado pelo computador. 
 
-As linguagens de programação são projetadas para permitir que seres humanos expressem processos computacionais em uma sequencia de operações, por exemplo ler um arquivo e imprimir o seu conteúdo.
+As linguagens de programação são projetadas para permitir que seres humanos expressem processos computacionais em uma sequencia de operações, por exemplo ler um arquivo e imprimir o seu conteúdo em algums dispositivo.
 
-Os programas executados no computador são sequências de 0 e 1 que representam valores inteiros, ponto flutuante, strings, etc., ou ainda instrução que indicam o que o computador deve fazer. A memória do computador é dividida em partes que possuem endereços únicos, todo o programa armazenado na memória é executado pela CPU que possui registradores que guardam dados temporários utilizados em operações. Pense na seguinte situação: para somar o número armazenado no endereço de memória `$000011` com o número armazenado no endereço de memória `$000012` é necessário: 
+Os programas executados no computador são sequências de 0 e 1 que representam valores inteiros, ponto flutuante, strings, etc., ou ainda instrução que indicam o que o computador deve fazer. A memória do computador é dividida em partes que possuem endereços únicos, todo o programa armazenado na memória é executado pela CPU que possui registradores que guardam dados temporários utilizados em operações. 
+
+Pense na seguinte situação: para somar o número armazenado no endereço de memória `$000011` com o número armazenado no endereço de memória `$000012` é necessário: 
 
 * copiar o conteúdo da memória `$000011` para um registrador **A**; 
 * copiar o conteúdo da memória `$000012` para um registrado **B**; 
@@ -43,11 +45,11 @@ Os programas executados no computador são sequências de 0 e 1 que representam 
 
 Esse processo certamente é muito mais complexo do que simplesmente executar o comando `c = a + a` em uma determinada linguagem de programação.
 
-Uma linguagem de programação é considera de alto nível quando sua representação está próxima do domínio da aplicação e do problema a ser resolvido. Os computadores por sua vez possuem sua própria linguagem denominada de baixo nível.
+Uma linguagem de programação é considera de alto nível quando sua representação está próxima do domínio da aplicação e do problema a ser resolvido. Os computadores por sua vez possuem sua própria linguagem denominada de baixo nível ou linguagem de máquina.
 
-O processo de tradução de linguagem de alto nível para linguagem de baixo nível é feito através de softwares conhecidos como compiladores e tem como entrada uma linguagem fonte (alto nível) e como saída uma linguagem objeto (baixo nível).
+O processo de tradução de uma linguagem de alto nível para linguagem de baixo nível é feito através de softwares conhecidos como compiladores e tem como entrada uma linguagem fonte (alto nível) e como saída uma linguagem objeto (baixo nível).
 
-![](../images/compilation-process.png)
+![](../images/compilation-process.gif)
 
 Na imagem acima podemos ver um diagrama que representa o processo de compilação onde a entrada é um programa fonte e a saída é um programa objeto.
 
@@ -134,6 +136,8 @@ Exercícios
 ------
 
 1. Existem dois princípios fundamentais na construção de compiladores, explique con suas palavras o que significa esses dois princípios.
+
+2. Escreva o que você entende por linguagem de prograação
 
 1. Explique as diferenças entre um compilador e um interpretador?
 2. Quais as cincos classificações das linguagens de programação?
