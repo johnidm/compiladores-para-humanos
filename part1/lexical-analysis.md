@@ -28,20 +28,22 @@ A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 | if           | Sequência das palavras i, f                         | If, IF, iF, If                                 | Palavra reservada                |
 | comparador   | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
 | numero       | Dígitos numéricos                                   | 0.6, 18, 0.009                                 | Constante numérica               |
-| literal      | Caracteres entre “”                                 | “Olá Mundo”                                    | Constante literal                |
-| id           | Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
+| literal      | Caracteres entre ""                                 | “Olá Mundo”                                    | Constante literal                |
+| identificador| Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
 | atribuicao   | =                                                   | =                                              | Comando de atribuição            |
 | delimitador  | {, }, [, ]                                          | {, }, [, ]                                     | Delimitadores de início e fim    |
 
 Veja a identificação dos termos relacionados.
 
-`printf(“Total = %d\n”, score)`
+`printf(Total = %d\n", score)`
 
 onde: 
 
-* `printf` e `score` são lexemas que casão com o padrão `id`, `id` é um token.   
+* `printf` e `score` são lexemas que casão com o padrão `identificador`, `identificador` é um token.   
 
 * `Total = %d\n` é um lexema que casa com o padrão `literal`, `literal` é um token.
+
+* `()` são simbolos que auxiliam a identificação de uma função.
 
 outro exemplo:
 
