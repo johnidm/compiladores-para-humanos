@@ -3,7 +3,6 @@ Escrevendo um analisador léxico em Lua
 
  analisador lexico é a prmiera etapa executada por um compilador, nesse campitudo nos vamos escrver um analizador lexico produzinngo como saida um lista de tokens no seguinte formato
 
-
  Vamops escrever esse anlaisdap rlexi na lignuiagem de progframacao Lua.
 
  Se voç~e nao conhece LUa eu recomento o aceso ao docuemtnação oficial que esta emo portugues, voce tamble pode querar aprender um pouco maius dessa fantastica linguagem de programacao, para isso eu recomnetoe a leitur do livro XXXXXX
