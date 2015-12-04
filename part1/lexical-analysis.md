@@ -47,7 +47,7 @@ onde:
 
 * `()` são simbolos que auxiliam a identificação de uma função.
 
-#### Exemplo 2
+##### Exemplo 2
 
 `const PI = 3.1416`
 
@@ -63,17 +63,11 @@ onde:
 
 Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada token. Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
 
-Expressões regulares são um importante mecanismos utilizado para especificar os padrões de lexemas.
+Expressões regulares são um mecanismo importante para especificar os padrões de lexemas.
 
 ### Tokens
 
-Os tokens ou símbolos léxicos são unidades básicas do texto do programa, e cada token é representado por três informações básicas:
-
-* Classe do token: é o tipo de token reconhecido. Por exemplo identificadores, constantes numéricas, cadeias de caracteres, palavras reservadas, operadores e separadores.
-
-* Valor do token: depende da classe do token. Caso seja uma constante inteira representa o valor inteiro, ou no caso de identificadores um apontador para a tabela de símbolos.
-
-* Posição do token: Indica a linha e a coluna no texto onde o token foi encontrado. É utilizado principalmente para indicar o local do erro.
+Os tokens são símbolos léxicos reconhecidos através de um padrão, uma informação importante que deve estar presente no token é a posição em que ele se encontra no texto, essa informação é utilizada principalmente para indicar o local de erro.
 
 Os tokens podem ser divididos em dois grupos:
 
@@ -81,15 +75,15 @@ Os tokens podem ser divididos em dois grupos:
 
 * Tokens com argumento: são tokens que tem valor associado e corresponde a elementos da linguagem definidos pelo programador. Ex: identificadores, constantes numéricas.
 
-Um token na seguinte estrutura:
+Um token possui a seguinte estrutura:
 
 `<nome-token, valor-atributo>`
 
-Onde o nome do token corresponde classe do token e o valor do atributo corresponde a um valor qualquer que pode ser atribuído valor do token.
+Onde o nome do token corresponde a uma classificação do token, por exemplo: numero, identificador, const. E o valor do atributo corresponde a um valor qualquer que pode ser atribuído ao token, por exemplo o valor de entrada na tabela de simbolos.
 
-A seguir é apresentado alguns exemplos do resultado da análise léxica.
+A seguir é apresentado alguns exemplos do resultado da análise léxica em um arquivo fonte.
 
-#### Primeiro exemplo:
+#### Exemplo 1:
 
 Código fonte 
 
