@@ -3,11 +3,13 @@ Analise Léxica
 
 ### Introdução
 
-A análise léxica e também conhecida como scanner ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, e traduzi-lo para uma sequência de símbolos léxicos ou tokens, os caracteres são agrupados em lexemas e produzem uma sequência de tokens, a sequência de tokens é enviado para a próxima fase da compilação que é a analise sintática. 
+A análise léxica também conhecida como **scanner** ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, e traduzi-lo para uma sequência de símbolos léxicos conhecidos como tokens. A sequência de tokens é enviada para a próxima fase do processo de compilação.
 
-O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens, na maioria dos casos identificadores. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador. 
+O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador. 
 
-A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e compactando espaços em branco e a segunda etapa é a  analise léxica propriamente dita onde é produzido os tokens.
+### Visão geral
+
+A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e espaços em branco, e a segunda etapa é a analise léxica propriamente dita onde o texto é quebrado em tokens.
 
 Ao discutir analise léxica temos três termos relacionados:
 
