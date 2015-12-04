@@ -81,54 +81,6 @@ Um token possui a seguinte estrutura:
 
 Onde o nome do token corresponde a uma classificação do token, por exemplo: numero, identificador, const. E o valor do atributo corresponde a um valor qualquer que pode ser atribuído ao token, por exemplo o valor de entrada na tabela de simbolos.
 
-A seguir é apresentado alguns exemplos do resultado da análise léxica em um arquivo fonte.
-
-#### Exemplo 1:
-
-Código fonte 
-
-```
-while indice < 10 do
-	indice:= total + índice;
-```
-
-Sequência de tokens
-
-`<while,><id,7> <<,><numero,10><do,><id,7><:=,><id,12><+,><id, 7><;, >`
-
-Tabela de símbolos
-
-| Entrada | Informações                        |
-|---------|------------------------------------|
-| 1       | position, variável ponto flutuante |
-| 2       | initial, variável ponto flutuante  |
-| 3       | rate, variável ponto flutuante     |
-
-#### Segundo exemplo
-
-Código fonte
-
-```
-position = initial + rate * 60
-```
-
-Sequência de tokens
-
-`<id, 1> <=, > <id, 2> <+, > <id, 3> <*, > <numero, 60>`
-
-
-#### Terceiro exemplo
-
-Código fonte
-
-```
-a[index] = 4 + 2
-```
-
-Sequência de tokens
-
-`<id, 1> <[,> <id, 2> <],> <=,> <numero, 43> <+,> <numero, 2>`
-	
 ### Exemplo de analise léxica
 
 Suponha que tenhamos o seguinte trecho de código.
@@ -143,21 +95,85 @@ O seguinte fluxo de tokens é gerado.
 
 Então temos os seguintes tokens:
 
-* <id, 15> :  apontador 15 da tabela de símbolos e token id.
-* <=, >  operador de atribuição, sem necessidade de um valor para o atributo.
-* <id, 20> : apontador 20 da tabela de símbolos e token id.
-* <*, > :  operador de multiplicação, sem necessidade de um valor para o atributo.
-* <id,30> : apontador 20 da tabela de símbolos e token id.
-* <+, > :  operador de soma, sem necessidade de um valor para o atributo.
-* <numero, 2> :  token numero, com valor para o atributo 2 indicado o valor do numero (constante numérica).
+* `<id, 15>` :  apontador 15 da tabela de símbolos e token id.
+* `<=, >`  operador de atribuição, sem necessidade de um valor para o atributo.
+* `<id, 20>` : apontador 20 da tabela de símbolos e token id.
+* `<*, >` :  operador de multiplicação, sem necessidade de um valor para o atributo.
+* `<id,30>` : apontador 20 da tabela de símbolos e token id.
+* `<+, >` :  operador de soma, sem necessidade de um valor para o atributo.
+* `<numero, 2>` :  token numero, com valor para o atributo 2 indicado o valor do numero (constante numérica).
+
+
+A seguir é apresentado alguns exemplos do resultado da análise léxica em um arquivo fonte.
+
+#### Exemplo 1
+
+Código fonte 
+
+```
+while indice < 10 do
+	indice:= total + índice;
+```
+
+Sequência de tokens
+
+`<while,><id,7> <<,><numero,10><do,><id,7><:=,><id,12><+,><id, 7><;, >`
+
+Tabela de símbolos
+
+| Entrada | Informações              |
+|---------|--------------------------|
+| 7       | indice, variável inteira |
+| 12      | total, variável inteira  |
+
+
+#### Exemplo 2
+
+Código fonte
+
+```
+position = initial + rate * 60
+```
+
+Sequência de tokens
+
+`<id, 1> <=, > <id, 2> <+, > <id, 3> <*, > <numero, 60>`
+
+Tabela de símbolos
+
+| Entrada | Informações                        |
+|---------|------------------------------------|
+| 1       | position, variável ponto flutuante |
+| 2       | initial, variável ponto flutuante  |
+| 3       | rate, variável ponto flutuante     |
+
+#### Exemplo 3
+
+Código fonte
+
+```
+a[index] = 4 + 2
+```
+
+Sequência de tokens
+
+`<id, 1> <[,> <id, 2> <],> <=,> <numero, 43> <+,> <numero, 2>`
+
+Tabela de símbolos
+
+| Entrada | Informações             |
+|---------|-------------------------|
+| 1       | a, variável inteira     |
+| 2       | index, variável inteira |
+	
 
 ### Tabela de símbolos
 
-A tabela de símbolos é uma estrutura de dados gerada pelo compilador com o objetivo de armazenar informações sobre os identificadores e outros nomes usados no programa fonte. Exemplo de informações armazenadas na tabela de símbolos são: variáveis; parâmetros de funções; procedimentos. 
+A tabela de símbolos é uma estrutura de dados gerada pelo compilador com o objetivo de armazenar informações sobre os funções, variáveis e outros tokens usados no programa fonte.
 
-Essa tabela normalmente armazenas informações como: tipo de dado (inteiro, string, etc.), escopo de visibilidade; limite de parâmetros, tamanho da variável). A tabela de símbolos normalmente é estrutura de tabelas hash, arvores binarias ou listas lineares.
+Essa tabela normalmente armazenas informações como: tipo de dado - inteiro, string, etc. - escopo de visibilidade; limite de parâmetros, tamanho da variável. A tabela de símbolos é uma estrutura de dados do tipo tabelas hash, árvores binarias, listas lineares, etc.
 
-O analisador léxico coleta informações sobre os tokens e seus atributos, para tokens que influenciam decisões de análise gramatical, como exemplo temos os identificadores, é criado uma entrada na tabela de símbolos, das quais as informações são mantidas para posterior uso.  Podemos armazenar na tabela de símbolos também informação sobre a linha e coluna que o token foi examinado para em caso de erro o compilador pode informar a posição exata do identificador.
+O analisador léxico coleta informações sobre os tokens e seus atributos, para tokens que influenciam decisões de análise gramatical, como por exemplo identificadores, é criado uma entrada na tabela de símbolos, das quais as informações são mantidas para posterior uso.  Podemos armazenar na tabela de símbolos também informação sobre a linha e coluna que o token foi examinado para em caso de erro o compilador pode informar a posição exata do identificador.
 
 ### Erros léxicos
 
@@ -167,21 +183,16 @@ A análise léxica é muito prematura para identificar erros de compilação, ve
 
 O analisador léxico não conseguira identificar o erro da instrução listada acima, pois ele não consegue identificar que em determinada posição deve ser declarada a palavra reservada `if`. Essa verificação somente é possível ser feita na análise sintática.
 
-Suponha que em uma situação o analisador léxico não pode prosseguir pois identificou que o conjunto de caracteres não pertence a nenhum padrão conhecido. Uma estratégia utilizada para a recuperação de erros léxicos e a modalidade pânico, que remove caracteres de entrada até encontrar um token bem formado
+É importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros.
 
-Alguma possibilidade de recuperação de erros:
+Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `%`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
 
-* Remover caracteres estranhos.
-* Inserir caracteres ausentes.
-* Substituir caracteres corretos por incorretos.
 
 ### Exercícios 
 
 1 - Descreva com as suas palavras as principais tarefas da analise léxica.
 
-2 - Defina o que é um token.
-
-3 - Defina o que é um lexema.
+2 - Defina o que é um token, lexema e padrão.
 
 4 - Descreva quais os dois grupos que um token pode ser divido e explique cada um deles.
 
@@ -190,7 +201,8 @@ Alguma possibilidade de recuperação de erros:
 ```
 int a;
 a = a + 2;
-``
+```
+
 | Lexema | Descrição |
 |--------|-----------|
 |        |           |
