@@ -5,11 +5,9 @@ Analise Léxica
 
 A análise léxica também conhecida como *scanner* ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, agrupar os caracteres em lexemas e produzir uma sequência de símbolos léxicos conhecidos como tokens. A sequência de tokens é enviada para a próxima fase do processo de compilação.
 
-O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador.
+O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens, como por exemplo os identificadores. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador.
 
 ### Visão geral
-
-
 
 A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e espaços em branco, e a segunda etapa é a analise léxica propriamente dita onde o texto é quebrado em tokens.
 
@@ -53,9 +51,9 @@ onde:
 
 `const` é um token que casa com o padrão `const` que também é um lexema.  `PI` é um lexema que casa com o padrão `id` e `id` é um token. `=` é um lexema que casa com o padrão do token `atribuição`. `3.1416` é um lexema que casa com o padrão do token `numero`.
 
-Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrencia de cada lexema e identificar cada token. Tambem podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhcer os lexemas.
+Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada token. Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
 
-Expressões regulares são um importante mecanismos utilziado para especificar os padroes de lexemas.
+Expressões regulares são um importante mecanismos utilizado para especificar os padrões de lexemas.
 
 ### Tokens
 
@@ -206,7 +204,6 @@ if (x > 0) {
 |        |           |
 |        |           |
 |        |           |
-
 
 
 
