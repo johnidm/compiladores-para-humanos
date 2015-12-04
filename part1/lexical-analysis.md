@@ -94,7 +94,15 @@ while indice < 10 do
 
 Sequência de tokens
 
-<while,><id,7> <<,><numero,10><do,><id,7><:=,><id,12><+,><id, 7><;, >
+`<while,><id,7> <<,><numero,10><do,><id,7><:=,><id,12><+,><id, 7><;, >`
+
+Tabela de símbolos
+
+| Entrada | Informações                        |
+|---------|------------------------------------|
+| 1       | position, variável ponto flutuante |
+| 2       | initial, variável ponto flutuante  |
+| 3       | rate, variável ponto flutuante     |
 
 #### Segundo exemplo
 
