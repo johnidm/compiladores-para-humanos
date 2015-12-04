@@ -35,6 +35,8 @@ A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 
 Veja a identificação dos termos relacionados.
 
+##### Exemplo 1 
+
 `printf(Total = %d\n", score)`
 
 onde: 
@@ -45,13 +47,19 @@ onde:
 
 * `()` são simbolos que auxiliam a identificação de uma função.
 
-outro exemplo:
+#### Exemplo 2
 
 `const PI = 3.1416`
 
 onde:
 
-`const` é um token que casa com o padrão `const` que também é um lexema.  `PI` é um lexema que casa com o padrão `id` e `id` é um token. `=` é um lexema que casa com o padrão do token `atribuição`. `3.1416` é um lexema que casa com o padrão do token `numero`.
+* `const` é um token que casa com o padrão `const` que também é um lexema.  
+
+* `PI` é um lexema que casa com o padrão `identificador` e `identificador` é um token. 
+
+* `=` é um lexema que casa com o padrão do token `atribuição`. 
+
+* `3.1416` é um lexema que casa com o padrão do token `numero`.
 
 Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada token. Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
 
