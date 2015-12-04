@@ -181,6 +181,8 @@ Veja uma exemplo de uma sentença `if` `else`
 
 Essa representação gráfica da derivação de uma sentença, cada nó representa uma unidade sintática.
 
+### Exercícios
+
 [ˆ1] Sintático: tem o sentido de verificação de forma, estrutura sem referência a significado.
 
 [ˆ2] Semântica: tem sentido de significado.
