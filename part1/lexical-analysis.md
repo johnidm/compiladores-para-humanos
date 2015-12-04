@@ -9,24 +9,24 @@ O analisador léxico deve interagir com a tabela de símbolos inserindo informa�
 
 ### Visão geral
 
-A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e espaços em branco, e a segunda etapa é a analise léxica propriamente dita onde o texto é quebrado em tokens.
+A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e espaços em branco, e a segunda etapa, a analise léxica propriamente dita onde o texto é quebrado em tokens.
 
-Ao discutir analise léxica temos três termos relacionados:
+Podemos definir três termos relacionados a implementação de um analisador léxico:
 
-* Token: é um par constituído de um nome é um valor de atributo que é opcional. O nome de um token é um símbolo que representa uma unidade léxica. Ex: palavras reservadas, identificadores.
+* Token: é um par constituído de um nome é um valor de atributo, que é opcional. O nome de um token é um símbolo que representa a unidade léxica. Por exemplo: palavras reservadas; identificadores; números, etc.
 
-* Padrão: e a forma que os lexemas de um token podem assumir. No caso de palavras reservadas é a sequência de caracteres da palavra reservada, no caso de identificadores são os caracteres que formam nomes das variáveis, funções.
+* Padrão: é a forma que os lexemas de um token podem assumir. No caso de palavras reservadas é a sequência de caracteres que formar uma palavra reservada do programa, no caso de identificadores são os caracteres que formam nomes das variáveis e funções.
 
 * Lexema: é uma sequência de caracteres reconhecidos por um padrão.
 
-A tabela abaixo mostra os exemplos de uso dos termos na análise léxica.
+A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 
 | Token        | Padrão                                              | Lexema                                         | Descrição                        |
 |--------------|-----------------------------------------------------|------------------------------------------------|----------------------------------|
 | const        | Sequência das palavras c, o, n, s, t                | const                                          | Palavra reservada                |
 | while        | Sequência das palavras w, h, i, l, e                | while, While, WHILE                            | Palavra reservada                |
 | if           | Sequência das palavras i, f                         | If, IF, iF, If                                 | Palavra reservada                |
-| comparadores | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
+| comparador   | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
 | numero       | Dígitos numéricos                                   | 0.6, 18, 0.009                                 | Constante numérica               |
 | literal      | Caracteres entre “”                                 | “Olá Mundo”                                    | Constante literal                |
 | id           | Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
