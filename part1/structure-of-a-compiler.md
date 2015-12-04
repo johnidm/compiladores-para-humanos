@@ -114,7 +114,7 @@ id1 = t3
 
 Essa representação segue o seguinte formato `x = y op z` onde `op` é uma operador binário, `y` e `z` são endereços para os operandos e `x` é o endereço para o resultado.
 
-Uma das vantagens de gerar um código intermediário é a possibilidade de obter um código final mais eficiente através da otimização.
+Uma das vantagens de gerar um código intermediário é a possibilidade de obter um código final mais eficiente através da otimização. A representação intemediária deve representar as operações do programa, esse representação é simples algumas muito semaelhantes a *bytecodes Java*.
 
 ### Otimização de Código
 

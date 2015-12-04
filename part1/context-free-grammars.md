@@ -199,3 +199,19 @@ c) Especificar a gramatica.
 Ex: G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )
 d) Fazer a derivação
 
+
+f) O que é uma regra gramatical?
+g) O que é gramatica livre de contexto?
+b) Qual é a forma utilizada para representar uma gramatica livre de contexto.
+c) O que é símbolo não terminal, símbolo terminal, regras de produções e símbolo inicial?
+d) Explique o que é uma derivação?
+e) Faça a derivação a esquerda das seguintes expressões matemáticas utilizando as gramatica definida no item 3.3.
+
+a + 1
+
+(a + b) – 8
+
+c) Crie uma gramática, as regras de produção e a derivação a direta das seguintes instruções.
+a. Sistema binário - 0 e 1.
+
+b. Instrução while true ;
