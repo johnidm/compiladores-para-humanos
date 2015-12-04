@@ -177,6 +177,7 @@ A arvore sintática é uma estrutura de dados em forma de árvore que representa
 
 Veja uma exemplo de uma sentença `if` `else`
 
+![](images/syntax-tree-if-else-ex.gif)
 ![](images/syntax-tree-if-else.gif)
 
 Essa representação gráfica da derivação de uma sentença, cada nó representa uma unidade sintática.
