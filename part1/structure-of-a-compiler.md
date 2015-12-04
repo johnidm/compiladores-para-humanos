@@ -71,7 +71,7 @@ A seguinte linha de código:
 
 Produz esse árvore sintática.
 
-![](images/syntax-tree.png)
+![](../images/syntax-tree.png)
 
 Mesmo com uma boa técnica de detecção de erros o analisador sintático deve recuperá-los e continuar o processo de compilação identificando o maior número de erros possíveis.
 
@@ -157,7 +157,7 @@ Após essa fase concluída para que o programa possa ser executado o código obj
 
 A imagem abaixo exemplada o processo de compilação divido em etapas. Essas etapas correspondem a estrutura lógica de um compilador e o resultado de cada fase.
 
-![](images/detail-process-of-the-compilation.png)
+![](../images/detail-process-of-the-compilation.png)
 
 ### Tabela de símbolos 
 
@@ -177,8 +177,8 @@ A arvore sintática é uma estrutura de dados em forma de árvore que representa
 
 Veja uma exemplo de uma sentença `if` `else`
 
-![](images/syntax-tree-if-else-ex.gif)
-![](images/syntax-tree-if-else.gif)
+![](../images/syntax-tree-if-else-ex.gif)
+![](../images/syntax-tree-if-else.gif)
 
 Essa representação gráfica da derivação de uma sentença, cada nó representa uma unidade sintática.
 

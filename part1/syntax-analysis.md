@@ -20,20 +20,20 @@ Top-down ou descendente: constrói a árvore de derivação a partir do símbolo
 Bottom-up ou ascendente: Faz a análise no sentido inverso, ou seja, constrói a árvore de derivação das folhas até o símbolo inicial da gramatica. 
 O analisador léxico é desenvolvido para reconhecer os tokens fazendo uma leitura dos caracteres e obtendo a sequência de tokens, esse analisador vê o texto como uma sequência de palavras de uma linguagem regular e reconhece ele através de um autômato finito. Já o analisador sintático vê o mesmo texto como uma sequência de sentenças que deve satisfazer as regras gramaticais. É através da gramatica que podemos validar expressões criadas na linguagem de programação. O analisador sintático agrupa os tokens em frases gramaticais usadas pelo compilador com o objetivo de criar uma saída que é uma estrutura de dados que possui uma hierarquia da entrada a árvore de derivação.
 
-![](images/ast.png)
+![](../images/ast.png)
 
 Observe estrutura sintática de uma linguagem de programação. Temos as divisões dos blocos, compostos por comandos, compostos por expressões, os tokens.
 
-![](images/source-code-java.png)
+![](../images/source-code-java.png)
 
 Entende-se por regras gramaticas as formas como podemos descrever a estrutura sintática do programa. 
 No modelo de compilador que está sendo estudado o analisador sintático recebe do analisador léxico uma cadeia de tokens representado o programa fonte verifica se essas cadeias pertencem a linguagem definida pela gramatica. Veja um exemplo no diagrama abaixo demostrando esse processo. 
 
-![](images/scheme-parsing.png)
+![](../images/scheme-parsing.png)
 
 Descubra os erros sintáticos do código fonte abaixo escrito em linguagem Java.
 
-![](images/errors-java-source-code.png)
+![](../images/errors-java-source-code.png)
 
 * Na linha 06 a falta do colchete.
 * Na linha 03 o ponto e vírgula marcando o final do comando.
