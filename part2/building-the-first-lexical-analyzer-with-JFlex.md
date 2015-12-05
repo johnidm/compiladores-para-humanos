@@ -1,7 +1,7 @@
 Contruindo o primeiro analisador léxico com JFlex
 ======
 
-JFlex é um gerador de analisador léxico escrito em Java. Ele recebe como entrada uma especificação baseada em um conjunto de expressões regulares e gera um algoritmo que lê os caracteres descritos em uma linguagem de programação combinando com os padrões definidos no arquivo de especificação.
+JFlex é um gerador de analisador léxico escrito em Java. Ele recebe como entrada uma especificação baseada em um conjunto de expressões regulares e gera um algoritmo que lê os caracteres descritos no arquivo arquivo fonte combinando com os padrões definidos na especificação.
 
 ### Instalando o JFlex
 
@@ -9,9 +9,9 @@ Faça o download do JFlex nesse link: http://jflex.de/download.html
 
 Nesse primeiro exemplo nós vamos usar o JFlex integrado com a IDE Eclipse.
 
-Voce deve fazer a instalaçao da biblitoeca no seu ambiente de desenvolvimento, eu sugiro uma rápida leitura nas intruções de instalacao nesse [link](http://jflex.de/installing.html).
+Voce deve fazer a instalação da biblitoeca no seu ambiente de desenvolvimento, eu sugiro uma rápida leitura nas intruções de instalação nesse [link](http://jflex.de/installing.html).
 
-Você pode adicioanar a biblitoeca **jflex-x.x.x.jar** na configuracao de *Build Path* do seu projeto no Eclipse.
+Você pode adicioanar a biblitoeca **jflex-x.x.x.jar** na configuração de *Build Path* do seu projeto no Eclipse.
 
 ### Criado uma analisador léxico
 
@@ -19,22 +19,28 @@ Crie um novo projeto no Eclipse através do menu `File -> New -> Java Project` e
 
 Em seguida vamos criar uma classe que ira gerar o analisador léxico a cada nova alteração no arquivo de especificação. Isso evita o uso da linha de comando para gerar a classe Java responsavel por implementar o algoritmo de reconhecimento de tokens.
 
-```
+Vamos chamar essa classe de `Gerador`.
+
 ```
 
-O arquivo especificação possui as definições da nossa linguagem de programação. Para criar esse arquivo na IDE do Eclipse vá em `File -> New -> Other -> File` save esse arquivo com o nome de `linguagem.lex`.
+```
+
+O arquivo especificação possui as definições da nossa linguagem de programação. Para criar esse arquivo na IDE do Eclipse vá em `File -> New -> Other -> File` save esse arquivo com o nome de `linguagem.lex` na raiz do projeto.
 
 No arquivo digite o seguinte conteúdo.
 
 ```
+
 ```
 
-Pronto, nós já temos um analisador léxico onde é possivel reconhcer um conjunto de lexemas baseado em padroes definidos no arquivo de especificaçao - `lingaugem.lex`, agora nos prcisamos teste nosso analizador léxico. Para isso crie uma nova classe chamada `` e inclua o seguinte código nela.
+Pronto, nós já temos um analisador léxico onde é possivel reconhcer um conjunto de lexemas baseado em padroes definidos no arquivo de especificaçao - `lingaugem.lex`, agora nos precisamos testar o analizador léxico. 
 
+Para isso crie uma nova classe chamada `LinguagemSextaFase` e inclua o seguinte código nela.
 
-### Executando o analisador léxico
+```
+```
 
-Nós vamos executar o analizador lexico com os seguinte passos:
+Para executar o analizador léxico siga os seguintes passos:
 
 1. Execute a classe Gerador: Observe que no seu projeto foi criado a classe `AnalisadorLexico`. Essa classe possui a implementação das regras definidas no arquivo de especificacao `lingaugem.lex` é representa o algoritmo que do analisador léxico.
 
