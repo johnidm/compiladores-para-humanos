@@ -162,7 +162,26 @@ Crie uma classe chamada `GeneratorPascal`, para isso você deve criar um novo pa
 A classe `GeneratorPascal` deve ter a seguinte implementação.
 
 ```
+package br.com.johnidouglas.lexicalanalyzer.pascal;
 
+import java.io.File;
+import java.nio.file.Paths;
+
+public class GeneratorPascal {
+
+	public static void main(String[] args) {
+		
+        String rootPath = Paths.get("").toAbsolutePath(). toString();
+        String subPath = "/src/main/java/br/com/johnidouglas/lexicalanalyzer/pascal/";
+
+        String file = rootPath + subPath + "pascal.lex";
+
+        File sourceCode = new File(file);
+        
+        jflex.Main.generate(sourceCode);
+   
+	}
+}
 ```
 
 Agora vamos criar um arquivo de código chamado `program.pas` esse arquivo vai conter o código fonte do programa escrito em Pascal.
@@ -179,7 +198,7 @@ Program CalcularSalario
 End.
 ```
 
-Vamos criar uma classe chamada `PascalToken` essa classe vai representar um token reconhecido na linguagem e deve ter duas propriedades, `nome` e `valor`.
+Vamos criar uma classe chamada `PascalToken` essa classe vai representar um token reconhecido na linguagem e deve ter duas propriedades, `name`, `value`, `line` e `column`.
 
 ```
 package br.com.johnidouglas.lexicalanalyzer.pascal;
@@ -188,27 +207,90 @@ public class PascalToken {
 	
 	public String name;
 	public String value;
+	public Integer line;
+	public Integer column;
 	
-	public PascalToken(String name, String value) {
+	public PascalToken(String name, String value, Integer line, Integer column) {
 		this.name = name;
 		this.value = value;
+		this.line = line;
+		this.column = column;
 	}
-
 }
+
 
 ```
 
-Crie uma classe chamada `PascalAnalyser` com o seguinte código.
+Crie uma classe chamada `PascaLexicalAnalyzer` com o seguinte código.
+
+```
+package br.com.johnidouglas.lexicalanalyzer.pascal;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Paths;
 
 
+public class PascaLexicalAnalyzer {
+
+	public static void main(String[] args) throws IOException {
+		
+		String rootPath = Paths.get("").toAbsolutePath(). toString();
+        String subPath = "/src/main/java/br/com/johnidouglas/lexicalanalyzer/pascal";
+
+        String sourceCode = rootPath + subPath + "/program.pas";
+		
+		LexicalAnalyzer lexical = new LexicalAnalyzer(new FileReader(sourceCode));
+		
+		PascalToken token;
+		
+		while ((token = lexical.yylex()) != null) {
+			System.out.println("<" + token.name + ", " + token.value + "> (" + token.line + " - " + token.column + ")");
+		}
+	}
+}
+```
 
 Essa classe é responsável por executar o analisador léxico.
 
 Nos precisamos criar o arquivo que vai conter as especificações da linguagem de programação Pascal para que os tokens sejam reconhecidos.
 
-Crie o arquivo `pascal.lex` e salve na raiz do projeto. O arquivo deve conter a seguinte especificação.
+Crie o arquivo `pascal.lex` esse arquivo deve conter a seguinte especificação.
 
 ```
+package br.com.johnidouglas.lexicalanalyzer.pascal;
+
+import java_cup.runtime.*;
+
+%%
+
+%{
+
+
+private PascalToken createToken(String name, String value) {
+	return new PascalToken( name, value, yyline, yycolumn);
+}
+
+%}
+
+%public
+%class LexicalAnalyzer
+%type PascalToken
+%line
+%column
+
+inteiro = 0|[1-9][0-9]*
+brancos = [\n| |\t]
+
+program = "program"
+
+%%
+
+{inteiro} { return createToken("inteiro", yytext()); }
+{program} { return createToken(yytext(), "");} 
+{brancos} { /**/ }
+
+. { throw new RuntimeException("Caractere inválido " + yytext() + " na linha " + yyline + ", coluna " +yycolumn); }
 
 ```
 
@@ -216,7 +298,7 @@ O processo para executar o analisador léxico e o mesmo já utilizado no primeir
 
 * Execute a classe `GeneratorPascal` essa classe é responsável por gerar o algoritmo do analisador léxico.
 
-* Execute a classe `PascalAnalyser` essa classe é responsável por executar o analisador léxico.
+* Execute a classe `PascaLexicalAnalyzer` essa classe é responsável por executar o analisador léxico.
 
 Você deve ter percebido que alguns erros ocorreram, isso por que nosso arquivo de especificação esta incompleto, ou seja, não possui todos os tokens da linguagem Pascal.
 
