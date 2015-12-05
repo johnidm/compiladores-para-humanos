@@ -25,7 +25,7 @@ Se preferir você pode crair um projeto usando o Mavem e adicionar a seguinte de
 	<artifactId>jflex</artifactId>
 	<version>1.6.1</version>
 </dependency>
-``
+```
 
 
 Em seguida vamos criar uma classe que ira gerar o analisador léxico a cada nova alteração no arquivo de especificação. Isso evita o uso da linha de comando para gerar a classe Java responsavel por implementar o algoritmo de reconhecimento de tokens.
@@ -82,8 +82,6 @@ Pronto, nós já temos um analisador léxico onde é possivel reconhcer um conju
 
 Para isso crie uma nova classe chamada `LinguagemSextaFase` e inclua o seguinte código nela.
 
-```
-```
 
 Para executar o analizador léxico siga os seguintes passos:
 
