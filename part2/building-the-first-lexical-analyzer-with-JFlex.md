@@ -15,9 +15,11 @@ Você pode adicionar a biblioteca **jflex-1.6.1.jar** na configuração de *Buil
 
 ### Criado uma analisador léxico
 
-Crie um novo projeto no Eclipse através do menu `File -> New -> Java Project` chamado `analisadorlexico` e adicione a biblioteca do JFlex - **jflex-1.6.1.jar** - nas configurações de *Build Path* do projeto.
+Crie um novo projeto no Eclipse através do menu `File -> New -> Java Project` chamado `lexicalanalyzer` e adicione a biblioteca do JFlex - **jflex-1.6.1.jar** - nas configurações de *Build Path* do projeto. Você também deve crair uma pacote chamado `br.com.johnidouglas`.
 
 Se preferir você pode criar um projeto usando o Maven e adicionar a seguinte dependência.
+
+No campo `Group Id` informe `br.com.johnidouglas` e no campo `Artifact Id` informe `lexicalanalyzer`
 
 ```
 <dependency>
@@ -27,12 +29,16 @@ Se preferir você pode criar um projeto usando o Maven e adicionar a seguinte de
 </dependency>
 ```
 
-Em seguida vamos criar uma classe que ira gerar o analisador léxico a cada nova alteração no arquivo de especificação. Isso evita o uso da linha de comando para gerar a classe Java responsável por implementar o algoritmo de reconhecimento de tokens.
+Essa imagem mostra a estrutura do projeto no Eclipse.
+
+![](../imagem/project-estrucutre-jflex.png)
+
+Em seguida vamos criar a classe que ira gerar o analisador léxico a cada nova alteração no arquivo de especificação. Isso evita o uso da linha de comando para gerar a classe Java responsável por implementar o algoritmo de reconhecimento de tokens.
 
 Vamos chamar essa classe de `Generator`.
 
 ```
-package br.com.johnidouglas.analisadorlexico;
+package br.com.johnidouglas.lexicalanalyzer;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -42,7 +48,7 @@ public class Generator {
 	public static void main(String[] args) {
 		
 		String rootPath = Paths.get("").toAbsolutePath(). toString();
-		String subPath = "/src/main/java/br/com/johnidouglas/analisadorlexico/";
+		String subPath = "/src/main/java/br/com/johnidouglas/lexicalanalyzer/";
 		
 		String file = rootPath + subPath + "language.lex";
 		
@@ -60,7 +66,7 @@ No arquivo digite o seguinte conteúdo.
 
 ```
 
-package br.com.johnidouglas.analisadorlexico;
+package br.com.johnidouglas.lexicalanalyzer;
 
 %%
 
@@ -98,19 +104,48 @@ Pronto, nós já temos um analisador léxico onde é possível reconhecer um con
 
 Para isso crie uma nova classe chamada `LanguageSextaFase` e inclua o seguinte código nela.
 
+```
+package br.com.johnidouglas.lexicalanalyzer;
+
+import java.io.IOException;
+import java.io.StringReader;
+
+public class LanguageSextaFase {
+
+	public static void main(String[] args) throws IOException {
+		
+		String expr = "if 2 + 3+a then";
+		
+		LexicalAnalyzer lexical = new LexicalAnalyzer(new StringReader(expr));
+		lexical.yylex();
+		
+	}
+}
+
+```
+
 Para executar o analisador léxico siga os seguintes passos:
 
-1. Execute a classe Gerador: Observe que no seu projeto foi criado a classe `LexicalAnalyzer`. Essa classe possui a implementação das regras definidas no arquivo de especificação `language.lex` é representa o algoritmo que do analisador léxico.
+1. Execute a classe Generator: Observe que no projeto foi criado a classe `LexicalAnalyzer`. Essa classe possui a implementação das regras definidas no arquivo de especificação `language.lex` é representa o algoritmo do analisador léxico.
 
-2. Crie a classe `Linguagem` - `File -> New -> Class` - que irá implementar a chamada do analisador léxico.
+2. Execute a classe `LanguageSextaFase`: Essa classe vai executar o analisador léxico passando como parametro uma expressão de uma lingaugem de programação qualquer.
 
-A classe deve implementar o seguinte código
-
-```
+Observe que a saída será do analisador léxico será a seguinte.
 
 ```
+if - Palavra reservada if
+  - Espaço em branco
+2 - Número Inteiro
+  - Espaço em branco
++ - Operador de soma
+  - Espaço em branco
+3 - Número Inteiro
++ - Operador de soma
+a - Identificador
+  - Espaço em branco
+then - Palavra reservada then
 
-Execute essa classe o observe que a saída será a seguinte.
+```
 
 Baseado nesse primeiro exercício nos implementamos a primeira etapa do processo de compilação utilizado um gerando de analisador léxico.
 
@@ -118,8 +153,11 @@ Baseado nesse primeiro exercício nos implementamos a primeira etapa do processo
 
 Vamos aprimorar o nosso analisador léxico para que ele reconheça os tokens pertencentes a linguagem de programação Pascal.
 
+Essa imagem mostra a estrutura do projeto no Eclipse.
 
-Crie uma classe chamada `GeneratorPascal`, para isso você deve criar um novo pacote Java dentro do projeto `analisadorlexico`, eu vou chamar esse pacote de `pascal` - `br.com.johnidouglas.analisadorlexico.pascal` .
+![](../imagem/project-estrucutre-jflex-pascal.png)
+
+Crie uma classe chamada `GeneratorPascal`, para isso você deve criar um novo pacote Java dentro do projeto `lexicalanalyzer`, vamos chamar esse pacote de `pascal` - `br.com.johnidouglas.lexicalanalyzer.pascal` .
 
 A classe `GeneratorPascal` deve ter a seguinte implementação.
 
@@ -130,34 +168,45 @@ A classe `GeneratorPascal` deve ter a seguinte implementação.
 Agora vamos criar um arquivo de código chamado `program.pas` esse arquivo vai conter o código fonte do programa escrito em Pascal.
 
 ```
-program 
-	var Idade : integer; 
-	var ValorSalario: real; 
-	begin 
-		if (Idade > 10) then 
+Program CalcularSalario
+	Var Idade : Integer; 
+	Var ValorSalario: Real; 
+	Begin 
+		If (Idade > 10) Then 
 			ValorSalario := 100; 
-		else 
+		Else 
 			ValorSalario := ValorSalario * 2; 
-end.
+End.
 ```
-
-Salve esse arquivo na raiz do projeto.
 
 Vamos criar uma classe chamada `PascalToken` essa classe vai representar um token reconhecido na linguagem e deve ter duas propriedades, `nome` e `valor`.
 
 ```
+package br.com.johnidouglas.lexicalanalyzer.pascal;
+
+public class PascalToken {
+	
+	public String name;
+	public String value;
+	
+	public PascalToken(String name, String value) {
+		this.name = name;
+		this.value = value;
+	}
+
+}
 
 ```
 
-Crie uma classe chamada `PascalAnalyser` e com o seguinte código.
+Crie uma classe chamada `PascalAnalyser` com o seguinte código.
 
 ```
+
 ```
 
-Essa classe vai ser responsável por executar o analisador léxico.
+Essa classe é responsável por executar o analisador léxico.
 
 Nos precisamos criar o arquivo que vai conter as especificações da linguagem de programação Pascal para que os tokens sejam reconhecidos.
-
 
 Crie o arquivo `pascal.lex` e salve na raiz do projeto. O arquivo deve conter a seguinte especificação.
 
