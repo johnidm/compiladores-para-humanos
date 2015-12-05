@@ -187,6 +187,9 @@ O analisador léxico não conseguira identificar o erro da instrução listada a
 
 Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `%`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
 
+### Expressões regulares
+
+
 
 ### Exercícios 
 
