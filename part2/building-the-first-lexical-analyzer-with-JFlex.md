@@ -200,9 +200,7 @@ public class PascalToken {
 
 Crie uma classe chamada `PascalAnalyser` com o seguinte código.
 
-```
 
-```
 
 Essa classe é responsável por executar o analisador léxico.
 
