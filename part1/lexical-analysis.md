@@ -3,7 +3,7 @@ Analise Léxica
 
 ### Introdução
 
-A análise léxica também conhecida como *scanner* ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, agrupar os caracteres em lexemas e produzir uma sequência de símbolos léxicos conhecidos como tokens. A sequência de tokens é enviada para a próxima fase do processo de compilação.
+A análise léxica também conhecida como *scanner* ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, agrupar os caracteres em lexemas e produzir uma sequência de símbolos léxicos conhecidos como tokens. A sequência de tokens é enviada ser processada pela analise sintática, a próxima fase do processo de compilação .
 
 O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens, como por exemplo os identificadores. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador.
 
@@ -13,25 +13,25 @@ A análise léxica pode ser dividida em duas etapas, a primeira chamada de escan
 
 Podemos definir três termos relacionados a implementação de um analisador léxico:
 
-* Token: é um par constituído de um nome é um valor de atributo, que é opcional. O nome de um token é um símbolo que representa a unidade léxica. Por exemplo: palavras reservadas; identificadores; números, etc.
-
-* Padrão: é a forma que os lexemas de um token podem assumir. No caso de palavras reservadas é a sequência de caracteres que formar uma palavra reservada do programa, no caso de identificadores são os caracteres que formam nomes das variáveis e funções.
+* Padrão: é a forma que os lexemas de um token podem assumir. No caso de palavras reservadas é a sequência de caracteres que formar a palavra reservada, no caso de identificadores são os caracteres que formam os nomes das variáveis e funções.
 
 * Lexema: é uma sequência de caracteres reconhecidos por um padrão.
 
+* Token: é um par constituído de um nome é um valor de atributo, que é opcional. O nome de um token é um símbolo que representa a unidade léxica. Por exemplo: palavras reservadas; identificadores; números, etc.
+
 A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 
-| Token        | Padrão                                              | Lexema                                         | Descrição                        |
-|--------------|-----------------------------------------------------|------------------------------------------------|----------------------------------|
-| const        | Sequência das palavras c, o, n, s, t                | const                                          | Palavra reservada                |
-| while        | Sequência das palavras w, h, i, l, e                | while, While, WHILE                            | Palavra reservada                |
-| if           | Sequência das palavras i, f                         | If, IF, iF, If                                 | Palavra reservada                |
-| comparador   | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
-| numero       | Dígitos numéricos                                   | 0.6, 18, 0.009                                 | Constante numérica               |
-| literal      | Caracteres entre ""                                 | “Olá Mundo”                                    | Constante literal                |
-| identificador| Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
-| atribuicao   | =                                                   | =                                              | Comando de atribuição            |
-| delimitador  | {, }, [, ]                                          | {, }, [, ]                                     | Delimitadores de início e fim    |
+| Token              | Padrão                                              | Lexema                                         | Descrição                        |
+|--------------------|-----------------------------------------------------|------------------------------------------------|----------------------------------|
+| <const, >          | Sequência das palavras c, o, n, s, t                | const                                          | Palavra reservada                |
+| <while, >          | Sequência das palavras w, h, i, l, e                | while, While, WHILE                            | Palavra reservada                |
+| <if, >             | Sequência das palavras i, f                         | If, IF, iF, If                                 | Palavra reservada                |
+| <=, >              | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
+| <numero, 18>       | Dígitos numéricos                                   | 0.6, 18, 0.009                                 | Constante numérica               |
+| <literal, "Olá">   | Caracteres entre ""                                 | “Olá Mundo”                                    | Constante literal                |
+| <identificador, 1> | Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
+| <=, >              | =                                                   | =                                              | Comando de atribuição            |
+| <{, >              | {, }, [, ]                                          | {, }, [, ]                                     | Delimitadores de início e fim    |
 
 Veja a identificação dos termos relacionados.
 
@@ -41,11 +41,11 @@ Veja a identificação dos termos relacionados.
 
 onde: 
 
-* `printf` e `score` são lexemas que casão com o padrão `identificador`, `identificador` é um token.   
+* `printf` e `score` são lexemas que casão com o padrão `identificador`.   
 
-* `Total = %d\n` é um lexema que casa com o padrão `literal`, `literal` é um token.
+* `Total = %d\n` é um lexema que casa com o padrão `literal`.
 
-* `()` são simbolos que auxiliam a identificação de uma função.
+* `()` lexemas que auxiliam a identificação de uma função.
 
 ##### Exemplo 2
 
