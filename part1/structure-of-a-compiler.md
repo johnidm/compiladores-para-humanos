@@ -63,25 +63,25 @@ Veja o seguinte trecho de código:
 
 `if (a – 10 > b * 2) a = b;`
 
-O analisador sintático deve ser capaz de analisar essa linha e de reconhecê-la como valida ou invalida. Para isso ele precisa conhecer a estrutura formada palavra reservada `if` a expressão `(` e `)` e o comando de atribuição `a = b`. Após essa validação deve ser montada a árvore sintática dessa linha de código.
+O analisador sintático deve ser capaz de analisar essa linha e de reconhecê-la como válida ou inválida. Para isso ele precisa conhecer a estrutura formada palavra reservada `if` a expressão `(` e `)` e o comando de atribuição `a = b`. Após essa validação deve ser montada a árvore sintática dessa linha de código.
 
 A seguinte linha de código:
 
-`position = initial + rate * 60
+`position = initial + rate * 60`
 
 Produz esse árvore sintática.
 
 ![](../images/syntax-tree.png)
 
-Mesmo com uma boa técnica de detecção de erros o analisador sintático deve recuperá-los e continuar o processo de compilação identificando o maior número de erros possíveis.
+Mesmo com uma boa técnica de detecção de erros o analisador sintático deve recuperá-los e continuar o processo de compilação identificando o maior número possível de erros.
 
-A sintaxe da maioria das linguagens de programação é especificada usando gramáticas livres de contexto que permitem realizar substituições impostas por regras produção.
+A sintaxe da maioria das linguagens de programação é especificada usando gramáticas livres de contexto que permitem realizar substituições impostas por regras produção e assim validar a estrutura de um programa escrito em uma lingaugem de programação.
 
 ### Analise Semântica  
 
-O objetivo dessa etapa é verificar se a semântica do programa fonte tem consistência.  Para isso é utiliza a árvore sintática e as informações da tabela de símbolos. Outra atribuição importante dessa etapa e a verificação de tipo onde cada operando é verificado com cada operação. 
+O objetivo dessa etapa é verificar se a semântica do programa fonte tem consistência.  Para isso é utiliza a árvore sintática e as informações da tabela de símbolos. Por exemplo a verificação de tipo em uma operação de soma onde cada operando é verificado com cada operador. 
 
-Por exemplo: verificar se um índice em um vetor é um número inteiro. Pode ser necessário nessa fase que alguns tipos de dados sejam convertidos para outros tipos, nesse caso ira ocorre a coerção. 
+Outro exemplo é verificar se um índice em um vetor é um número inteiro. Pode ser necessário nessa fase que alguns tipos de dados sejam convertidos para outros tipos, nesse caso ira ocorre a coerção. 
 
 Veja o seguinte exemplo:
 
@@ -92,12 +92,12 @@ Suponha que a variável `position` seja declarada como inteiro, nesse caso dever
 Algum tipos de erros semânticos:
 
 * Tipos de operandos incompatíveis com operadores.
-* Identificadores não declarados (variáveis e procedimento).
+* Identificadores,variáveis e procedimento, não declarados.
 * Chamada de funções ou métodos com número incorreto de operadores
-* Comando fora de contextos (um comando continue fora de um loop).
-* Operações de conversão. 
+* Comandos fora de contextos, um comando `continue` fora de um loop.
+* Operações de conversão de tipos. 
 
-A tabela de símbolos é muito importante nessa etapa pois é através dela que é possível recuperar informações sobre os identificadores, que são variáves e procedimentos.
+A tabela de símbolos é muito importante nessa etapa pois é através dela que é possível recuperar informações sobre os identificadores que são utilizadas para avaliar as regras semânticas. 
 
 ### Geração de código intermediário
 
@@ -114,11 +114,11 @@ id1 = t3
 
 Essa representação segue o seguinte formato `x = y op z` onde `op` é uma operador binário, `y` e `z` são endereços para os operandos e `x` é o endereço para o resultado.
 
-Uma das vantagens de gerar um código intermediário é a possibilidade de obter um código final mais eficiente através da otimização. A representação intemediária deve representar as operações do programa, esse representação é simples algumas muito semaelhantes a *bytecodes Java*.
+Uma das vantagens de gerar um código intermediário é a possibilidade de obter um código final mais eficiente através da otimização. A representação intemediária deve representar as operações do programa, esse representação é simples algumas muito semelhantes a *bytecodes* Java.
 
 ### Otimização de Código
 
-Nessa fase o objetivo é otimizar o código em termos de velocidade de execução e espaço na memória. Essa etapa não depende da arquitetura de máquina e tem como objetivo fazer transformações no código intermediário afim de um código objeto melhor. 
+Nessa fase o objetivo é otimizar o código em termos de velocidade de execução e espaço na memória. Essa etapa não depende da arquitetura de máquina e tem como objetivo fazer transformações no código intermediário afim obter um código objeto mais otimizado. 
 
 Veja um exemplo de código otimizado.
 
@@ -127,9 +127,9 @@ T1 = id3 * 60.0
 id1 = id2 * t1
 ```
 
-O número de otimizações irá depender de como o compilador foi implementado, quanto mais otimizações forem realizadas maior o tempo gasto na compilação. Outro detalhe é que a otimização deve reduzir o tempo de execução do programa. Algumas compiladores permitem que seja parametrizado o nível de otimização.
+O número de otimizações irá depender de como o compilador foi implementado, quanto mais otimizações forem realizadas maior o tempo gasto na compilação. Outro detalhe é que a otimização deve reduzir o tempo de execução do programa. Algumas compiladores permitem que seja parametrizado o nível de otimização, como por exemplo o `gcc` através de flags de otimização como `-O2`, `-O3`, etc.
 
-É possíve também encontrar compiladores que possuem uma etapa chamada de otimização de código dependente de máquina.
+Também existem compiladores que possuem uma etapa chamada de otimização de código dependente de máquina.
 
 ### Geração de código objeto
 
@@ -149,9 +149,9 @@ ADDF	R1,		R1, R2
 STF		id1		R1
 ```
 
-O programa objeto reflete as instruções de baixo nível da plataforma que está sendo utilizada, normalmente é necessário um gerador de código para cada plataforma.
+O programa objeto reflete as instruções de baixo nível da plataforma que está sendo utilizada, pode-se fazer necessário um gerador de código para cada plataforma.
 
-Após essa fase concluída para que o programa possa ser executado o código objeto é linkeditado com outros programas objetos ou recursos para ser posteriormente carreado na memória e executado pelo sistema operacional.
+Após essa fase concluída para que o programa possa ser executado o código objeto é linkeditado com outros programas objetos ou recursos para posteriormente ser carreado na memória e executado pelo sistema operacional.
 
 ### Resultado do processo de compilação.
 
@@ -165,26 +165,31 @@ Durante toda a fase de compilação algumas informações são armazenadas em um
 
 Os seguintes atributos costumam ser gravados na tabela de simbolos:
 
-* Variáveis: classe(var), tipo, endereço no texto, posição e tamanho.
-* Parâmetros formais: classe(par), tipo mecanismo de passagem.
-* Procedimentos/sub-rotinas: classe(proc), número de parâmetros.
+* Classe dos identificadores: variável, função, etc.
+* Tipo de dado: Inteiro, String, etc.
+* Tipos de retornos: no caso de métodos
+* Variáveis: tipo, endereço no texto, posição e tamanho.
+* Parâmetros formais: tipo do mecanismo de passagem - por valor ou referência.
+* Procedimentos/sub-rotinas: número de parâmetros.
 
-A tabela de símbolos é utilizado durante todo o processo de compilação a fim de inserir e extrair informações de forma rápida. Ela é utilizada em todas as fases do processo de compilação.
+A tabela de símbolos é utilizado durante todo o processo de compilação a fim de inserir e extrair informações de forma rápida.
 
 ### Árvore Sintática
 
-A arvore sintática é uma estrutura de dados em forma de árvore que representa a gramatica, ou estrutura sintática da linguagem de programação.
+A árvore sintática é uma estrutura de dados em forma de árvore ou grafo que representa estrutura sintática da linguagem de programação.
 
 Veja uma exemplo de uma sentença `if` `else`
 
 ![](../images/syntax-tree-if-else-ex.gif)
 ![](../images/syntax-tree-if-else.gif)
 
-Essa representação gráfica da derivação de uma sentença, cada nó representa uma unidade sintática.
+Essa representação gráfica é resultante da derivação de uma sentença, cada nó representa uma unidade sintática.
+
+### Termos
 
 [ˆ1] Sintático: tem o sentido de verificação de forma, estrutura sem referência a significado.
 
-[ˆ2] Semântica: tem sentido de significado.
+[ˆ2] Semântica: tem o sentido de significado.
 
 [ˆ3] Linkeditor ou Linker: é um programa que reúne módulos compilados e arquivos para criar o programa executável.
 
