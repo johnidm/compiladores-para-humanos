@@ -37,7 +37,7 @@ Veja a identificação dos termos relacionados.
 
 ##### Exemplo 1 
 
-`printf(Total = %d\n", score)`
+`printf("Total = %d\n", score)`
 
 onde: 
 
@@ -53,27 +53,27 @@ onde:
 
 onde:
 
-* `const` é um token que casa com o padrão `const` que também é um lexema.  
+* `const` casa com o padrão `const` que também é um lexema.  
 
-* `PI` é um lexema que casa com o padrão `identificador` e `identificador` é um token. 
+* `PI` é um lexema que casa com o padrão `identificador`. 
 
 * `=` é um lexema que casa com o padrão do token `atribuição`. 
 
 * `3.1416` é um lexema que casa com o padrão do token `numero`.
 
-Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada token. Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
+Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada token casando com um padrão. Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
 
 Expressões regulares são um mecanismo importante para especificar os padrões de lexemas.
 
 ### Tokens
 
-Os tokens são símbolos léxicos reconhecidos através de um padrão, uma informação importante que deve estar presente no token é a posição em que ele se encontra no texto, essa informação é utilizada principalmente para indicar o local de erro.
+Os tokens são símbolos léxicos reconhecidos através de um padrão.
 
 Os tokens podem ser divididos em dois grupos:
 
-* Tokens simples: São tokens que não tem valor associado pois a classe do token já a descreve. Ex: palavras reservadas, operadores, delimitadores.
+* Tokens simples: São tokens que não tem valor associado pois a classe do token já a descreve. Exemplo: palavras reservadas, operadores, delimitadores - `<if,>`, `<else>`, `<+,>`.
 
-* Tokens com argumento: são tokens que tem valor associado e corresponde a elementos da linguagem definidos pelo programador. Ex: identificadores, constantes numéricas.
+* Tokens com argumento: são tokens que tem valor associado e corresponde a elementos da linguagem definidos pelo programador. Exemplo: identificadores, constantes numéricas - `<id, 3>`, `<numero, 10>`, `<literal, Olá Mundo>` .
 
 Um token possui a seguinte estrutura:
 
@@ -91,20 +91,22 @@ total = entrada * saida() + 2
 
 O seguinte fluxo de tokens é gerado.
 
-`<id, 15> <=, > <id, 20> <*, > <id,30> <+, > <numero, 2>`
+`<id, 15> <=, > <id, 20> <*, > <id,30>, <(>, <)> <+, > <numero, 2>`
 
 Então temos os seguintes tokens:
 
-* `<id, 15>` :  apontador 15 da tabela de símbolos e token id.
+* `<id, 15>` :  apontador 15 da tabela de símbolos e classe do token `id`.
 * `<=, >`  operador de atribuição, sem necessidade de um valor para o atributo.
-* `<id, 20>` : apontador 20 da tabela de símbolos e token id.
+* `<id, 20>` : apontador 20 da tabela de símbolos e classe do token `id`.
 * `<*, >` :  operador de multiplicação, sem necessidade de um valor para o atributo.
-* `<id,30>` : apontador 20 da tabela de símbolos e token id.
+* `<id,30>` : apontador 20 da tabela de símbolos e classe do token `id`.
 * `<+, >` :  operador de soma, sem necessidade de um valor para o atributo.
+* `<(, >`: Delimitador de função.
+* `<), >`: Delimitador de função.
 * `<numero, 2>` :  token numero, com valor para o atributo 2 indicado o valor do numero (constante numérica).
 
 
-A seguir é apresentado alguns exemplos do resultado da análise léxica em um arquivo fonte.
+A seguir é apresentado alguns exemplos do resultado da análise léxica de um arquivo fonte.
 
 #### Exemplo 1
 
@@ -166,6 +168,7 @@ Tabela de símbolos
 | 1       | a, variável inteira     |
 | 2       | index, variável inteira |
 	
+O analisador léxico realiza tarefas simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
 
 ### Tabela de símbolos
 
@@ -173,17 +176,17 @@ A tabela de símbolos é uma estrutura de dados gerada pelo compilador com o obj
 
 Essa tabela normalmente armazenas informações como: tipo de dado - inteiro, string, etc. - escopo de visibilidade; limite de parâmetros, tamanho da variável. A tabela de símbolos é uma estrutura de dados do tipo tabelas hash, árvores binarias, listas lineares, etc.
 
-O analisador léxico coleta informações sobre os tokens e seus atributos, para tokens que influenciam decisões de análise gramatical, como por exemplo identificadores, é criado uma entrada na tabela de símbolos, das quais as informações são mantidas para posterior uso.  Podemos armazenar na tabela de símbolos também informação sobre a linha e coluna que o token foi examinado para em caso de erro o compilador pode informar a posição exata do identificador.
+O analisador léxico coleta informações sobre os tokens e seus atributos, para tokens que influenciam decisões de análise gramatical, como por exemplo identificadores, é criado uma entrada na tabela de símbolos, das quais as informações são mantidas para posterior uso. Podemos armazenar na tabela de símbolos também informações sobre a linha e coluna que o token foi examinado para em caso de erro o compilador passa informar a posição da falha.
 
 ### Erros léxicos
 
-A análise léxica é muito prematura para identificar erros de compilação, veja o exemplo abaixo.
+A análise léxica é muito prematura para identificar alguns erros de compilação, veja o exemplo abaixo.
 
 `fi (a == “123”) ...`
 
-O analisador léxico não conseguira identificar o erro da instrução listada acima, pois ele não consegue identificar que em determinada posição deve ser declarada a palavra reservada `if`. Essa verificação somente é possível ser feita na análise sintática.
+O analisador léxico não consegue identificar o erro da instrução listada acima, pois ele não consegue identificar que em determinada posição deve ser declarado a palavra reservada `if` ao invés de `fi`. Essa verificação somente é possível ser feita na análise sintática.
 
-É importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros.
+É importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possíves.
 
 Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `%`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
 
