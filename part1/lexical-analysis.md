@@ -21,17 +21,17 @@ Podemos definir três termos relacionados a implementação de um analisador lé
 
 A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 
-| Token              | Padrão                                              | Lexema                                         | Descrição                        |
-|--------------------|-----------------------------------------------------|------------------------------------------------|----------------------------------|
-| <const, >          | Sequência das palavras c, o, n, s, t                | const                                          | Palavra reservada                |
-| <while, >          | Sequência das palavras w, h, i, l, e                | while, While, WHILE                            | Palavra reservada                |
-| <if, >             | Sequência das palavras i, f                         | If, IF, iF, If                                 | Palavra reservada                |
-| <=, >              | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
-| <numero, 18>       | Dígitos numéricos                                   | 0.6, 18, 0.009                                 | Constante numérica               |
-| <literal, "Olá">   | Caracteres entre ""                                 | “Olá Mundo”                                    | Constante literal                |
-| <identificador, 1> | Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
-| <=, >              | =                                                   | =                                              | Comando de atribuição            |
-| <{, >              | {, }, [, ]                                          | {, }, [, ]                                     | Delimitadores de início e fim    |
+| Token                | Padrão                                              | Lexema                                         | Descrição                        |
+|----------------------|-----------------------------------------------------|------------------------------------------------|----------------------------------|
+| `<const, >`          | Sequência das palavras c, o, n, s, t                | const                                          | Palavra reservada                |
+| `<while, >`          | Sequência das palavras w, h, i, l, e                | while, While, WHILE                            | Palavra reservada                |
+| `<if, >`             | Sequência das palavras i, f                         | If, IF, iF, If                                 | Palavra reservada                |
+| `<=, >`              | <, >, <=, >=, ==, !=                                | ==, !=                                         |                                  |
+| `<numero, 18>`       | Dígitos numéricos                                   | 0.6, 18, 0.009                                 | Constante numérica               |
+| `<literal, "Olá">`   | Caracteres entre ""                                 | “Olá Mundo”                                    | Constante literal                |
+| `<identificador, 1>` | Nomes de variáveis, funções, parâmetros de funções. | nomeCliente, descricaoProduto, calcularPreco() | Nome de variável, nome de função |
+| `<=, >`              | =                                                   | =                                              | Comando de atribuição            |
+| `<{, >`              | {, }, [, ]                                          | {, }, [, ]                                     | Delimitadores de início e fim    |
 
 Veja a identificação dos termos relacionados.
 
