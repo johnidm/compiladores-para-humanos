@@ -189,6 +189,64 @@ Uma situação comum de erro léxico e a presença de caracteres que não perten
 
 ### Expressões regulares
 
+Expressoes regulares são uma forma simples e flexivel de identificar cadeias de caracteres em palavras ou padrões de caracteres. Expressões regulares são escritas numa linguagem formal que pode ser interpretada por um processador de expressão regular que examina o texto e identifica partes que casam com a especificação dada.
+
+As expressões regulares são utilizadas para avaliar padrões em strings realizando operações em conjunto de caracteres, são muito utilizadas para validar entradas de dados, fazer buscas, e extrair informações de textos.
+
+Expressões regulares são utilizadas por editores de texto, linguagem de programação, programas utilitários, IDE de desenvolvimento.
+
+As expressões regulares também são chamadas de Regex e são independente de linguagem de programação pois seguem o mesmo padrão. As expressões regulares não validam dados apenas verificam se estão em uma determinadas máscara.
+
+As expressões regulares são formadas por metacarateres formando um padrão para obter uma casamento entre um metacrateres e o texto.
+
+##### Metacaracteres
+
+São caracteres que tem um significado especial na expressão regular.
+
+Abaixo uma tabela dos principais metacarateres.
+
+| Meta  | Descrição                          | Exemplo                                               |
+|-------|------------------------------------|-------------------------------------------------------|
+| .     | Curinga                            | Qualquer caractere                                    |
+| []    | Lista                              | Qualquer caractere incluído no conjunto               |
+| [^]   | Lista negada                       | Qualquer,caractere não incluído no conjunto           |
+| \d    | Dígito                             | o mesmo que [0-9]                                     |
+| \D    | Não-digito                         | o mesmo que [^0-9]                                    |
+| \s    | Caracteres em branco               |                                                       |
+| \S    | Caracteres em diferentes de branco |                                                       |
+| \D    | Alfanumérico                       | o mesmo que [a-zA-Z0-9_]                              |
+| \W    | Não-alfanumérico                   |                                                       |
+| \     | Escape                             | Faz com que o caracteres não sejam avaliados na Regex |
+| (...) | Grupo                              | É usado para criar um agrupamento de expressões       |
+| |     | OU                                 | casa|bonita,– pode ser casa ou bonita                 |
+
+
+##### Quantificadores 
+
+São tipos de metacaracteres que definem um número permitido de repetições na expressão regular.
+
+| Expressão | Descrição                             | Exemplo                                         |
+|-----------|---------------------------------------|-------------------------------------------------|
+| {n}       | Exatamente n ocorrências              |                                                 |
+| {n,m}     | No mínimo n ocorrências e no máximo m |                                                 |
+| {n,}      | No mínimo n ocorrências               |                                                 |
+| {,n}      | No máximo n ocorrências               |                                                 |
+| ?         | 0 ou 1 ocorrência                     | car?ro – caro ou carro.                         |
+| +         | 1,ou mais ocorrência                  | ca*ro –carro, carrro, carrrro, nunca será caro. |
+| *         | 0 ou mais ocorrência                  | ca*ro – caro, carro, carro, carrrro             |
+
+
+##### Casar
+
+Tem o significado de combinar uma expressão regular com texto, é quando os metacaractres especificados na expressão regular correspondem aos caracteres dos textos.
+
+Veja os exemplos:
+
+A regex `\d,\d` casa com `9,1` já `\d,\d` não casa com `91`.
+
+A regex `\d{5}-\d{3}` é utilziada pra valdiar CEP. Essa regex casa com os padrões de texto `89900-000` e `87711-000` mas não casa com os padrões `87711-00077` e `89900000`.  A regex é formada pelo metacaractere `\d` e o quantificador `{5}`
+
+A regex `[A-Z]{3}\d{4}` é utilziada para validar a placa de um automóvel e casa com o padrao `ACB1234` mas não casa om o padrão `ACB12345`.
 
 
 ### Exercícios 
@@ -232,6 +290,12 @@ if (x > 0) {
 |        |           |
 |        |           |
 
+7 
 
-
+1. Com base no exemplo anterior crie expressões regulares para validar os seguintes campos
+a. CPF.
+b. CNPJ.
+c. IP.
+d. Número de telefone.
+e. Validar uma data.
 

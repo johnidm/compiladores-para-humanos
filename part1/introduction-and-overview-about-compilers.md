@@ -47,11 +47,11 @@ Esse processo certamente é muito mais complexo do que simplesmente executar o c
 
 Uma linguagem de programação é considera de alto nível quando sua representação está próxima do domínio da aplicação e do problema a ser resolvido. Os computadores por sua vez possuem sua própria linguagem denominada de baixo nível ou linguagem de máquina.
 
-O processo de tradução de uma linguagem de alto nível para linguagem de baixo nível é feito através de softwares conhecidos como compiladores e tem como entrada uma linguagem fonte (alto nível) e como saída uma linguagem objeto (baixo nível).
+O processo de tradução de uma linguagem de alto nível para linguagem de baixo nível é feito através de softwares conhecidos como compiladores e tem como entrada uma linguagem fonte, alto nível, e como saída uma linguagem objeto, baixo nível.
 
 ![](../images/compilation-process.gif)
 
-Na imagem acima podemos ver um diagrama que representa o processo de compilação onde a entrada é um programa fonte e a saída é um programa objeto. Posteriormente outros processos estão envolvidos na compilação - ligador e carregado - para que o programa possa ser executado.
+Na imagem acima podemos ver um diagrama que representa o processo de compilação onde a entrada é um programa fonte e a saída é um programa objeto. Posteriormente outros processos estão envolvidos na compilação - ligador e carregador - para que o programa possa ser executado.
 
 As linguagens de programação podem ser classificadas em 5 gerações:
 
@@ -67,9 +67,9 @@ As linguagens de 3ª geração são voltadas para a solução de problemas espec
 
 As linguagens de 3ª geração foram projetadas para serem utilizadas por profissionais específicos conhecidos como engenheiros de software ou simplesmente programadores. Já as linguagens de 4ª geração formam projetadas para serem utilizadas por usuários finais sendo de fácil utilização permitindo que os próprios usuários possam resolver os seus problemas.  Exemplos são: Excel; Access; SQL, etc. As linguagens de 5ª geração são utilizadas em programas de inteligência artificial simulando comportamentos inteligentes, como exemplo temos o PROLOG.
 
-Cada vez mais os compiladores e as linguagem de programação assumem tarefa que antes eram de responsabilidade do programador, como por exemplo gerenciamento de memória, verificação de tipos e execução paralela.
+Cada vez mais os compiladores e as linguagem de programação assumem tarefas que antes eram de responsabilidade do programador, como por exemplo gerenciamento de memória, verificação de tipos e execução paralela.
 
-O primeiros passos para tornar a linguagem mais inteligível por humanos ocorreu na década de 50 com o desenvolvimento de linguagem simbólicas ou Assembly. As instruções em Assembly representavam mnemônicos das instruções de maquina, mais tarde surgiram ferramentas conhecidas como macro Assemblers que permitiam abreviaturas parametrizadas de uma sequencia de instruções Assembly.
+O primeiros passos para tornar a linguagem mais inteligível por humanos ocorreu na década de 50 com o desenvolvimento de linguagens simbólicas ou Assembly. As instruções em Assembly representavam mnemônicos das instruções de máquina, mais tarde surgiram ferramentas conhecidas como macro Assemblers que permitiam abreviaturas parametrizadas de uma sequencia de instruções Assembly.
 
 O surgimento das linguagens de programação como o FORTRAM e Cobol influenciaram o desenvolvimento de compiladores pois permitiam que construções de alto nível fossem possíveis de serem escritas de forma mais fácil. Posteriormente com o surgimento de novas linguagem de programação com recursos cada vez mais inovadores os compiladores se tornaram ferramentas muito mais sofisticadas.
 
@@ -82,16 +82,16 @@ Com a evolução dos compiladores os programas escritos em linguagem de alto ní
 Os tradutores são sistemas que aceitam como entrada um programa escrito em uma linguagem e produzem como resultado um programa equivalente na mesma linguagem ou em linguagens diferentes. Os tradutores podem ser classificados em:
 
 * **Montadores**: também chamados de assemblers, eles mapeiam instruções em linguagem simbólica para instruções em linguagem de máquina. Disasembler ou desmontadores fazer o processo inverso.
-* **Macro assemblers**: funcionam da mesma forma que os montadores, porém podem ser criados “macros” que refresentam uma sequência de comandos simbólicos.
+* **Macro assemblers**: funcionam da mesma forma que os montadores, porém podem ser criados “macros” que representam uma sequência de comandos em linguagem simbólica.
 * **Compiladores**: mapeiam programas escritos em linguagem de alto nível para linguagem simbólica ou de máquina. 
-* **Pré-compiladores**: também chamados de pré-processadores ou filtros são programas que estendem a sintaxe de uma linguagem de alto nível.
+* **Pré-compiladores**: também chamados de pré-processadores ou filtros são programas que estendem a sintaxe de uma linguagem de alto nível com o objetivo de fazer a conversão entre duas lingaugem de alto nível.
 * **Interpretadores**: Possuem como entrada uma linguagem intermediária ou a própria linguagem fonte, e um programa compilado produz o efeito de execução.
 
 #### Compiladores x Interpretadores
 
-Um interpretador pode ser entendido como um processo que em vez de visar um conjunto de instruções de um processador visa outra linguagem. 
-
 Diferente do compilador o interpretador recebe como estrada uma especificação executável e produz com saída a execução dessa especificação, linguagens com PHP, Scheme, Python são interpretadas.
+
+Um interpretador pode ser entendido como um processo que em vez de visar um conjunto de instruções de um processador visa produzir o efeito de sua execução. Eles normalmente interpretam uma represetação intermediária do programa fonte.
 
 Os compiladores e interpretadores possuem muitas características em comum, pois executam as mesmas tarefas, como por exemplo analisar o programa e determinar se ele é valido ou não.
 
@@ -99,16 +99,16 @@ Um caso muito interessante é o da linguagem Java que combina compilação e int
 
 O interpretador pode ser divido em dois tipos:
 
-* Interpretador puro: Cada instrução é "quebrada" em tokens, analisada, verificada semanticamente e interpretada cada vez que é executada. Como exemplo temos interpretadores de comandos **shell**.
+* Interpretador puro: Cada instrução é "quebrada" em tokens, analisada, verificada semanticamente e interpretada cada vez que é executada. Como exemplo temos interpretadores de comandos *shell*.
 * Interpretadores mistos: Traduzem todo o script em código intermediário e depois interpretam esse código.
 
 Um programa objeto gerado por um compilador é muito mais rápido do que um programa executado por um interpretador, porem um interpretador oferece melhores opções para diagnosticar erros, pois executa instrução por instrução.
 
 ### Estrutura de um compilador
 
-O processo de compilação é muito complexo, existe uma estrutura básica que divide esse processo em fases, essas fases estão representadas por duas tarefas conhecidas como análise e síntese.
+O processo de compilação é muito complexo, existe uma estrutura básica que divide esse processo em fases, essas fases estão representadas por duas tarefas conhecidas como **análise** e **síntese**.
 
-Essa divisão de fases tem como objetivo dar uma visão explicita e detalhada do processo de compilação. A tarefa de análise também chamada de *front-end* divide o programa fonte em partes e impõe uma estrutura gramatical sobre elas, uma das principais responsabilidades da tarefa de análise é garantir que a sintaxe e semântica do programa fonte estejam corretos. A tarefa de síntese constrói o programa objeto a partir da representação criada na tarefa de análise. A síntese é conhecida como **back-end**.
+Essa divisão de fases tem como objetivo dar uma visão explicita e detalhada do processo de compilação. A tarefa de análise também chamada de *front-end* divide o programa fonte em partes e impõe uma estrutura gramatical sobre elas, uma das principais responsabilidades da tarefa de análise é garantir que a sintaxe e semântica do programa fonte estejam corretos. A tarefa de síntese constrói o programa objeto a partir da representação criada na tarefa de análise. A síntese é conhecida como *back-end*.
 
 ![](../images/compilation-steps.png)
 
@@ -120,7 +120,9 @@ A próxima fase e a **geração de código intermediário** que cria uma abstra�
 
 Em contraste temos os interpretadores que são uma tipo de tradutor no qual algumas fases do compilador são substituídas por um programa que executa o código produzindo o seu efeito.
 
-A tarefa de analise ou *front-end* é efetuada através de algoritmos de complexidade linear, nessa etapa é abordado conceitos como automático finitos, linguagens regulares e autômatos de pilha. Podemos escreve o nosso próprios programas que executam essas etapa ou utilizar geradores de analisadores léxicos como: flex; jFlex e Jlex. E geradores de analisadores sintáticos como: byacc; bison e JavaCup. 
+A tarefa de analise ou *front-end* é efetuada através de algoritmos de complexidade linear, nessa etapa é abordado conceitos como automático finitos, linguagens regulares e autômatos de pilha. Podemos escreve o nossos próprios programas que executam essas etapas ou utilizar geradores de analisadores léxicos como: flex; jFlex e Jlex. E geradores de analisadores sintáticos como: byacc; bison e JavaCup. 
+
+### Termos
 
 [^1] Desmontador: também chamado de desassemblador faz o processo inverso ao montador, ou seja, pega o código de máquina e transforma em código Assembly. 
 
@@ -133,6 +135,8 @@ A tarefa de analise ou *front-end* é efetuada através de algoritmos de complex
 [^5] Cross-compiling: é o processo de compilação que permite a um compilador compilar um programa para diversos processadores ou arquiteturas.
 
 [ˆ6] Byte code: é uma representação de código fonte que será interpretada por uma máquina virtual.
+
+[ˆ7] Açúcar sintático ou Syntactic sugar: É uma forma de tornar uma contrução sintática mais expressiva e simples de ler sem afetar seu comportamento.
 
 Exercícios
 ------

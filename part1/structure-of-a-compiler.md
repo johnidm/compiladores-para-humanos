@@ -5,15 +5,15 @@ Os compiladores operem em uma sequencia de fases, cada uma transformando o progr
 
 ### Analise Léxica
 
-É a primeira fase do processo de compilação, também é conhecida como leitura ou *scanning*. O objetivo nessa fase é identificar unidades léxicas ou lexemas que compõe o programa. O compilador lê todos os caracteres do programa fonte e verifica se eles pertencem ao alfabeto da linguagem, caso não pertença deve ser gerado um erro.
+É a primeira fase do processo de compilação, também é conhecida como leitura ou *scanning*. O objetivo nessa fase é identificar unidades léxicas ou lexemas que compõem o programa. O analisador léxico lê todos os caracteres do programa fonte e verifica se eles pertencem ao alfabeto da linguagem, caso não pertença deve ser gerado um erro léxico.
 
-Os comentários e espaços em branco são ignorados. Esse processo resulta um conjunto de tokens que são formados por palavras reservadas, identificadores, delimitadores, etc. Nessa etapa é criada a tabela de símbolos. De uma forma resumida a análise léxica deve quebrar o programa em lexiemas e verificar a categoria ao qual eles pertencem gerando assim os tokens. 
+Os comentários e espaços em branco devem ser ignorados e removidos. Esse processo resulta um conjunto de tokens que são formados por palavras reservadas, identificadores, delimitadores, etc. Nessa etapa é criada a tabela de símbolos. De uma forma resumida a análise léxica deve quebrar o texto do programa em lexemas e verificar a categoria ao qual eles pertencem gerando assim os tokens. 
 
 Suponha que tenhamos a seguinte linha de código:
 
 `123 x1 ; Y2 true begin`
 
-O analisador léxico deve identificar 6 símbolos e a categoria cada um deles.
+O analisador léxico deve identificar 6 lexemas e a categoria de cada um deles.
 
 | Lexema | Categoria                          |
 |--------|------------------------------------|
@@ -28,7 +28,7 @@ Um token pode ser representado da seguinte forma:
 
 `<nome-token, valor-atributo>`
 
-Onde o `nome-token` é um valor abstrato, normalmente o próprio lexema ou uma simbolo e o `valor-atributo` aponta para a tabela de símbolos ou não está presente.
+Onde o `nome-token` é um valor abstrato, normalmente o próprio lexema e o `valor-atributo` que na maioria das vezes aponta para um índice na tabela de símbolos ou é omitido.
 
 Suponha que tenhamos a seguinte linha de código.
 
@@ -55,9 +55,9 @@ O analisador léxico deve permitir identificar na linguagem repetições de subc
 
 ### Analise Sintática
 
-Analise sintática é o coração do compilador e tem como objeto validar a gramática do programa, na análise léxica o objetivo era identificar os símbolos que pertenciam ao programa, categorizar esse simbolos e verificar se eles pertencem a linguagem. 
+Analise sintática é o coração do compilador e tem como objeto validar a gramática do programa, na análise léxica o objetivo era identificar os lexemas que pertenciam a lingaugem de programação, categorizar esses lexemas e verificar se eles pertencem a linguagem. 
 
-A estrutura gramatical é verificada seguindo as regras da linguagem. É feito uma varredura na sequência de tokens produzidas pelo analisador léxico com o objetivo de construir a árvore sintática, ou árvore de derivação que exibe a estrutura sintática do código. Caso uma construção seja reconhecida com invalida um erro sintético deve ser gerado.
+A estrutura gramatical é verificada seguindo as regras da linguagem. É feito uma varredura na sequência de tokens produzidas pelo analisador léxico com o objetivo de construir a árvore sintática, ou árvore de derivação que exibe a estrutura sintática do código. Caso uma construção seja reconhecida com inválida um erro sintético deve ser gerado.
 
 Veja o seguinte trecho de código:
 
