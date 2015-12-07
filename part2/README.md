@@ -1,12 +1,6 @@
-Um bom compialdore mistrar teoria, pratica engemharai de expereiencam 
+Introdução
+======
 
-è impotante entender so compiente enmvolvidos com a acompiacao como o ligador, carregador e sistema operacional 
+O estudo de compiladores deve misturar teoria e prática é importante entender todos os componentes envolvidos nesse projeto e como podemos implementar cada um.
 
-finalemnte precisamos entender o scoannin e parssing para a elavoracao de uma nova lingaguem de prograao
-
-
-os scanner modernos sao consruidos com base em linguge, regulares, 
-
-automatos finitos detrmnisticos e buscar heuristicas
-
-Os compiladores usam um grande conjunto de algorimos, estrududa de dado e grafos
+Nessa parte nos vamos aplicar os conhecimentos adquiridos até o momento.

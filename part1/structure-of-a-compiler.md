@@ -159,6 +159,8 @@ A imagem abaixo exemplada o processo de compilação divido em etapas. Essas eta
 
 ![](../images/detail-process-of-the-compilation.png)
 
+Essa é uma estrutura didática do funcionamento de um compilador, na pratica a distinções em fases não é muito clara alguns módulos podem não estar individualizados.
+
 ### Tabela de símbolos 
 
 Durante toda a fase de compilação algumas informações são armazenadas em uma tabela chamada de tabela de símbolos, que nada mais é do que uma estrura de dodos em forma de lista, dicionário, etc. As informações coletadas nessa tabela dependem do tipo de tradutor desenvolvido e do programa objeto a ser gerado. 
@@ -194,5 +196,3 @@ Essa representação gráfica é resultante da derivação de uma sentença, cad
 [ˆ3] Linkeditor ou Linker: é um programa que reúne módulos compilados e arquivos para criar o programa executável.
 
 [ˆ4] Registradores: são áreas no processador que possuem uma grande velocidade e são utilizados para armazenar valores. Existem vários tipos de registradores com finalidade especificas.
-
-### Exercícios
