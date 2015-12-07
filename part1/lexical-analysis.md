@@ -123,10 +123,10 @@ Sequência de tokens
 
 Tabela de símbolos
 
-| Entrada | Informações              |
-|---------|--------------------------|
-| 7       | indice, variável inteira |
-| 12      | total, variável inteira  |
+| Entrada | Informações                 |
+|---------|-----------------------------|
+| 7       | `indice` - variável inteira |
+| 12      | `total` - variável inteira  |
 
 
 #### Exemplo 2
@@ -143,11 +143,11 @@ Sequência de tokens
 
 Tabela de símbolos
 
-| Entrada | Informações                        |
-|---------|------------------------------------|
-| 1       | position, variável ponto flutuante |
-| 2       | initial, variável ponto flutuante  |
-| 3       | rate, variável ponto flutuante     |
+| Entrada | Informações                           |
+|---------|---------------------------------------|
+| 1       | `position` - variável ponto flutuante |
+| 2       | `initial` - variável ponto flutuante  |
+| 3       | `rate` - variável ponto flutuante     |
 
 #### Exemplo 3
 
@@ -163,10 +163,10 @@ Sequência de tokens
 
 Tabela de símbolos
 
-| Entrada | Informações             |
-|---------|-------------------------|
-| 1       | a, variável inteira     |
-| 2       | index, variável inteira |
+| Entrada | Informações                |
+|---------|----------------------------|
+| 1       | `a` - variável inteira     |
+| 2       | `index` - variável inteira |
 	
 O analisador léxico realiza tarefas simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
 
@@ -212,12 +212,12 @@ Abaixo uma tabela dos principais metacarateres.
 |-------|------------------------------------|-------------------------------------------------------|
 | .     | Curinga                            | Qualquer caractere                                    |
 | []    | Lista                              | Qualquer caractere incluído no conjunto               |
-| [^]   | Lista negada                       | Qualquer,caractere não incluído no conjunto           |
-| \d    | Dígito                             | o mesmo que [0-9]                                     |
-| \D    | Não-digito                         | o mesmo que [^0-9]                                    |
+| [^]   | Lista negada                       | Qualquer caractere não incluído no conjunto           |
+| \d    | Dígito                             | O mesmo que [0-9]                                     |
+| \D    | Não-digito                         | O mesmo que [^0-9]                                    |
 | \s    | Caracteres em branco               |                                                       |
 | \S    | Caracteres em diferentes de branco |                                                       |
-| \D    | Alfanumérico                       | o mesmo que [a-zA-Z0-9_]                              |
+| \D    | Alfanumérico                       | O mesmo que [a-zA-Z0-9_]                              |
 | \W    | Não-alfanumérico                   |                                                       |
 | \     | Escape                             | Faz com que o caracteres não sejam avaliados na Regex |
 | (...) | Grupo                              | É usado para criar um agrupamento de expressões       |
