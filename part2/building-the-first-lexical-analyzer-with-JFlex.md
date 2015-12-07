@@ -31,7 +31,7 @@ No campo `Group Id` informe `br.com.johnidouglas` e no campo `Artifact Id` infor
 
 Essa imagem mostra a estrutura do projeto no Eclipse.
 
-![](../imagem/project-estrucutre-jflex.png)
+![](../images/project-estrucutre-jflex.png)
 
 Em seguida vamos criar a classe que ira gerar o analisador léxico a cada nova alteração no arquivo de especificação. Isso evita o uso da linha de comando para gerar a classe Java responsável por implementar o algoritmo de reconhecimento de tokens.
 
@@ -155,7 +155,7 @@ Vamos aprimorar o nosso analisador léxico para que ele reconheça os tokens per
 
 Essa imagem mostra a estrutura do projeto no Eclipse.
 
-![](../imagem/project-estrucutre-jflex-pascal.png)
+![](../images/project-estrucutre-jflex-pascal.png)
 
 Crie uma classe chamada `GeneratorPascal`, para isso você deve criar um novo pacote Java dentro do projeto `lexicalanalyzer`, vamos chamar esse pacote de `pascal` - `br.com.johnidouglas.lexicalanalyzer.pascal` .
 
