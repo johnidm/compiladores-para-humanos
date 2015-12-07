@@ -137,26 +137,3 @@ A tarefa de analise ou *front-end* é efetuada através de algoritmos de complex
 [ˆ6] Byte code: é uma representação de código fonte que será interpretada por uma máquina virtual.
 
 [ˆ7] Açúcar sintático ou Syntactic sugar: É uma forma de tornar uma contrução sintática mais expressiva e simples de ler sem afetar seu comportamento.
-
-Exercícios
-------
-
-1. Existem dois princípios fundamentais na construção de compiladores, explique con suas palavras o que significa cada um desses dois princípios.
-
-2. Escreva o que você entende por linguagem de programação?
-
-3. Quais as cincos classificações das linguagens de programação, de exemplos?
-
-4. Cite os 5 tipos de tradutores e o significado de cada uma?
-
-5. Explique as diferenças entre um compilador e um interpretador?
-
-6. Quais as fases e as duas tarefas do processo de compilação?
-
-5. Explique cada fase que pertence a tarefa de análise - front-end - do processo de compilação?
-
-6. Explique cada fase que pertence a tarefa de síntese - back-end - do processo de compilação?
-
-7. O que é um interpretador puro e um interpretador misto?
-
-8. O que é o processo de compilação conhecido como JIT?

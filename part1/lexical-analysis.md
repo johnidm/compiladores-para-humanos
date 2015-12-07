@@ -248,6 +248,8 @@ As expressões regulares estão diretamente relacionadas a autômatos finitos n�
 
 As **regex** são utilizadas por editores de texto, linguagem de programação, programas utilitários, IDE de desenvolvimento e compiladores e seu padrões são independentes de linguagem de programação.
 
+
+
 ### Exercícios 
 
 1 - Descreva com as suas palavras as principais tarefas da analise léxica.
