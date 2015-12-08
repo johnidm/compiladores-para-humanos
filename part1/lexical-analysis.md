@@ -170,14 +170,6 @@ Tabela de símbolos
 	
 O analisador léxico realiza tarefas simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
 
-### Tabela de símbolos
-
-A tabela de símbolos é uma estrutura de dados gerada pelo compilador com o objetivo de armazenar informações sobre os funções, variáveis e outros tokens usados no programa fonte.
-
-Essa tabela normalmente armazenas informações como: tipo de dado - inteiro, string, etc. - escopo de visibilidade; limite de parâmetros, tamanho da variável. A tabela de símbolos é uma estrutura de dados do tipo tabelas hash, árvores binarias, listas lineares, etc.
-
-O analisador léxico coleta informações sobre os tokens e seus atributos, para tokens que influenciam decisões de análise gramatical, como por exemplo identificadores, é criado uma entrada na tabela de símbolos, das quais as informações são mantidas para posterior uso. Podemos armazenar na tabela de símbolos também informações sobre a linha e coluna que o token foi examinado para em caso de erro o compilador passa informar a posição da falha.
-
 ### Erros léxicos
 
 A análise léxica é muito prematura para identificar alguns erros de compilação, veja o exemplo abaixo.
@@ -248,11 +240,9 @@ As expressões regulares estão diretamente relacionadas a autômatos finitos n�
 
 As **regex** são utilizadas por editores de texto, linguagem de programação, programas utilitários, IDE de desenvolvimento e compiladores e seu padrões são independentes de linguagem de programação.
 
-
-
 ### Exercícios 
 
-1 - Descreva com as suas palavras as principais tarefas da analise léxica.
+1 - Descreva com as suas palavras o que é analise léxica.
 
 2 - Defina o que é um token, lexema e padrão.
 
@@ -283,7 +273,7 @@ if (x > 0) {
 }
 ```
 
-| Lexema | Descrição |
+| Lexema | Token     |
 |--------|-----------|
 |        |           |
 |        |           |
@@ -291,9 +281,9 @@ if (x > 0) {
 |        |           |
 |        |           |
 
-7 
 
-1. Com base no exemplo anterior crie expressões regulares para validar os seguintes campos
+7. Crie expressões regulares para validar os seguintes campos
+
 a. CPF.
 b. CNPJ.
 c. IP.
