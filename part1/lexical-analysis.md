@@ -207,7 +207,7 @@ Abaixo uma tabela dos principais metacarateres.
 | \W    | Não-alfanumérico                   |                                                       |
 | \     | Escape                             | Faz com que o caracteres não sejam avaliados na Regex |
 | (...) | Grupo                              | É usado para criar um agrupamento de expressões       |
-|       | OU                                 | casa\|bonita – pode ser casa ou bonita                |
+|       | OU                                 | `casa|bonita` – pode ser casa ou bonita               |
 
 ##### Quantificadores 
 
