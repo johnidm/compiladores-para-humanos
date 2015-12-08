@@ -178,13 +178,13 @@ A análise léxica é muito prematura para identificar alguns erros de compilaç
 
 O analisador léxico não consegue identificar o erro da instrução listada acima, pois ele não consegue identificar que em determinada posição deve ser declarado a palavra reservada `if` ao invés de `fi`. Essa verificação somente é possível ser feita na análise sintática.
 
-É importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possíves.
+É importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possíveis.
 
 Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `%`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
 
 ### Expressões regulares
 
-Expressoes regulares ou **regex** são uma forma simples e flexivel de identificar cadeias de caracteres em palavras. Elas são escritas em uma linguagem formal que pode ser interpretada por um processador de expressão regular que examina o texto e identifica partes que casam com a especificação dada, são muito utilizadas para validar entradas de dados, fazer buscas, e extrair informações de textos. As expressões regulares não validam dados apenas verificam se um texto está em uma determinado padrão.
+Expressões regulares ou **regex** são uma forma simples e flexível de identificar cadeias de caracteres em palavras. Elas são escritas em uma linguagem formal que pode ser interpretada por um processador de expressão regular que examina o texto e identifica partes que casam com a especificação dada, são muito utilizadas para validar entradas de dados, fazer buscas, e extrair informações de textos. As expressões regulares não validam dados apenas verificam se um texto está em uma determinado padrão.
 
 As expressões regulares são formadas por metacarateres que definem padrões para obter o casamento entre uma **regex** e um texto.
 
@@ -231,9 +231,9 @@ Veja os exemplos:
 
 * A regex `\d,\d` casa com `9,1` já `\d,\d` não casa com `91`.
 
-* A regex `\d{5}-\d{3}` é utilziada pra valdiar CEP. Essa regex casa com os padrões de texto `89900-000` e `87711-000` mas não casa com os padrões `87711-00077` e `89900000`.  A regex é formada pelo metacaractere `\d` e o quantificador `{5}`
+* A regex `\d{5}-\d{3}` é utilizada pra validar CEP. Essa regex casa com os padrões de texto `89900-000` e `87711-000` mas não casa com os padrões `87711-00077` e `89900000`.  A regex é formada pelo metacaractere `\d` e o quantificador `{5}`
 
-* A regex `[A-Z]{3}\d{4}` é utilziada para validar a placa de um automóvel e casa com o padrao `ACB1234` mas não casa om o padrão `ACB12345`.
+* A regex `[A-Z]{3}\d{4}` é utilizada para validar a placa de um automóvel e casa com o padrão `ACB1234` mas não casa com o padrão `ACB12345`.
 
 As expressões regulares estão diretamente relacionadas a autômatos finitos não determinístico e são uma alternativa amigável para criar notações de NFA.
 
@@ -260,16 +260,16 @@ Existem diversas implementações para gerar analisadores léxicos para diferent
 
 A notação ara utilização dessas ferramentas é denominada **linguagem lex**.
 
-O ponto de partida para a cirar uma especificaçao usando a **linguagem lex** é criar uma  especificação de expressões regulares que descrevem os itens
+O ponto de partida para a criar uma especificação usando a **linguagem lex** é criar uma  especificação de expressões regulares que descrevem os itens
 léxicos que são aceitos. 
 
 Este arquivo é composto por até três seções:
 
 * Declarações: Nessa seção se se encontram as declarações de variáveis que representam definições regulares dos lexemas. 
 
-* Regras de Tradução: Nessa seção são vinculada regras que correspodnetes a ações em cada expressao regular valida na lingaugem.
+* Regras de Tradução: Nessa seção são vinculada regras que correspondentes a ações em cada expressão regular valida na linguagem.
 
-* Procedimentos Auxiliares: Esta é a terceira e última seção do arqui vo de
+* Procedimentos Auxiliares: Esta é a terceira e última seção do arquivo de
 especificação. Nela são colocadas as definições de procedimentos
 necessários para a realização das ações especificadas ou auxiliares ao
 analisador léxico
@@ -290,5 +290,4 @@ Os geradores de analisadores léxicos geram rotinas para fazer a análise léxic
 [ˆ2] - Autómato finito deterministico: É um autómato finito onde cada símbolo de entrada possui no máximo uma saída.
 
 [ˆ3] - Autómato finito não deterministico: É um autómato finito onde um símbolo de entrada tem duas ou mais saídas.
-
 
