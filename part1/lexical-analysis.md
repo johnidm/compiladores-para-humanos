@@ -269,7 +269,7 @@ Este arquivo é composto por até três seções:
 
 * Regras de Tradução: Nessa seção são vinculada regras que correspodnetes a ações em cada expressao regular valida na lingaugem.
 
-As regras são expressas no seguinte formato
+As regras de tradução são expressas no seguinte formato
 
 `Padrão { Ação }`
 
