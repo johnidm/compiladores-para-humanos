@@ -223,7 +223,6 @@ São tipos de metacaracteres que definem um número permitido de repetições na
 | +         | 1,ou mais ocorrência                  | ca*ro –carro, carrro, carrrro, nunca será caro. |
 | *         | 0 ou mais ocorrência                  | ca*ro – caro, carro, carro, carrrro             |
 
-
 ##### Casar
 
 Tem o significado de combinar uma expressão regular com texto, é quando os metacaractres especificados na expressão regular correspondem aos caracteres dos textos.
@@ -240,53 +239,25 @@ As expressões regulares estão diretamente relacionadas a autômatos finitos n�
 
 As **regex** são utilizadas por editores de texto, linguagem de programação, programas utilitários, IDE de desenvolvimento e compiladores e seu padrões são independentes de linguagem de programação.
 
-### Exercícios 
+### Geradores de Analisadores Léxicos
 
-1 - Descreva com as suas palavras o que é analise léxica.
+Os geradores de analisadores léxicos e automatizam o processo de criação do autômato finito e o processo de reconhecimento de sentenças regulares a partir da especificação de expressões regulares. Essa ferramentas são comumente chamadas de **lex**. Atualmente há diversas implementações de lex para diferentes linguagens de programação.
 
-2 - Defina o que é um token, lexema e padrão.
+O diagrama abaixo é uma representação de um autômato finito e uma implementação do funcionamento desse autômato.
 
-4 - Descreva quais os dois grupos que um token pode ser divido e explique cada um deles.
+![](..images/finite-automaton.png)
+![](..images/finite-automaton-code.png)
 
-5 - Para a seguinte linha de código dívida a sequência de tokens e escreva descrição de cada token.
+Embora o exemplo seja simples implementar um analisador léxico é uma tarefa muito trabalhosa, como essa complexidade é frequente surgiriam ferramentas que apoiam esse tipo de desenvolvimento. 
 
-```
-int a;
-a = a + 2;
-```
+Existem diversas implementações para gerar analisadores léxicos para diferentes linguagens de programação. 
 
-| Lexema | Descrição |
-|--------|-----------|
-|        |           |
-|        |           |
-|        |           |
-|        |           |
-|        |           |
+* Flex – http://flex.sourceforge.net/
+* JFlex – http://jflex.de/download.html
+* Turbo Pascal Lex/Yacc - http://www.musikwissenschaft.uni-mainz.de/~ag/tply/
+* Flex++ - http://www.kohsuke.org/flex++bison++/
+* CSLex – versão C#, derivada do Jlex - http://www.cybercom.net/~zbrad/DotNet/Lex
 
-6 - Para a seguinte linha de código dívida a sequência de tokens e escreva descrição de cada token.
+A notação ara utilização dessas ferramentas é denominada **linguagem lex**.
 
-```
-if (x > 0) {
-  x = 1;
-} else { 
-  x = 2;
-}
-```
-
-| Lexema | Token     |
-|--------|-----------|
-|        |           |
-|        |           |
-|        |           |
-|        |           |
-|        |           |
-
-
-7. Crie expressões regulares para validar os seguintes campos
-
-a. CPF.
-b. CNPJ.
-c. IP.
-d. Número de telefone.
-e. Validar uma data.
-
+Os geradores de analisadores léxicos geram rotinas para fazer a análise léxica de uma linguagem de programação a partir de um arquivo de especificações contendo basicamente expressões regulares que descrevem os tokens. É possível fazer a identificação de cada token através do seu padrão, após esse processo é gerado um arquivo fonte com a implementação do analisador léxico baseado em uma autómato finito que transforma os padrões de entrada em um diagrama de estados de transição.
