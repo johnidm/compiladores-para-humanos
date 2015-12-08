@@ -269,17 +269,17 @@ Este arquivo é composto por até três seções:
 
 * Regras de Tradução: Nessa seção são vinculada regras que correspodnetes a ações em cada expressao regular valida na lingaugem.
 
+* Procedimentos Auxiliares: Esta é a terceira e última seção do arqui vo de
+especificação. Nela são colocadas as definições de procedimentos
+necessários para a realização das ações especificadas ou auxiliares ao
+analisador léxico
+
 As regras de tradução são expressas no seguinte formato
 
 `Padrão { Ação }`
 
 onde: `Padrão é uma expressão regular que pode ser reconhecida pelo
 analisador léxico `Ação` é um fragmento de código que vai se invocado quando a expressão é reconhecida.
-
-* Procedimentos Auxiliares: Esta é a terceira e última seção do arqui vo de
-especificação. Nela são colocadas as definições de procedimentos
-necessários para a realização das ações especificadas ou auxiliares ao
-analisador léxico
 
 Os geradores de analisadores léxicos geram rotinas para fazer a análise léxica de uma linguagem de programação a partir de um arquivo de especificações contendo basicamente expressões regulares que descrevem os tokens. É possível fazer a identificação de cada token através do seu padrão, após esse processo é gerado um arquivo fonte com a implementação do analisador léxico baseado em uma autómato finito que transforma os padrões de entrada em um diagrama de estados de transição.
 
