@@ -187,14 +187,18 @@ public class GeneratorPascal {
 Agora vamos criar um arquivo de código chamado `program.pas` esse arquivo vai conter o código fonte do programa escrito em Pascal.
 
 ```
-Program CalcularSalario
-	Var Idade : Integer; 
+// Programa que cálcula o salário de funcionários
+Program CalcularSalario;
+	Var TempoEmAnos : Integer; 
 	Var ValorSalario: Real; 
 	Begin 
-		If (Idade > 10) Then 
-			ValorSalario := 100; 
+		If (TempoEmAnos > 10) Then 
+			ValorSalario := 100.00; 
 		Else 
 			ValorSalario := ValorSalario * 2; 
+	End;
+
+	Imprimir("Processamento feito com sucesso")
 End.
 ```
 
