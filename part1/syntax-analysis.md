@@ -11,17 +11,19 @@ A analise sintática e a segunda etapa do processo de compilação e utiliza gra
 
 O que é sintaxe? Parte da gramática que estuda a disposição das palavras na frase e das frases no discurso, bem como a relação lógica das frases entre si.
 
-Essa etapa do processo de compilação deve reconhecer a sintaxe do programa fonte e determinar se ela é valida ou não, esse modele de sintaxe pode ser definido utilizando gramáticas livres de contexto que representa a gramática formal, o algoritmo tenta derivar todas as possíveis construções da linguagem. As derivações tem como objetivo determinar se um fluxo de palavras se encaixa na sintaxe da linguagem de programação.
+Essa etapa do processo de compilação deve reconhecer a sintaxe do programa fonte e determinar se ele é valido ou não, esse modelo pode ser definido utilizando gramáticas livres de contexto que representam uma gramática formal, o algoritmo tenta derivar todas as possíveis construções da linguagem. 
 
-Alguns termos são utilizados em linguagens de programação para facilitar o seu entendimento.
+As derivações tem como objetivo determinar se um fluxo de palavras se encaixa na sintaxe da linguagem de programação.
+
+Alguns termos são utilizados na definição de linguagens de programação.
 
 * **Símbolo**: são os elementos mínimos que compõe uma linguagem. Na linguagem humana são as letras. 
 * **Sentença**: É um conjunto ordenado de símbolos que forma uma cadeia ou *string*.  Na linguagem humana são as palavras.
-* Alfabeto: É um conjunto de símbolos. Na linguagem humana é o conjunto de letras {a, b, c, d, ...} 
+* **Alfabeto**: É um conjunto de símbolos. Na linguagem humana é o conjunto de letras {a, b, c, d, ...} 
 * **Linguagem**: É o conjunto de sentenças, Na linguagem humana são os conjuntos de palavras {compiladores, linguagem, ...}
 * **Gramática**: É uma forma de representar as regras para formação de uma linguagem.
 
-Dada uma GLC “G” e uma sentença “s” o objetivo do analisador sintático é verificar se a sentença “s” pertence a linguagem “G”. O analisador sintático também é conhecido como *parser* e recebe do analisador léxico a sequência de tokens que constitui a sentença “s” e produz uma arvore de derivação se a sentença é válida ou emite um erro sintático. 
+Dada uma gramática “G” e uma sentença “s” o objetivo do analisador sintático é verificar se a sentença “s” pertence a linguagem “G”. O analisador sintático recebe do analisador léxico a sequência de tokens que constitui a sentença “s” e produz uma arvore de derivação se a sentença é válida ou emite um erro se a sentença é inválida. 
 
 O analisador sintático deve ser projetado para que a análise seja feita até o fim do programa mesmo que encontre erros no texto do programa fonte.
 
@@ -31,7 +33,7 @@ Já o analisador sintático vê o mesmo texto como uma sequência de sentenças 
 
 ![](../images/ast.png)
 
-Observe estrutura sintática de uma linguagem de programação. Temos as divisões dos blocos, compostos por comandos, compostos por expressões, os tokens.
+Observe estrutura sintática de uma linguagem de programação. Temos as divisões dos blocos, compostos por comandos, compostos por expressões.
 
 ![](../images/source-code-java.png)
 
@@ -51,17 +53,17 @@ Descubra os erros sintáticos do código fonte abaixo escrito em linguagem Java.
 
 E importante destacar que a árvore de derivação representa toda a estrutura sintática do programa.
 
-### Gramatica Livre de Contexto - GLC
+### Gramática Livre de Contexto
 
-A Gramatica Livre de Contexto ajuda a especificar a sintaxe de uma linguagem de programação. A GLC é a base para a análise sintática das linguagens de programação e permitem descrever a maioria das linguagens de programação usadas atualmente. Uma gramática descreve naturalmente como é possível fazer construções em linguagem de programação. Veja o exemplo de um comando if-else em Pascal que deve ter a seguinte forma.
+A Gramática Livre de Contexto ajuda a especificar a sintaxe de uma linguagem de programação e é a base para a análise sintática de um compilador. Com ela podemos descrever a maioria das linguagens de programação usadas atualmente. Uma gramática descreve naturalmente como é possível fazer construções programa. Veja o exemplo de um comando `if-else` em Pascal que deve ter a seguinte forma.
 
 `if (expressão) then declaração else declaração ;`
 
-Essa mesma forma em uma Gramatica Livre de Contexto pode ser expressada da seguinte maneira 
+Essa mesma forma em uma Gramática Livre de Contexto pode ser expressada da seguinte maneira: 
 
 `declaração → if ( expressão ) then declaração else declaração ;`
 
-As linguagens regulares podem ser reconhecidas através de expressões regulares criando um analisador léxico. Uma linguagem livre de contexto pode ser reconhecida autômatos de pilha que a descrevem a forma como podemos criar analisadores sintáticos.
+As linguagens regulares podem ser reconhecidas através de expressões regulares criando um analisador léxico. Uma linguagem livre de contexto pode ser reconhecida através de autômatos de pilha que descrevem a forma como podemos criar analisadores sintáticos.
 
 A definição de uma gramática livre de contexto pode ser representada da seguinte forma:
 
@@ -76,18 +78,21 @@ Onde:
 
 Terminologias:
 
-* Símbolos terminais: símbolos básicos que formas as cadeias, são os tokens da linguagem de programação.
+* **Símbolos terminais**: símbolos básicos que formas as cadeias, são os tokens da linguagem de programação.
 
-* Símbolos não terminais: variáveis sintáticas utilizadas para auxiliar a definição da linguagem, são compostas de símbolos terminas e pelos próprios símbolos não terminais.
+* **Símbolos não terminais**: variáveis sintáticas utilizadas para auxiliar a definição da linguagem, são compostas de símbolos terminas e pelos próprios símbolos não terminais.
 
-* Regras de produções: regras sintáticas que indicam como símbolos terminais e não terminais podem ser combinados.
+* **Regras de produções**: regras sintáticas que indicam como símbolos terminais e não terminais podem ser combinados.
 
-* Símbolo inicial: Inicio da validação da produção representado por um símbolo não terminal. 
+* **Símbolo inicial**: Inicio da validação da produção representado por um símbolo não terminal. 
 
-Derivações: É a substituição de cadeias de símbolos terminais iniciando pelo símbolo inicial substituindo os símbolos não terminais pelos símbolos terminais.
+Derivações é a substituição de cadeias de símbolos terminais iniciando pelo símbolo inicial substituindo os símbolos não terminais pelos símbolos terminais.
+
 Tipos de derivação:
-Mais à esquerda: trocamos os símbolos não terminais mais à esquerda.
-Mais à direita: trocamos os símbolos não terminais mais a direita.
+
+* Mais à esquerda: trocamos os símbolos não terminais mais à esquerda.
+* Mais à direita: trocamos os símbolos não terminais mais à direita.
+
 Exemplos de definição de uma gramática para validar uma linguagem de programação:
 
 ### Exemplos de gramáticas livres de contexto
@@ -106,14 +111,14 @@ PALAVRA {
 
 Identificação terminologias
 
-|                         |         |
+| Descrição               |         |
 |-------------------------|---------|
 | Símbolos terminais      | a,e b   |
 | Símbolos não terminais: | LITERAL |
 | Símbolo inicial:        | LITERAL |
 | Regra de produção:      | PALAVRA |
 
-A palavra ``aabb pode ser gerada a partir da seguinte derivação a direita:
+A palavra `aabb pode ser gerada a partir da seguinte derivação a direita:
 
 ```
 LITERAL → aLITERALb 
@@ -121,9 +126,9 @@ LITERAL → aaLITERALbb
 LITERAL → aaØbb
 ```
 
-Com a gramática acima é possível dizer que palavra `aab` da linguagem? 
+Com a gramática acima é possível dizer que palavra `aab` pertence linguagem? 
 
-#### Exemplo 02 – expressões matemáticas, soma e multiplicação
+#### Exemplo 02 – expressões matemáticas de soma e multiplicação
 
 Definir da gramática: 
 
@@ -137,14 +142,15 @@ OPR {
 
 Identificação terminologias
 
-|                         |                |
+| Descrição               |                |
 |-------------------------|----------------|
 | Símbolos terminais      | +,, *, (, ), x |
 | Símbolos não terminais: | EXP            |
 | Símbolo inicial:        | EXP            |
-| Regra de produção:      | PALAVRA        |
+| Regra de produção:      | OPR            |
 
-A expressão (x + x) * x pode ser derivada a partir da seguinte derivação a esquerda:
+A expressão `(x + x) * x` pode ser derivada a partir da seguinte regra de produção:
+
 ```
 EXP → EXP * EXP 
 EXP → (EXP) * EXP 
@@ -154,7 +160,7 @@ EXP → (x + x) * EXP
 EXP → (x + x) * x
 ```
 
-É possível derivar a expressão x - x?
+É possível derivar a expressão `x - x?
 
 #### Exemplo 03 – expressões matemáticas completas
 
@@ -171,7 +177,7 @@ OPR {
 
 Identificação terminologias
 
-|                         |                                  |
+| Descrição               |                                  |
 |-------------------------|----------------------------------|
 | Símbolos terminais      | + , *, (, ), x, +, -, id, numero |
 | Símbolos não terminais: | EXP, OP                          |
@@ -179,22 +185,22 @@ Identificação terminologias
 | Regra de produção:      | OPR                              |
 
 
-Derivação de expressões (Podemos validar qualquer expressão matemática).
+Podemos validar qualquer expressão matemática com essa gramática.
 
-Derivação a esquerda da expressão a + b
+Derivação a esquerda da expressão `a + b`
 
 ```
 EXP → EXP OP EXP
 EXP → EXP OP id
 EXP → EXP + id
 EXP → id + id
+```
 
 Derivação a direita da expressão -1
 ```
-	EXP → OP EXP
-	EXP → OP numero
+EXP → OP EXP
+EXP → - EXP
 EXP → - numero
-
 ```
 
 #### Exemplo 04 – Chamada de funções
@@ -213,7 +219,7 @@ OPR {
 
 Identificação terminologias
 
-|                         |                                        |
+| Descrição               |                                        |
 |-------------------------|----------------------------------------|
 | Símbolos terminais      | (,,),,, ,,id                           |
 | Símbolos não terminais: | CHAMADA, CHAMADA_PARAMS, PARAMS, PARAM |
