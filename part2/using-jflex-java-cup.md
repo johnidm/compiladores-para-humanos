@@ -12,7 +12,7 @@ inicio
 fim
 ```
 
-Crie um novo projeto chamado `SyntacticAnalyzer` e salve o código em um arquivo chamado `sextafase.pg`.
+Crie um novo projeto chamado `SyntacticAnalyzer` e um pacote chamado `br.com.johnidouglas`, salve o código em um arquivo chamado `sextafase.pg`.
 
 As seguintes convenções serão utilizadas na nova linguagem.
 
@@ -40,7 +40,7 @@ REGRA {
 }
 ```
 
-Nos vamos começar criando o  analisador léxico através do JFlex crie uma classe chamada `Generator` com o seguinte código.
+Nos vamos começar criando o  analisador léxico através do JFlex. Crie uma classe chamada `Generator` com o seguinte código.
 
 ```
 package sintatico;
