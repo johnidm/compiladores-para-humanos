@@ -124,8 +124,7 @@ import java_cup.runtime.*;
 import java.io.*;
 import java.util.*;
 
-
-terminal INICIO, FIM, PARA, ATE, FACA, NUMERO, ID, MULTIPLICADOR, ATRIBUICAO;
+terminal INICIO, FIM, PARA, ATE, FACA, NUMERO, ID, MULTIPLICACAO, ATRIBUICAO;
 
 non terminal _INICIO_, _LACO_, _BLOCO_;
 
@@ -138,7 +137,7 @@ _BLOCO_ ::= _BLOCO_ _LACO_ | _LACO_;
 _LACO_ ::= PARA NUMERO ATE NUMERO FACA ID ATRIBUICAO ID MULTIPLICACAO NUMERO;
 ```
 
-Esse arquivo contém as especificações sintáticas, que nada mais é do que a gramática da linguagem de programação. Da mesma forma que o analisador léxico gerado pelo Jflex, o analisador sintático também irá gerar uma nova classe Java.
+Esse arquivo contém as especificações sintáticas, que nada mais é do que a gramática da linguagem de programação. Da mesma forma que o analisador léxico gerado pelo Jflex, o analisador sintático também irá gerar uma classe Java.
 
 Através da linha de comando acesse a pasta onde o arquivo linguagem.cup esta salvo.
 
@@ -146,11 +145,17 @@ Execute a seguinte linha de comando:
 
 `java –cp <caminho do jar do Java CUP> java_cup.Main -parser SyntacticAnalyzer linguagem.cup
 `
+Exemplo de comando:
+
+```
+cd /Users/johni/Documents/workspace/SyntacticAnalyzer/src/br/com/johnidouglas
+java -cp "/Users/johni/.m2/repository/edu/princeton/cup/java-cup/10k/java-cup-10k.jar" java_cup.Main -parser SyntacticAnalyzer language.cup
+```
 
 Caso o comando seja executado com sucesso um arquivo chamado
-`SyntacticAnalyzer .Java` foi criado com regras sintáticas da gramática definida.
+`SyntacticAnalyzer.java` será criado com regras sintáticas da gramática definida.
 
-Pronto agora cria uma classe chamada `Compiler` e inclua o seguinte código nela.
+Pronto, agora crie uma classe chamada `Compiler` e inclua o seguinte código nela.
 
 ```
 package sintatico;
