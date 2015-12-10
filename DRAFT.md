@@ -4,7 +4,7 @@
   -->s
   
     <!---
-  * [Utilizando o JFlex e Java CUP](part2/using-jflex-java-cup.md)
+ 
   -->
 
   ### Tabela de símbolos

@@ -12,7 +12,7 @@ inicio
 fim
 ```
 
-Salve esse código em um arquivo chamado `sextafase.pg`.
+Crie um novo projeto chamado `SyntacticAnalyzer` e salve o código em um arquivo chamado `sextafase.pg`.
 
 As seguintes convenções serão utilizadas na nova linguagem.
 
@@ -30,7 +30,7 @@ As seguintes convenções serão utilizadas na nova linguagem.
 | *      | Constante numérica                     |
 | fim    | Palavra reservada – fim do programa    |
 
-A próxima etapa é definir a gramática da linguagem de programação utilizando a notação da gramática livre de contexto. Observe os símbolos terminais e não terminais, símbolo inicial e a regra de produção
+A próxima etapa é definir a gramática da linguagem de programação utilizando uma gramática livre de contexto. Observe os símbolos terminais e não terminais, símbolo inicial e a regra de produção criados.
 
 ```
 G = ({INICIO, LACO, FIM }, {inicio, para, numero, ate, faca, id, atribuicao, valor, multiplicacao, fim}, REGRA, INICIO)
@@ -40,7 +40,7 @@ REGRA {
 }
 ```
 
-Nos vamos começar criando o  analisador léxico através do JFlex. Para isso crie um novo projeto chamado `SyntacticAnalyzer` então crie uma classe chamada `Generator` com o seguinte código.
+Nos vamos começar criando o  analisador léxico através do JFlex crie uma classe chamada `Generator` com o seguinte código.
 
 ```
 package sintatico;
