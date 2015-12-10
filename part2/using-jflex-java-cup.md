@@ -193,7 +193,7 @@ public class Compiler {
 }
 ```
 
-Essa classe vai executar o compilador da linguagem de programação.
+Essa classe vai executar o compilador da linguagem.
 
 Para rodar esse exemplo siga os seguintes passos:
 
@@ -203,6 +203,5 @@ Para rodar esse exemplo siga os seguintes passos:
 
 * Execute a classe `Compilador`.
 
-
-
+UAU, nós já concluímos mais uma etapa projeto do compilador. Parabéns.
 
