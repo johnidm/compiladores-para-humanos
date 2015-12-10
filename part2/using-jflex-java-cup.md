@@ -40,7 +40,7 @@ REGRA {
 }
 ```
 
-Nos vamos começar criando o  analisador léxico através do JFlex. Crie uma classe chamada `Generator` com o seguinte código.
+Vamos começar criando o analisador léxico através do JFlex. Crie uma classe chamada `Generator` com o seguinte código.
 
 ```
 package sintatico;
@@ -109,16 +109,33 @@ ID = [A-Za-z_][A-Za-z_0-9]*
 
 Para que o analisador léxico desenvolvido com o JFlex funcione corretamente em conjunto com o analisador sintático Java Cup as seguintes oram feitas no arquivo lex.
 
-* %cup – indica que o analisador léxico será integrado ao Java Cup
-* %type java_cup.runtime.Symbol – especifica o tipo de retorno de tokens de
+* `%cup` – indica que o analisador léxico será integrado ao Java Cup
+* `%type java_cup.runtime.Symbol` – especifica o tipo de retorno de tokens de
 acordo com a interface Symbol.
-* return new Symbol(sym.INICIO); - Cada token identificado deve retornar
-uma instancia da classe Symbol identificada por uma constante numérica
-(sym.INICIO). Essa constante é gerada automaticamente pelo Java Cup.
+* `return new Symbol(sym.INICIO)` - Cada token identificado deve retornar
+uma instancia da classe Symbol identificada por uma constante numérica. Essa constante é gerada automaticamente pelo Java Cup.
 
 Nos precisamos criar um arquivo com as especificações sintáticas. Crie um novo arquivo e salve com o nome `language.cup` com o seguinte conteúdo.
 
 ```
+package br.com.johnidouglas;
+
+import java_cup.runtime.*;
+import java.io.*;
+import java.util.*;
+
+
+terminal INICIO, FIM, PARA, ATE, FACA, NUMERO, ID, MULTIPLICADOR, ATRIBUICAO;
+
+non terminal _INICIO_, _LACO_, _BLOCO_;
+
+start with _INICIO_;
+
+_INICIO_ ::= INICIO _BLOCO_ FIM;
+
+_BLOCO_ ::= _BLOCO_ _LACO_ | _LACO_;
+
+_LACO_ ::= PARA NUMERO ATE NUMERO FACA ID ATRIBUICAO ID MULTIPLICACAO NUMERO;
 ```
 
 Esse arquivo contém as especificações sintáticas, que nada mais é do que a gramática da linguagem de programação. Da mesma forma que o analisador léxico gerado pelo Jflex, o analisador sintático também irá gerar uma nova classe Java.
