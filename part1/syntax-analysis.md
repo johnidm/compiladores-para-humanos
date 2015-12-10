@@ -16,12 +16,12 @@ Essa etapa do processo de compilação deve reconhecer a sintaxe do programa fon
 Alguns termos são utilizados em linguagens de programação para facilitar o seu entendimento.
 
 * **Símbolo**: são os elementos mínimos que compõe uma linguagem. Na linguagem humana são as letras. 
-* **Sentença**: É um conjunto ordenado de símbolos que forma uma cadeia ou string.  Na linguagem humana são as palavras.
+* **Sentença**: É um conjunto ordenado de símbolos que forma uma cadeia ou *string*.  Na linguagem humana são as palavras.
 * Alfabeto: É um conjunto de símbolos. Na linguagem humana é o conjunto de letras {a, b, c, d, ...} 
 * **Linguagem**: É o conjunto de sentenças, Na linguagem humana são os conjuntos de palavras {compiladores, linguagem, ...}
 * **Gramática**: É uma forma de representar as regras para formação de uma linguagem.
 
-Dada uma GLC “G” e uma sentença “s” o objetivo do analisador sintático é verificar se a sentença “s” pertence a linguagem “G”. O analisador sintático também é conhecido como parser e recebe do analisador léxico a sequência de tokens que constitui a sentença “s” e produz uma arvore de derivação se a sentença é válida ou emite um erro sintático. 
+Dada uma GLC “G” e uma sentença “s” o objetivo do analisador sintático é verificar se a sentença “s” pertence a linguagem “G”. O analisador sintático também é conhecido como *parser* e recebe do analisador léxico a sequência de tokens que constitui a sentença “s” e produz uma arvore de derivação se a sentença é válida ou emite um erro sintático. 
 
 O analisador sintático deve ser projetado para que a análise seja feita até o fim do programa mesmo que encontre erros no texto do programa fonte.
 
@@ -53,17 +53,17 @@ E importante destacar que a árvore de derivação representa toda a estrutura s
 
 ### Gramatica Livre de Contexto - GLC
 
-A Gramatica Livre de Contexto ajuda a especificar a sintaxe de uma linguagem de programação. A GLC é a base para a análise sintática das linguagens de programação e permitem descrever a maioria das linguagens de programação usadas atualmente. Uma gramatica descreve naturalmente como é possível fazer construções em linguagem de programação. Veja o exemplo de um comando if-else em Pascal que deve ter a seguinte forma.
+A Gramatica Livre de Contexto ajuda a especificar a sintaxe de uma linguagem de programação. A GLC é a base para a análise sintática das linguagens de programação e permitem descrever a maioria das linguagens de programação usadas atualmente. Uma gramática descreve naturalmente como é possível fazer construções em linguagem de programação. Veja o exemplo de um comando if-else em Pascal que deve ter a seguinte forma.
 
-`if (expressão) then declaração else declaracao ;`
+`if (expressão) then declaração else declaração ;`
 
 Essa mesma forma em uma Gramatica Livre de Contexto pode ser expressada da seguinte maneira 
 
-`declaracao → if ( expressao ) then declaracao else declaracao ;`
+`declaração → if ( expressão ) then declaração else declaração ;`
 
 As linguagens regulares podem ser reconhecidas através de expressões regulares criando um analisador léxico. Uma linguagem livre de contexto pode ser reconhecida autômatos de pilha que a descrevem a forma como podemos criar analisadores sintáticos.
 
-A definição de uma gramatica livre de contexto pode ser representada da seguinte forma:
+A definição de uma gramática livre de contexto pode ser representada da seguinte forma:
 
 `G = (N, T, P, S)`
 
@@ -72,7 +72,7 @@ Onde:
 * N – Conjunto finito de símbolos não terminais.
 * T – Conjunto finito de símbolos terminais.
 * P – Conjunto de regras de produções.
-* S – Símbolo inicial da gramatica
+* S – Símbolo inicial da gramática.
 
 Terminologias:
 
@@ -88,13 +88,13 @@ Derivações: É a substituição de cadeias de símbolos terminais iniciando pe
 Tipos de derivação:
 Mais à esquerda: trocamos os símbolos não terminais mais à esquerda.
 Mais à direita: trocamos os símbolos não terminais mais a direita.
-Exemplos de definição de uma gramatica para validar uma linguagem de programação:
+Exemplos de definição de uma gramática para validar uma linguagem de programação:
 
-### Exemplos de gramaticas livres de contexto
+### Exemplos de gramáticas livres de contexto
 
 #### Exemplo 01 – Linguagem ab
 
-Definir a gramatica: 
+Definir a gramática: 
 
 ```
 G = ({LITERAL}, {a, b}, PALAVRA, LITERAL)
@@ -113,7 +113,7 @@ Identificação terminologias
 | Símbolo inicial:        | LITERAL |
 | Regra de produção:      | PALAVRA |
 
-A palavra aabb pode ser gerada a partir da seguinte derivação a direita:
+A palavra ``aabb pode ser gerada a partir da seguinte derivação a direita:
 
 ```
 LITERAL → aLITERALb 
@@ -121,7 +121,7 @@ LITERAL → aaLITERALbb
 LITERAL → aaØbb
 ```
 
-Com a gramática acima é possível dizer que palavra aab da linguagem? 
+Com a gramática acima é possível dizer que palavra `aab` da linguagem? 
 
 #### Exemplo 02 – expressões matemáticas, soma e multiplicação
 
@@ -230,10 +230,10 @@ CHAMADA → id(id , id)
 CHAMADA → exibir(valor, desconto)
 ```
 
-Dicas para criar uma gramatica livre de contexto
+Dicas para criar uma gramática livre de contexto
 
 * Conhecer todos os tokens.
-* Especificar a gramatica. Por exemplo `G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )`
+* Especificar a gramática. Por exemplo `G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )`
 * Criar a regra de produção.
 * Fazer a derivação
 
