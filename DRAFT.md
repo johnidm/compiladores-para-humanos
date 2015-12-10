@@ -1,5 +1,5 @@
  <!---
-  * [Analisador Sintático](part1/syntax-analysis.md)
+
   * [Gramáticas Livres de Contexto](part1/context-free-grammars.md)
   -->s
   
