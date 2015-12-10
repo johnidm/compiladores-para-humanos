@@ -3,7 +3,7 @@ Construindo um Compilador Front-End com JFlex e Java CUP
 
 Para integrar com um analisador léxico criado através do JFlex vamos utilizar a ferramenta Java Cup que já faz parte do pacote de desenvolvimento de JFlex. Mais informações nesse [link](http://www2.cs.tum.edu/projects/cup/).
 
-Vamos começar definindo a forma que a linguagem de programação deve ter.
+Vamos começar definindo a sintaxe da linguagem de programação.
 
 ```
 inicio 
@@ -12,12 +12,13 @@ inicio
 fim
 ```
 
-Salve o código da lingaugem de programação em um arquivo chamado `sextafase.pg`.
+Salve esse código em um arquivo chamado `sextafase.pg`.
 
-Nos precisamos definir as convenções utilizadas na nova linguagem de programação.
+As seguintes convenções serão utilizadas na nova linguagem.
 
-| inicio | Palavra reservada – início do programa |
+| Lexema | Descrição                              |
 |--------|----------------------------------------|
+| inicio | Palavra reservada – início do programa |
 | para   | Palavra reservada                      |
 | 1      | Constante numérica                     |
 | ate    | Palavra reservada                      |
