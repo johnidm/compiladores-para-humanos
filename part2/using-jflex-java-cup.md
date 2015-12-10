@@ -43,28 +43,34 @@ REGRA {
 Vamos começar criando o analisador léxico através do JFlex. Crie uma classe chamada `Generator` com o seguinte código.
 
 ```
-package sintatico;
+package br.com.johnidouglas;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 public class Generator {
-  
+
 	public static void main(String[] args) {
-	
-		String path = "/home/johni/Projects/collections-code-kata/demo-analisador-sintatico/src/sintatico/";		
-		String arquivo = path + "linguagem.lex";
-	    
-	    File file = new File(arquivo );        
-	    jflex.Main.generate(file);
-	    
-	}		
+
+		String rootPath = Paths.get("").toAbsolutePath().toString();
+		String subPath = "/src/br/com/johnidouglas/";
+
+		
+		String file = rootPath + subPath + "language.lex";
+
+		File sourceCode = new File(file);
+
+		jflex.Main.generate(sourceCode);
+
+	}
+
 }
 ```
 
 Agora vamos criar o arquivo de especificação léxica chamada `language.lex` com o seguinte conteúdo.
 
 ```
-package sintatico;
+package br.com.johnidouglas;
 
 import java_cup.runtime.*;
 
@@ -73,15 +79,15 @@ import java_cup.runtime.*;
 %{
 
 private void log(String descricao, String lexema) {
-	 System.out.println(lexema + " - " + descricao);
-	 
+     System.out.println(lexema + " - " + descricao);
+
 }
 
 %}
 
 %cup
 %public
-%class AnalisadorLexico
+%class LexicalAnalyzer
 %type java_cup.runtime.Symbol
 
 BRANCO = [\n|\s|\t\r]
@@ -90,21 +96,20 @@ ID = [A-Za-z_][A-Za-z_0-9]*
 
 %%
 
-"inicio" 	{ log("Palavra reservada", yytext()); return new Symbol(sym.INICIO); }
-"fim"		{ log("Palavra reservada", yytext()); return new Symbol(sym.FIM); }
-"para"		{ log("Palavra reservada", yytext()); return new Symbol(sym.PARA); }
-"ate"		{ log("Palavra reservada", yytext()); return new Symbol(sym.ATE); }
-"faca"		{ log("Palavra reservada", yytext()); return new Symbol(sym.FACA); }
+"inicio"     	{ log("Palavra reservada", yytext()); return new Symbol(sym.INICIO); }
+"fim"        	{ log("Palavra reservada", yytext()); return new Symbol(sym.FIM); }
+"para"        	{ log("Palavra reservada", yytext()); return new Symbol(sym.PARA); }
+"ate"        	{ log("Palavra reservada", yytext()); return new Symbol(sym.ATE); }
+"faca"        	{ log("Palavra reservada", yytext()); return new Symbol(sym.FACA); }
 
-{CONSTANTE_NUMERICA} 	{ log("Constante numerica", yytext()); return new Symbol(sym.NUMERO); }
-{ID}					{ log("Id", yytext()); return new Symbol(sym.ID); }
-"*"						{ log("Operador de multiplicacao", yytext()); return new Symbol(sym.MULTIPLICACAO); }
-"<-" 					{ log("Sinal de atribuicao", yytext()); return new Symbol(sym.ATRIBUICAO); }
+{CONSTANTE_NUMERICA}     	{ log("Constante numerica", yytext()); return new Symbol(sym.NUMERO); }
+{ID}                    	{ log("Id", yytext()); return new Symbol(sym.ID); }
+"*"                        	{ log("Operador de multiplicacao", yytext()); return new Symbol(sym.MULTIPLICACAO); }
+"<-"                     	{ log("Sinal de atribuicao", yytext()); return new Symbol(sym.ATRIBUICAO); }
 
 {BRANCO} {  }
 
-. {  }
-
+. { throw new RuntimeException("Caractere inválido " + yytext() + " na linha " + yyline + ", coluna " +yycolumn); }
 ```
 
 Para que o analisador léxico desenvolvido com o JFlex funcione corretamente em conjunto com o analisador sintático Java Cup as seguintes oram feitas no arquivo lex.
@@ -158,34 +163,46 @@ Caso o comando seja executado com sucesso um arquivo chamado
 Pronto, agora crie uma classe chamada `Compiler` e inclua o seguinte código nela.
 
 ```
-package sintatico;
+package br.com.johnidouglas;
+
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.io.InputStreamReader;
+import java.nio.file.Paths;
 
-public class Compilador {
+public class Compiler {
 
-	public static void main(String[] args) throws Exception {
-		
-		String path = "";
-		
-		String sourcecode = path + "programa.ptg"; 
-			
-		File in =  new File(sourcecode);
-		
-		InputStreamReader r = new InputStreamReader(new FileInputStream(in));
-		
-		/*
-		AnalisadorLexico lexico = new AnalisadorLexico( r );	
-		AnalisadorSintatico sintatico = new AnalisadorSintatico(lexico);
-		sintatico.parse();
-		*/	
-	}
+    public static void main(String[] args) throws Exception {
+
+    	String rootPath = Paths.get("").toAbsolutePath().toString();
+		String subPath = "/src/br/com/johnidouglas/";
+
+		String sourcecode = rootPath + subPath + "sextafase.pg";
+
+        File in =  new File(sourcecode);
+
+        InputStreamReader sourceCode = new InputStreamReader(new FileInputStream(in));
+
+        LexicalAnalyzer lexer = new LexicalAnalyzer( sourceCode );    
+        SyntacticAnalyzer parser = new SyntacticAnalyzer(lexer);
+        parser.parse();
+       
+    }
 }
 ```
 
-Essa classe vai executar o compilador da linguagem de programação. 
+Essa classe vai executar o compilador da linguagem de programação.
+
+Para rodar esse exemplo siga os seguintes passos:
+
+* Execute linha de comando `java –cp <caminho do jar do Java CUP> java_cup.Main -parser SyntacticAnalyzer linguagem.cup`.
+
+* Execute a classe `Generator`.
+
+* Execute a classe `Compilador`.
+
+
 
 
