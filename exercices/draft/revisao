@@ -1,0 +1,79 @@
+INTRO
+	a estrutura é apenas uma reprensetacao didatica
+	
+
+
+LINGUAGENS DE PROGRAMACAO 
+
+Através das linguagens de programação, consegue-se :
+	Facilidades para se escrever programas;
+	Diminuição do problema de diferenças entre máquina;
+	Facilidade de depuração e manutenção de programas;
+	Melhoria da interface homem/máquina;
+	Redução no custo e tempo necessário para o desenvolvimento de programas;
+	Aumento da compatibilidade e modularidade
+
+ANALISE LEXICA
+
+- produz uma sequencia de sombilos lexicos chadaos de tokens
+- podemos dizer se uma deteriniada palavra faz parte do alfabeto
+
+ANALISE SINTATICA
+
+- reconhece a estrutura do programa
+- tranforma a entreda em uma estruturad de dados, em geral uam arvores, que represetnar a estrutura hierarquica do programa fonte
+- usar o termo arovre de sitnax abstrata
+
+Recomendar o uso do http://www.jflap.org/
+
+ANALISE SEMANTICA
+
+- validar alguma regras usuario em uma lp, nao se trata de regras estruturais mas sim de regras de significado. se a varaivl esta declarada, e o contexto e que ocorreo a expressao ou variavel
+- nessa etapa ocorre um interelacionamento emre partes distintas do programa, 
+- tarefas basicas
+	* vrificacao de tipos
+	* regras de atribuicao
+	* verificacao de unicidade de variavies
+- nao possivel em uma gramatica livre de contexto definir que todo o identificador deve ser declarado
+	int f1(int 1, float b) {
+		return a % b
+	}
+
+invalid operadnds to binary %
+
+- em alguns casos o compilador deve realizar a conversao automatica, veja o exemplo
+a = x - "0", o caracter 0 e automaticamente convertido para que seja possivel fazer essa operacao.
+
+- detercar se os comandos de fluxo como brack, e continue deve sao usado de forma correta
+- nome variavel esta duplicado
+- exatidao semantica do programa
+- Usa a tabela de simbolos e arvore abstrata
+
+
+REPRESENTACAO INTERMEDIAIA
+
+define a marioria das operaçoes do programa especificas a lingaugem e sao formatos simples semelhantes a bytecodes java 
+
+com base na taberla de simbolos e na AST e gerada uma represtacao intermediaria. essa represntavao utilizadoa operadores simpes em um conjunto de tipos primitivos, como inteiros carteres se reais, 
+
+um exmeplo de forma intermeriarei e o conjuinto de intrucoes MIPS com um numjero infiniro de registradores virtuais  que posteriormente sao mapeados para registradores reais
+
+esse represtancao pode ser independente do programa fonte original  
+
+
+OTIMIZAVOES DO CÓDIGO
+
+Otimizacao local
+Otimizavcao gloabl
+
+Alocacao de registradores
+
+
+GERACAO DE CODIGO
+
+Etapa final onde o codigo e gerado e montado. A maioria dos compiladores nao usa um montador isolado
+Esse ẽ uma tarefa relativamente simples para os compialdores modernos, o que pode tornar essa etapa um pouco mais complexa e um conjnto de RI ser tornar uma unica instrucao de maquina
+			
+
+
+

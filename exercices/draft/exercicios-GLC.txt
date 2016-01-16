@@ -1,0 +1,80 @@
+A -> B
+B -> 1A
+B -> 0
+
+1110 pertence a linguagem, faca a arvore de derivacao
+---
+Supondo a gramática G = (V n , V t , P, Sentença)
+	V n = {SENTENÇA, SN, SV, ARTIGO, VERBO, SUBSTANTIVO, COMPLEMENTO}
+	V t = {aluno, o, estudou, compiladores}
+	P : SENTENÇA → SN SV
+	SN → ARTIGO SUBSTANTIVO
+	SV → VERBO COMPLEMENTO
+	COMPLEMENTO → ARTIGO SUBSTANTIVO | SUBSTANTIVO
+	ARTIGO → o
+	SUBSTANTIVO → aluno | compiladores
+	VERBO → estudou
+Derivar : “ o aluno estudou compiladores”
+ 
+----
+
+Duas gramáticas G 1 e G 2 são equivalentes see L(G 1 ) = L(G 2 ), ou seja, see suas
+linguagens são iguais.
+Ex. Quais as linguagens geradas para as seguintes gramáticas:
+
+	G1= ({S}, {a,b}, P, S)
+	P :
+	S → aSb
+	S → ab
+	S ⇒ ab (menor cadeia)
+	S ⇒ aSb ⇒ aabb
+	S ⇒ aSb ⇒ aaSbb ⇒ aaabbb
+
+	G2 = ({S}, {a,b}, P, S)
+	P :
+	S → aAb
+	A → ab|λ|S
+	S ⇒ aAb ⇒ ab (menor cadeia)
+	S ⇒ aAb ⇒ aabb
+	S ⇒ aAb ⇒ aSb ⇒ aaAbb ⇒ aaabbb
+
+L(G1) = L(G2) = {w/w ∈ {a,b} * e w = a n b n ,n>0}. Portanto G1 e G2 são equivalentes.
+
+----
+
+4) Seja a gramática abaixo :
+<S> é o símbolo inicial
+<S> ::= <B>
+<B> ::= <C> | <C> + <D>
+<C> ::= <D> | <C> * <D> | *<D>
+<D> ::= x | (<S>) | - <D>
+a) Definir V t e V n
+b) Gere 10 sentenças para esta gramática.
+5)
+P
+S → aSBC | aBC
+CB → BC
+aB → ab
+bB → bb
+bC → bc
+cC → cc
+Qual a L(G) ?
+
+---
+
+Determinar o tipo da gramática e gerar 3 sentenças para G = ({A,B,S}, {a,b,c}, P, S)
+S → Aa
+A → c
+A → Ba
+B → abc
+
+6) Mostre a linguagem gerada pelas produções da GLC abaixo e construa uma GR
+equivalente.
+G = ({A, B, S}, {a, b}, P, S)
+P:
+S → AB
+A → aA
+A → aBB
+B → Bb
+B → b
+

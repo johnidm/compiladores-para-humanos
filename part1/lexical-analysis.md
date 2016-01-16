@@ -170,6 +170,60 @@ Tabela de símbolos
 	
 O analisador léxico realiza tarefas simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
 
+#### Exemplo 4
+
+Suponha que tenhamos a seguinte linha de código.
+
+`position = initial + rate * 60`
+
+Mapeamento de tokens.
+
+| Lexema   | Símbolo | Significado   | Tabela de simbolos | Token         |
+|----------|---------|---------------|--------------------|---------------|
+| position | ID      | Identificador | 1                  | <Idt, 1>      |
+| =        |         |               |                    | <=, simbolo>  |
+| initial  | ID      | Identificador | 2                  | <Idt, 2>      |
+| +        |         |               |                    | <+, operador> |
+| rate     | ID      | Identificador | 3                  | <Idt, 3>      |
+| *        |         |               |                    | <*, operador> |
+| 60       | Numero  | Inteiro       | 4                  | <Número, 4>   |
+
+
+Sequência de tokens gerado. 
+
+`<ID, 1> <=> <ID, 2> <+> <ID, 3> <*> <Numero, 4>`
+
+#### Passos para identificat uma sequencia de tokens em uam programcao fonte
+
+A analise lexica divide o codigo fonte em tokens que poistreiomente sao classificados de acordo com a classe no qual o token pertence, toda a classe tem uma descricao do que ela vai repreestnacar na lingaugem de programcao 
+
+
+* reconhecer a substring realcionaod ao tokem
+* Partir as strings de entradas em lexemas
+* Identificar o tokem de cada lexema
+* identifcar a classe do tokem de cada lexema
+
+Suponha que temos a seguinte linha de código escrito em lingaugem Java:
+
+```
+x = 0
+while (x < 10) {
+	x++;
+}
+```
+
+A entrada para o analisador lexico é a seguinte. Obsever a preseçca do `\n` e do `t` que representan respectivamente o caracter nova linha e tabulação.
+
+`x = 0\nwhile (x < 10) {\n\tx++;\n}`
+
+Com base nesse techo de códifo nos poedm concluir que:
+
+* Possui 10 ocorrencias de caracteres em branco - incluindo nova, linha, tabulacao e espaco em branco.
+* Possui 1 ocorrencia de palavras reservadas
+* Possui 3 ocorrencias de identificadores - somente o identificador `x` exeiste
+* Possui 2 ocorrencias de numeros
+* Possui 7 ocorrencias outros caracters - representados por `=`, `(`, `)`, `{`, `}`, `++` e `;`
+
 ### Erros léxicos
 
 A análise léxica é muito prematura para identificar alguns erros de compilação, veja o exemplo abaixo.

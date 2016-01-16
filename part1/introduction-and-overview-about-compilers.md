@@ -77,6 +77,12 @@ Os programadores que utilizam linguagem de baixo nível tem mais controle sobre 
 
 Com a evolução dos compiladores os programas escritos em linguagem de alto nível podem ser otimizados para que sejam tão eficientes quanto programas escritos em linguagens de baixo nível. Linguagens de alto nível possuem recursos como loops, tipagem de dados, controle de fluxo, etc. que facilitam a escrita de programas. Esses recursos são traduzidos para linguagens de baixo nível e executadas diretamente nos processadores através de instruções de máquina. 
 
+A criacao de uma lingaugem de progracao depende do dominio da aplicacao a que ela se propoes, isso tambem é um motivador para o surgimento de novas lingaugem de progracao. Exitem muitas lingaugem de prograacao com propositotos especificos. Veja no quado abaixo alguns exemplos de dominios de aplicacao e suas necessidades.
+
+![](../images/part1-application-domain-languages.png)
+
+Muitas vezes temos que toamr a decisao de utilziar uma determinada lingaugem de programcao em um projeto, embora possa parecer facil aprenmder uima nova lingaugem obter um produtividade consideral e um novel de expertise não sao tarefas faceis e aplica-la. Não existem uma linguagem melhor ou pior não é aconformatavel fazr compracoes diretas embora devemos analsiar os recursos de cada uma em relcao ao sominio da aplicacao que esta sendo desenvolvido.
+
 ### Tradutores 
 
 Os tradutores são sistemas que aceitam como entrada um programa escrito em uma linguagem e produzem como resultado um programa equivalente na mesma linguagem ou em linguagens diferentes. Os tradutores podem ser classificados em:
@@ -92,6 +98,10 @@ Os tradutores são sistemas que aceitam como entrada um programa escrito em uma 
 Diferente do compilador o interpretador recebe como estrada uma especificação executável e produz com saída a execução dessa especificação, linguagens com PHP, Scheme, Python são interpretadas.
 
 Um interpretador pode ser entendido como um processo que em vez de visar um conjunto de instruções de um processador visa produzir o efeito de sua execução. Eles normalmente interpretam uma represetação intermediária do programa fonte.
+
+No esquema abaixo podemos ter uma idea macro das diferencas de funcionamento de um compiladores e um intepretadores.
+
+![](../images/part1-difference-compilers-interpreters.png)
 
 Os compiladores e interpretadores possuem muitas características em comum, pois executam as mesmas tarefas, como por exemplo analisar o programa e determinar se ele é valido ou não.
 

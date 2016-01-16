@@ -23,6 +23,13 @@ Alguns termos são utilizados na definição de linguagens de programação.
 * **Linguagem**: É o conjunto de sentenças, Na linguagem humana são os conjuntos de palavras {compiladores, linguagem, ...}
 * **Gramática**: É uma forma de representar as regras para formação de uma linguagem.
 
+Trasendo esse concieto para linguagem de progracao nos tempos
+
+* Alfabeto: {w, h, i, l, e, +, 1, 2, 3}
+* Simbolos: 1, 5, +, w
+* Sentença: while, 123, +1
+* Linguagem: {while, 123, +1}
+
 Dada uma gramática “G” e uma sentença “s” o objetivo do analisador sintático é verificar se a sentença “s” pertence a linguagem “G”. O analisador sintático recebe do analisador léxico a sequência de tokens que constitui a sentença “s” e produz uma arvore de derivação se a sentença é válida ou emite um erro se a sentença é inválida. 
 
 O analisador sintático deve ser projetado para que a análise seja feita até o fim do programa mesmo que encontre erros no texto do programa fonte.
@@ -242,6 +249,28 @@ Dicas para criar uma gramática livre de contexto
 * Especificar a gramática. Por exemplo `G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )`
 * Criar a regra de produção.
 * Fazer a derivação
+
+### Forma Normal de Backus (BNF)
+
+Outra maneira de representar as regras de produção .
+1) → é substituído por ::=
+w → s ≡ w ::= s
+2) Os nós não terminais são palavras entre < >.
+A notação BNF é usada para definir gramáticas com as características de que o lado
+esquerdo de cada regra é composta por um único símbolo não terminal.
+Ex. G ({S, M, N}, {x,y}, P, S)
+P:
+S → x
+S → M
+M → MN
+N → y
+M → xy
+BNF
+G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
+<S> ::= x | <M>
+<M> ::= <M> <N> | xy
+<N> ::= y
+Os símbolos <, >, ::= não fazem parte da linguagem
 
 ### Geradores de analisadores sintáticos
 

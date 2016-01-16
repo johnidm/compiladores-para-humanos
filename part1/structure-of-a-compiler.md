@@ -24,32 +24,6 @@ O analisador léxico deve identificar 6 lexemas e a categoria de cada um deles.
 | true   | Constante booleana                 |
 | begin  | Palavra reservada                  |
 
-Um token pode ser representado da seguinte forma:
-
-`<nome-token, valor-atributo>`
-
-Onde o `nome-token` é um valor abstrato, normalmente o próprio lexema e o `valor-atributo` que na maioria das vezes aponta para um índice na tabela de símbolos ou é omitido.
-
-Suponha que tenhamos a seguinte linha de código.
-
-`position = initial + rate * 60`
-
-Mapeamento de tokens.
-
-| Lexema   | Símbolo | Significado   | Tabela de simbolos | Token         |
-|----------|---------|---------------|--------------------|---------------|
-| position | ID      | Identificador | 1                  | <Idt, 1>      |
-| =        |         |               |                    | <=, simbolo>  |
-| initial  | ID      | Identificador | 2                  | <Idt, 2>      |
-| +        |         |               |                    | <+, operador> |
-| rate     | ID      | Identificador | 3                  | <Idt, 3>      |
-| *        |         |               |                    | <*, operador> |
-| 60       | Numero  | Inteiro       | 4                  | <Número, 4>   |
-
-
-Sequência de tokens gerado. 
-
-`<ID, 1> <=> <ID, 2> <+> <ID, 3> <*> <Numero, 4>`
 
 O analisador léxico deve permitir identificar na linguagem repetições de subconjuntos permitindo que seja possível identificar esses subconjuntos. Como exemplo podemos destacar o subconjunto de palavras reservadas. Nessa fase o processamento de uma linguagem pode ser feito por gramáticas regulares podendo ser formalmente descrita por expressões regulares. As rotinas que processam essa linguagem modelam um autómato finito derivado de expressões regulares.
 
