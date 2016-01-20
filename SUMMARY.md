@@ -9,5 +9,5 @@
 * [Parte II](part2/README.md)
   * [Contruindo o primeiro analisador léxico com JFlex](part2/building-the-first-lexical-analyzer-with-JFlex.md)
   * [Utilizando o JFlex e Java CUP](part2/using-jflex-java-cup.md)
-  * [Criando Gramáticas Livres de Contexto com o JFLAP](create-context-free-grammar-JFLAP.md)
+  * [Criando Gramáticas Livres de Contexto com o JFlap](create-context-free-grammar-JFLAP.md)
 * [Referências](REFERENCES.md)

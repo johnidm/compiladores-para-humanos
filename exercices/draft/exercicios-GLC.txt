@@ -78,3 +78,29 @@ A → aBB
 B → Bb
 B → b
 
+Escreve uma GLC que valida o alfabeto binario compos por 0 e 1
+
+Lema do bombeamento
+
+Faca uma derivcao mais a esquerad e mais a diretira das seguintes strings
+	00110
+	11001
+
+Escreva uma lingaugem e as tres regras de derivacao
+
+
+EScreva uma gramatica que valide uma lingaugem de programcao formada por 
+
+({% _ _ _ %})
+
+onde _ deve repitir uma a n vezes 
+
+({% %}) pode ou nao existirem mas quando existirem deve estar sempre com o seu respectivo par, e%})ssa concatenacao deve estar balanceada, isso é muito comum em lingaugem de porogramcao a ocorrencia de balanceamento que delimita blocos de código
+
+
+S -> aS | aSbS | ^ e ambigua
+ 
+escreva uma gramatica livre de contexto que valida a seguinte expressa 
+
+if 2 + 4 = 0 {
+}

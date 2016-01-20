@@ -82,8 +82,6 @@ C := A + B;
 
 	O tipo da variável C é compatível com os demais identificadores, operadores?
 
-
-
 Tradução dirigida por sintaxe
 
 Esse processo é implementado associando-se a cada execução de uma regra da gramatical (execução do analisador sintático) uma ação semântica.  Essas ações semânticas são frequentemente implementadas a chamadas de rotinas semânticas, e podem ser responsáveis por efetuar a análise semântica, geração de código, armazenamento de informações na tabela de símbolos.

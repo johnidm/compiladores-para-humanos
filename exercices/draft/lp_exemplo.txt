@@ -1,0 +1,16 @@
+$programa$ {
+
+	@idade INT:
+	@nome STR:
+	
+	&imprmir(^idade, ^nome) [
+		se verdade [
+			@idade -> ^idade:
+			@nome -> ^nome;
+		]
+	]
+
+	%imprimir(12, ~Papitoo~):
+}
+
+

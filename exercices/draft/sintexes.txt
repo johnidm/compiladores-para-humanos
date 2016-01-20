@@ -1,0 +1,15 @@
+
+LISP puro tem dois tipos  de estuta de dados as lista e os atomos
+LISP - Listas simples e lista aninhas  
+	(A B C D)
+	(A (B, C) D (E (F G)))
+	$ elementos comecando pelo A segundo e a suglista B C atomo D e o quarto sublsta (E (F G) que tem um elemento (F G)
+	(E (F G))
+
+
+Algol
+PL/1
+Ada
+LUA
+Ruby
+

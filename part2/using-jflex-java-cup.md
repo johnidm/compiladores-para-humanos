@@ -1,7 +1,7 @@
 Construindo um Compilador Front-End com JFlex e Java CUP
 ======
 
-Para integrar com um analisador léxico criado através do JFlex vamos utilizar a ferramenta Java Cup que já faz parte do pacote de desenvolvimento de JFlex. Mais informações nesse [link](http://www2.cs.tum.edu/projects/cup/).
+Para integrar com o analisador léxico criado através do JFlex vamos utilizar a ferramenta Java Cup que já faz parte do pacote de desenvolvimento de JFlex. Mais informações nesse [link](http://www2.cs.tum.edu/projects/cup/).
 
 Vamos começar definindo a sintaxe da linguagem de programação.
 
@@ -12,7 +12,7 @@ inicio
 fim
 ```
 
-Crie um novo projeto chamado `SyntacticAnalyzer` e um pacote chamado `br.com.johnidouglas`, salve o código em um arquivo chamado `sextafase.pg`.
+Crie um novo projeto chamado `SyntacticAnalyzer` e um pacote chamado `br.com.johnidouglas`, salve o código em um arquivo chamado `program.pg`.
 
 As seguintes convenções serão utilizadas na nova linguagem.
 
@@ -67,7 +67,7 @@ public class Generator {
 }
 ```
 
-Agora vamos criar o arquivo de especificação léxica chamada `language.lex` com o seguinte conteúdo.
+Agora vamos criar o arquivo de especificação léxica chamada `Lexer.lex` com o seguinte conteúdo.
 
 ```
 package br.com.johnidouglas;
@@ -112,7 +112,7 @@ ID = [A-Za-z_][A-Za-z_0-9]*
 . { throw new RuntimeException("Caractere inválido " + yytext() + " na linha " + yyline + ", coluna " +yycolumn); }
 ```
 
-Para que o analisador léxico desenvolvido com o JFlex funcione corretamente em conjunto com o analisador sintático Java Cup as seguintes oram feitas no arquivo lex.
+Para que o analisador léxico desenvolvido com o JFlex funcione corretamente em conjunto com o analisador sintático Java Cup as seguintes foram feitas no arquivo lex.
 
 * `%cup` – indica que o analisador léxico será integrado ao Java Cup
 * `%type java_cup.runtime.Symbol` – especifica o tipo de retorno de tokens de
@@ -120,7 +120,7 @@ acordo com a interface Symbol.
 * `return new Symbol(sym.INICIO)` - Cada token identificado deve retornar
 uma instancia da classe Symbol identificada por uma constante numérica. Essa constante é gerada automaticamente pelo Java Cup.
 
-Nos precisamos criar um arquivo com as especificações sintáticas. Crie um novo arquivo e salve com o nome `language.cup` com o seguinte conteúdo.
+Nos precisamos criar um arquivo com as especificações sintáticas. Crie um novo arquivo e salve com o nome `Parser.cup` com o seguinte conteúdo.
 
 ```
 package br.com.johnidouglas;

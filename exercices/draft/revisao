@@ -1,8 +1,6 @@
 INTRO
 	a estrutura é apenas uma reprensetacao didatica
 	
-
-
 LINGUAGENS DE PROGRAMACAO 
 
 Através das linguagens de programação, consegue-se :
@@ -17,12 +15,18 @@ ANALISE LEXICA
 
 - produz uma sequencia de sombilos lexicos chadaos de tokens
 - podemos dizer se uma deteriniada palavra faz parte do alfabeto
+- definicao forma de tojesk utilizar expressoes regulares
+
 
 ANALISE SINTATICA
 
 - reconhece a estrutura do programa
 - tranforma a entreda em uma estruturad de dados, em geral uam arvores, que represetnar a estrutura hierarquica do programa fonte
 - usar o termo arovre de sitnax abstrata
+- nao pode ser representada por espressoes regulares
+- Buttom Up parsing
+- Top Down parsing
+
 
 Recomendar o uso do http://www.jflap.org/
 

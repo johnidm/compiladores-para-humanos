@@ -1,0 +1,59 @@
+Eleas forma concebidas por N Chonsky como forma de descrever linguagens naturais, elas sao usadas para descrver linguagens de programacao utilizadas pelos analisadores sintaticos
+
+Outra aplicacao de GLC sao os DTD - Definicao de Tipos de Docuiment utilizados por arquivos XML  que descree as tags e as formas qe eles deve estar anninhas afim de lidar com o sugnificado do textopor exemplo a sequencoia <produto_></produto>
+
+
+
+
+
+Tranforma a implementacao de analiador sntatica mais facil e rapida
+
+derivacao determina quais as strings setao na lingaugem e nam gramatica
+
+Componenetes presentes na definicao de uma GLC
+
+1 - existe um conunto finito de sombolos que formam palavras da lingaugem, nos chamoss isso de sombolos terminais
+
+2 - conjunto finito de variavies que representam os conjuntos da lingaugem, chamamos isso de simbolos terminais
+
+3 - e a variavel que representam a lingaugem que esta sendo definida, chamamos ela de simbolo de iniciog 
+
+4 - Conjunto de producoes ou regras que representam a definicao recursiva de uma lingaugem 
+	{cabeca} -> {corpo da producao}
+	head é uma variavel
+	-> simbolo de producao 
+	body - terminais e nao terminais que representam a forma da string
+
+isso tudo forma uma GLC que é G = (V, T, P, S)
+
+Derivacao 
+
+Comecamos pelo simbolo inicial e derivamos substituindo todas os nao termiais por termianis, nofinal desse processo termoas todos os termias que forma a lingaugem de programcao.
+
+Aplicanse producoes para dizer que certass strigns estao presentesa na linguagem 
+espande a string resultante pelo corpo de umas das producoes ate derivas as string em terminais, a lingaugem é formada por todas as stgrings que contituem terminais.
+
+Derivacoes mais a esquerda e mais a direita
+
+
+
+Para eliminar o numero de escolhas que temos ao fazer uma derivcao de uma string e utiliar uma direcao para as derivacoes. Qualquer derivacao deve ser equivalente mais a esquerda ou mais a direita
+
+Arovres de analise sintatica
+
+e um represetnacao em arvores utilizada para mostras os simbolos de uma string de termias agrupoados em substrngs que pertencem a linguagem, essa estrutra ira gera a arvoers de analise sintatica que representa o programa fonte, essa setrututa faciltia a a conversao desse programa em codigo em codigo executavel
+
+E importante ressaltar que a arovre de analise sintatica esta diretamente relacionada a existend de derivacoes, 
+
+O resulta es as folhas serem todas simbolos terminais
+
+A derivacao sempre inicia pela raiz que é o simbolo inicial
+O resultado é uma string de terminais
+
+Derivacao mais a esquerda e derivacao mais a direita
+
+
+
+Ambiguidade: certas gramaticas permitem que uma string tenha mas de uma arvore sitatica, isso torna a gramtica inadequada para a uma lingaugem de programacao , pois o compilador nao pode determinar a estrutura desse programa fonte e portant nao pode montar o código final
+
+Nao existem nennhum algiritmo que pode prever se uma gramatia sera ambigua ou nao,  Para remover ambiguidade 

@@ -339,9 +339,11 @@ Os geradores de analisadores léxicos geram rotinas para fazer a análise léxic
 
 ### Termos
 
-[ˆ1] - Autómato finito: É um modelo computacional de máquina de estados finitos.
+[ˆ1] - Autómato finito: Envolvem estados e as trasicoes entre estados de acordo com a respose a deterninadas entradas.
 
-[ˆ2] - Autómato finito deterministico: É um autómato finito onde cada símbolo de entrada possui no máximo uma saída.
+[ˆ2] - Autómato finito deterministico - DFA: É um autómato finito onde cada símbolo de entrada possui no máximo uma saída, ou seja, para cada entreda existe um estado onde o pode transitar apartir de seu estado atual.
 
-[ˆ3] - Autómato finito não deterministico: É um autómato finito onde um símbolo de entrada tem duas ou mais saídas.
+[ˆ3] - Autómato finito não deterministico -r NFA: É um autómato finito onde um símbolo de entrada tem duas ou mais saídas, ou seja, pode estar em varios etados ao mesmo tempo, isso possibilita ao algoritmo tentar adivinhar algo sobre a entrada.
+
+[^4] - Expressoes regulares - é uma notacao - lingaugem - utilizada para descrver padroes em cadeias de caracteres quer podem ser represetndas por automatos finitos 
 

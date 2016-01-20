@@ -1,4 +1,5 @@
 TAEs
 
+Hierarquia_de_Chomsky
+	Eleborar uma lista de questoes sobre determiado assunto
 
-Eleborar uma lista de questoes sobre determiado assunto
