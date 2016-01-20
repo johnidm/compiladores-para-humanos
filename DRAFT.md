@@ -1,14 +1,3 @@
- <!---
-
-  * [Gramáticas Livres de Contexto](part1/context-free-grammars.md)
-  -->s
-  
-    <!---
- 
-  -->
-
-  ### Tabela de símbolos
-
 A tabela de símbolos é uma estrutura de dados gerada pelo compilador com o objetivo de armazenar informações sobre os funções, variáveis e outros tokens usados no programa fonte.
 
 Essa tabela normalmente armazenas informações como: tipo de dado - inteiro, string, etc. - escopo de visibilidade; limite de parâmetros, tamanho da variável. A tabela de símbolos é uma estrutura de dados do tipo tabelas hash, árvores binarias, listas lineares, etc.

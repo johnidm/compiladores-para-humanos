@@ -2,10 +2,6 @@ Eleas forma concebidas por N Chonsky como forma de descrever linguagens naturais
 
 Outra aplicacao de GLC sao os DTD - Definicao de Tipos de Docuiment utilizados por arquivos XML  que descree as tags e as formas qe eles deve estar anninhas afim de lidar com o sugnificado do textopor exemplo a sequencoia <produto_></produto>
 
-
-
-
-
 Tranforma a implementacao de analiador sntatica mais facil e rapida
 
 derivacao determina quais as strings setao na lingaugem e nam gramatica
