@@ -1,21 +1,23 @@
 Analise Léxica
 ======
 
-A análise léxica também conhecida como *scanner* ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, agrupar os caracteres em lexemas e produzir uma sequência de símbolos léxicos conhecidos como tokens. A sequência de tokens é enviada ser processada pela analise sintática, a próxima fase do processo de compilação .
+A análise léxica também conhecida como *scanner* ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, agrupar os caracteres em lexemas e produzir uma sequência de símbolos léxicos conhecidos como tokens. 
 
-O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens, como por exemplo os identificadores. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador.
+A sequência de tokens é enviada para ser processada pela analise sintática que é a próxima fase do processo de compilação .
+
+O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens, como por exemplo os identificadores. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularizarão do projeto de um compilador.
 
 ### Visão geral
 
-A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e espaços em branco, e a segunda etapa, a analise léxica propriamente dita onde o texto é quebrado em tokens.
+A análise léxica pode ser dividida em duas etapas, a primeira chamada de escandimento que é uma simples varredura removendo comentários e espaços em branco, e a segunda etapa, a analise léxica propriamente dita onde o texto é quebrado em lexemas.
 
 Podemos definir três termos relacionados a implementação de um analisador léxico:
 
-* Padrão: é a forma que os lexemas de um token podem assumir. No caso de palavras reservadas é a sequência de caracteres que formar a palavra reservada, no caso de identificadores são os caracteres que formam os nomes das variáveis e funções.
+* Padrão: é a forma que os lexemas de uma cadeia de caracteres pode assumir. No caso de palavras reservadas é a sequência de caracteres que formam a palavra reservada, no caso de identificadores são os caracteres que formam os nomes das variáveis e funções.
 
 * Lexema: é uma sequência de caracteres reconhecidos por um padrão.
 
-* Token: é um par constituído de um nome é um valor de atributo, que é opcional. O nome de um token é um símbolo que representa a unidade léxica. Por exemplo: palavras reservadas; identificadores; números, etc.
+* Token: é um par constituído de um nome é um valor de atributo esse ultimo opcional. O nome de um token é um símbolo que representa a unidade léxica. Por exemplo: palavras reservadas; identificadores; números, etc.
 
 A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 
@@ -31,7 +33,7 @@ A tabela abaixo mostra os exemplos de uso dos termos durante a análise léxica.
 | `<=, >`              | =                                                   | =                                              | Comando de atribuição            |
 | `<{, >`              | {, }, [, ]                                          | {, }, [, ]                                     | Delimitadores de início e fim    |
 
-Veja a identificação dos termos relacionados.
+Veja uma série de exemplos relacionados a identificação dos termos.
 
 ##### Exemplo 1 
 
@@ -59,7 +61,9 @@ onde:
 
 * `3.1416` é um lexema que casa com o padrão do token `numero`.
 
-Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada token casando com um padrão. Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
+Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada cadeias de carácter casando com o padrão. 
+
+Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
 
 Expressões regulares são um mecanismo importante para especificar os padrões de lexemas.
 
@@ -91,7 +95,7 @@ O seguinte fluxo de tokens é gerado.
 
 `<id, 15> <=, > <id, 20> <*, > <id,30>, <(>, <)> <+, > <numero, 2>`
 
-Então temos os seguintes tokens:
+Temos os seguintes tokens classificados:
 
 * `<id, 15>` :  apontador 15 da tabela de símbolos e classe do token `id`.
 * `<=, >`  operador de atribuição, sem necessidade de um valor para o atributo.
@@ -103,7 +107,6 @@ Então temos os seguintes tokens:
 * `<), >`: Delimitador de função.
 * `<numero, 2>` :  token numero, com valor para o atributo 2 indicado o valor do numero (constante numérica).
 
-
 A seguir é apresentado alguns exemplos do resultado da análise léxica de um arquivo fonte.
 
 #### Exemplo 1
@@ -112,7 +115,7 @@ Código fonte
 
 ```
 while indice < 10 do
-	indice:= total + índice;
+    indice:= total + índice;
 ```
 
 Sequência de tokens
@@ -165,8 +168,7 @@ Tabela de símbolos
 |---------|----------------------------|
 | 1       | `a` - variável inteira     |
 | 2       | `index` - variável inteira |
-	
-O analisador léxico realiza tarefas simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
+    
 
 #### Exemplo 4
 
@@ -191,35 +193,40 @@ Sequência de tokens gerado.
 
 `<ID, 1> <=> <ID, 2> <+> <ID, 3> <*> <Numero, 4>`
 
-#### Passos para identificat uma sequencia de tokens em uam programcao fonte
+#### Passos para identificar uma sequencia de tokens
 
-A analise lexica divide o codigo fonte em tokens que poistreiomente sao classificados de acordo com a classe no qual o token pertence, toda a classe tem uma descricao do que ela vai repreestnacar na lingaugem de programcao 
+A analise léxica divide o código fonte em tokens que posteriormente são classificados de acordo com a classe no qual o token pertence, toda a classe tem uma descrição do que ela representa na linguagem de programação. 
 
-* reconhecer a substring realcionaod ao tokem
-* Partir as strings de entradas em lexemas
-* Identificar o tokem de cada lexema
-* identifcar a classe do tokem de cada lexema
+Veja as etapas para contribuir um analisador léxico:
 
-Suponha que temos a seguinte linha de código escrito em lingaugem Java:
+* Reconhecer a substring relacionada ao tokem através de um padrão;
+* Partir as strings de entradas em lexemas separando ela do restante dos arquivo fonte;
+* Identificar o e classificar o token de cada lexema;
+
+Suponha que temos a seguinte linha de código escrito em linguagem Java:
 
 ```
 x = 0
 while (x < 10) {
-	x++;
+    x++;
 }
 ```
 
-A entrada para o analisador lexico é a seguinte. Obsever a preseçca do `\n` e do `t` que representan respectivamente o caracter nova linha e tabulação.
+A entrada para o analisador léxico é a seguinte:
 
 `x = 0\nwhile (x < 10) {\n\tx++;\n}`
 
-Com base nesse techo de códifo nos poedm concluir que:
+Observe a presença do `\n` e do `\t` que representam respectivamente o carácter nova linha e tabulação.
 
-* Possui 10 ocorrencias de caracteres em branco - incluindo nova, linha, tabulacao e espaco em branco.
-* Possui 1 ocorrencia de palavras reservadas
-* Possui 3 ocorrencias de identificadores - somente o identificador `x` exeiste
-* Possui 2 ocorrencias de numeros
-* Possui 7 ocorrencias outros caracters - representados por `=`, `(`, `)`, `{`, `}`, `++` e `;`
+Com base nesse trecho de código nos podemos concluir que:
+
+* Possui 10 ocorrências de caracteres em branco - incluindo nova, linha, tabulação e espaço em branco;
+* Possui 1 ocorrências de palavras reservadas;
+* Possui 3 ocorrências de identificadores do identificador `x`;
+* Possui 2 ocorrências de números;
+* Possui 7 ocorrências outros caracteres - representados por `=`, `(`, `)`, `{`, `}`, `++` e `;`;
+
+O analisador léxico realiza tarefas relativamente simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
 
 ### Erros léxicos
 
@@ -229,9 +236,9 @@ A análise léxica é muito prematura para identificar alguns erros de compilaç
 
 O analisador léxico não consegue identificar o erro da instrução listada acima, pois ele não consegue identificar que em determinada posição deve ser declarado a palavra reservada `if` ao invés de `fi`. Essa verificação somente é possível ser feita na análise sintática.
 
-É importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possíveis.
+Porem é importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possíveis.
 
-Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `%`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
+Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `¢`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
 
 ### Expressões regulares
 
@@ -290,16 +297,18 @@ As expressões regulares estão diretamente relacionadas a autômatos finitos n�
 
 As **regex** são utilizadas por editores de texto, linguagem de programação, programas utilitários, IDE de desenvolvimento e compiladores e seu padrões são independentes de linguagem de programação.
 
+As expressões regulares dão origem a algoritmos de autômatos finito determinísticos e autômatos finitos não determinísticos que são utilizados por analisadores léxicos para reconhecer os padrões de cadeias de caracteres.
+
 ### Geradores de Analisadores Léxicos
 
-Os geradores de analisadores léxicos e automatizam o processo de criação do autômato finito e o processo de reconhecimento de sentenças regulares a partir da especificação de expressões regulares. Essa ferramentas são comumente chamadas de **lex**. Atualmente há diversas implementações de lex para diferentes linguagens de programação.
+Os geradores de analisadores léxicos e automatizam o processo de criação do autômato finito e o processo de reconhecimento de sentenças regulares a partir da especificação de expressões regulares. Essa ferramentas são comumente chamadas de **lex**. Atualmente há diversas implementações de **lex** para diferentes linguagens de programação.
 
 O diagrama abaixo é uma representação de um autômato finito e uma implementação do funcionamento desse autômato.
 
 ![](../images/finite-automaton.png)
 ![](../images/finite-automaton-code.png)
 
-Embora o exemplo seja simples implementar um analisador léxico é uma tarefa muito trabalhosa, como essa complexidade é frequente surgiriam ferramentas que apoiam esse tipo de desenvolvimento. 
+Embora no exemplo seja simples implementar um analisador léxico, essa tarefa podem ser muito trabalhosa, como essa complexidade é frequente na evolução de uma linguagem de programação surgiriam ferramentas que apoiam esse tipo de desenvolvimento. 
 
 Existem diversas implementações para gerar analisadores léxicos para diferentes linguagens de programação. 
 
@@ -332,15 +341,16 @@ As regras de tradução são expressas no seguinte formato
 onde: `Padrão` é uma expressão regular que pode ser reconhecida pelo
 analisador léxico `Ação` é um fragmento de código que vai se invocado quando a expressão é reconhecida.
 
-Os geradores de analisadores léxicos geram rotinas para fazer a análise léxica de uma linguagem de programação a partir de um arquivo de especificações contendo basicamente expressões regulares que descrevem os tokens. É possível fazer a identificação de cada token através do seu padrão, após esse processo é gerado um arquivo fonte com a implementação do analisador léxico baseado em uma autómato finito que transforma os padrões de entrada em um diagrama de estados de transição.
+Os geradores de analisadores léxicos geram rotinas para fazer a análise léxica de uma linguagem de programação a partir de um arquivo de especificações contendo basicamente expressões regulares que descrevem os tokens. Essas rotinas representam algoritmos de autômatos finitos - DFA e NFA.
+
+É possível fazer a identificação de cada token através do seu padrão, após esse processo é gerado um arquivo fonte com a implementação do analisador léxico baseado em uma autômato finito que transforma os padrões de entrada em um diagrama de estados de transição.
 
 ### Termos
 
-[ˆ1] - Autómato finito: Envolvem estados e as trasicoes entre estados de acordo com a respose a deterninadas entradas.
+[ˆ1] - Autômato finito: Envolvem estados e as transições entre estados de acordo com a  determinadas entradas.
 
-[ˆ2] - Autómato finito deterministico - DFA: É um autómato finito onde cada símbolo de entrada possui no máximo uma saída, ou seja, para cada entreda existe um estado onde o pode transitar apartir de seu estado atual.
+[ˆ2] - Autômato finito determinístico - DFA: É um autômato finito onde cada símbolo de entrada possui no máximo uma saída, ou seja, para cada entrada existe um estado onde o pode transitar a partir de seu estado atual.
 
-[ˆ3] - Autómato finito não deterministico -r NFA: É um autómato finito onde um símbolo de entrada tem duas ou mais saídas, ou seja, pode estar em varios etados ao mesmo tempo, isso possibilita ao algoritmo tentar adivinhar algo sobre a entrada.
+[ˆ3] - Autômato finito não determinístico - NFA: É um autômato finito onde um símbolo de entrada tem duas ou mais saídas, ou seja, pode estar em vários estados ao mesmo tempo, isso possibilita ao algoritmo tentar adivinhar algo sobre a entrada.
 
-[^4] - Expressoes regulares - é uma notacao - lingaugem - utilizada para descrver padroes em cadeias de caracteres quer podem ser represetndas por automatos finitos 
-
+[^4] - Expressões regulares - é uma notação - linguagem - utilizada para descrever padrões em cadeias de caracteres quer podem ser representadas por autômatos finitos.

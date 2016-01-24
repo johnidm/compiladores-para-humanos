@@ -1,11 +1,7 @@
 FALAR MAIS SOVRE ARVORE SINTATICA - NO structure-of-a-compiler
 
-
-
-
 ANALISE SINTATICA
 
-- nao pode ser representada por espressoes regulares
 - Buttom Up parsing
 - Top Down parsing
 

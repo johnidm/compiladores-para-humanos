@@ -1,15 +1,15 @@
 Analise Sintática
 ======
 
-O Analisador sintático também conhecido como *parser* tem como tarefa principal determinar se o programa de entrada representado pelo fluxo de tokens é uma sentença valida na linguagem de programação 
+O Analisador sintático também conhecido como *parser* tem como tarefa principal determinar se o programa de entrada representado pelo fluxo de tokens representa sentenças validas na linguagem de programação 
 
-A analise sintática e a segunda etapa do processo de compilação e utiliza gramáticas livres de contexto para especificar a sintaxe de uma linguagem de programação.
+A analise sintática e a segunda etapa do processo de compilação e na maioria dos casos utiliza gramáticas livres de contexto para especificar a sintaxe de uma linguagem de programação.
 
 ### Visão geral
 
-O que é sintaxe? Parte da gramática que estuda a disposição das palavras na frase e das frases no discurso, bem como a relação lógica das frases entre si.
+A sintaxe é a parte da gramática que estuda a disposição das palavras na frase e das frases em um discurso. Essa etapa do processo de compilação deve reconhecer a sintaxe do programa fonte e determinar se ele é valido ou não.
 
-Essa etapa do processo de compilação deve reconhecer a sintaxe do programa fonte e determinar se ele é valido ou não, esse modelo pode ser definido utilizando gramáticas livres de contexto que representam uma gramática formal, o algoritmo tenta derivar todas as possíveis construções da linguagem. 
+Esse modelo pode ser definido utilizando gramáticas livres de contexto que representam uma gramática formal e possuem um o algoritmo que tenta derivar todas as possíveis construções da linguagem.
 
 As derivações tem como objetivo determinar se um fluxo de palavras se encaixa na sintaxe da linguagem de programação.
 
@@ -21,32 +21,29 @@ Alguns termos são utilizados na definição de linguagens de programação.
 * **Linguagem**: É o conjunto de sentenças, Na linguagem humana são os conjuntos de palavras {compiladores, linguagem, ...}
 * **Gramática**: É uma forma de representar as regras para formação de uma linguagem.
 
-Trazendo esse concieto para linguagem de progracao nos temos
+Trazendo esse conceito para linguagem de programação temos:
 
 * Alfabeto: {w, h, i, l, e, +, 1, 2, 3}
-* Simbolos: 1, 5, +, w
+* Símbolos: 1, 5, +, w
 * Sentença: while, 123, +1
 * Linguagem: {while, 123, +1}
 
-Dada uma gramática “G” e uma sentença “s” o objetivo do analisador sintático é verificar se a sentença “s” pertence a linguagem “G”. O analisador sintático recebe do analisador léxico a sequência de tokens que constitui a sentença “s” e produz uma arvore de derivação se a sentença é válida ou emite um erro se a sentença é inválida. 
+Dada uma gramática `G` e uma sentença `s` o objetivo do analisador sintático é verificar se a sentença `s` pertence a linguagem `G`. O analisador sintático recebe do analisador léxico a sequência de tokens que constitui a sentença `s` e produz uma arvore de derivação se a sentença é válida ou emite um erro se a sentença é inválida. 
 
-O analisador sintático deve ser projetado para que a análise seja feita até o fim do programa mesmo que encontre erros no texto do programa fonte.
-
-O analisador léxico é desenvolvido para reconhecer os tokens fazendo uma leitura dos caracteres e obtendo a sequência de tokens, esse analisador vê o texto como uma sequência de palavras de uma linguagem regular e reconhece ele através de um autômato finito. 
+O analisador léxico é desenvolvido para reconhecer cadeias de caracteres fazendo uma leitura dos caracteres e obtendo a sequência de tokens, esse analisador vê o texto como uma sequência de palavras de uma linguagem regular e reconhece ele através de autômatos finitos. 
 
 Já o analisador sintático vê o mesmo texto como uma sequência de sentenças que deve satisfazer as regras gramaticais. É através da gramática que podemos validar expressões criadas na linguagem de programação. 
 
-O analisador sintático agrupa os tokens em frases gramaticais usadas pelo compilador com o objetivo de criar uma saída que é uma estrutura de dados que possui uma hierarquia da entrada a árvore de derivação.
-
 ![](../images/ast.png)
 
-Veja no quadro abaixo a especificacao da entrada e saida fazer do compialdor vistar atpé o momento
+O analisador sintático agrupa os tokens em frases gramaticais usadas pelo compilador com o objetivo de criar uma saída que representa a estrutura hierarquia do programa fonte.
 
-| Fase   | Entrada               | Saida              |
+Veja no quadro abaixo a especificação da entrada e saída das etapas vistas até o momento:
+
+| Fase   | Entrada               | Saída              |
 |--------|-----------------------|--------------------|
-| Lexer  | Conjunto de caracters | Conjunto de tokens |
-| Parser | Conjunto de tokens    | Arvore sintatica   |
-
+| Lexer  | Conjunto de caracteres | Conjunto de tokens |
+| Parser | Conjunto de tokens    | Arvore sintática   |
 
 
 Observe estrutura sintática de uma linguagem de programação. Temos as divisões dos blocos, compostos por comandos, compostos por expressões.
@@ -69,13 +66,19 @@ Descubra os erros sintáticos do código fonte abaixo escrito em linguagem Java.
 
 E importante destacar que a árvore de derivação representa toda a estrutura sintática do programa.
 
-### Gramática Livre de Contexto
+### Gramática Livre de Contexto - GLC
 
-As linguagens de programacao em geral pertencem a uma categoria chamdad de lingaugem livres de contetos. Umas dasforma de represetnadas essas lingaugens é atrawves de Gramáticas Livres de Contexto são a base para a contrucao de analisadores sintaticos elas são usadas para especificar as regras sintaticas de uma linguagem de programação, uma linguagem regular pode ser reconhecida por uma automato finito, ja uma glc pode ser reconhecida por um automati de pilha.
+As linguagens de programação em geral pertencem a uma categoria chamada de Linguagens Livres de Contexto. Umas das formas de representar essas linguagens é através de Gramáticas Livres de Contexto que são a base para a construção de analisadores sintáticos. Elas são usadas para especificar as regras sintáticas de uma linguagem de programação, uma linguagem regular pode ser reconhecida por uma automato finito, já uma Gramatica Livre de Contexto pode ser reconhecida por um automato de pilha.
 
-Outra aplicacao de GLC sao os DTD - Definicao de Tipos de Docuimentos -  utilizados por arquivos XML que descree as tags de uma forma nataural, as tags deve estar anninhas afim de lidar com o significado do texto veja o exemplo, `<produto><codigo</codigo></produto>`.
+Outra aplicação de GLC são os DTD - Definição de Tipos de Documentos -  utilizados por arquivos XML que descreve as tags de uma forma natural, as tags deve estar aninhas afim de lidar com o significado do texto.
 
-Uma gramática descreve naturalmente como é possível fazer construções programa. Veja o exemplo de um comando `if-else` em Pascal que deve ter a seguinte forma.
+Veja o exemplo:
+
+```
+<produto><codigo</codigo></produto>
+```
+
+Uma gramática descreve naturalmente como é possível fazer construções no programa. Veja o exemplo de um comando `if-else` em Pascal que deve ter a seguinte forma.
 
 `if (expressão) then declaração else declaração ;`
 
@@ -83,9 +86,7 @@ Essa mesma forma em uma Gramática Livre de Contexto pode ser expressada da segu
 
 `declaração → if ( expressão ) then declaração else declaração ;`
 
-As linguagens regulares podem ser reconhecidas através de expressões regulares possibilitando a contrucao de um analisador léxico. Uma Gramatica Livre de Contexto pode ser reconhecida através de autômatos de pilha que descrevem a forma como podemos criar analisadores sintáticos.
-
-A definição de uma gramática livre de contexto pode ser representada atraves dos seguintes componentes:
+A definição de uma gramática livre de contexto pode ser representada através dos seguintes componentes:
 
 `G = (N, T, P, S)`
 
@@ -102,21 +103,21 @@ Terminologias:
 
 * **Símbolos não terminais**: Conjunto finito de variáveis utilizadas para representar os conjuntos da linguagem, são formadas pelos terminas e pelos próprios símbolos não terminais.
 
-* **Símbolo inicial**: É a variável, simbolo nao terminal, que representa o inicio da definicia da linguagem. 
+* **Símbolo inicial**: É a variável, simbolo não terminal, que representa o inicio da definição da linguagem. 
 
-* **Regras de produções**: Representa um conjunto de regras sintáticas que representam a definicao da linguagem, indicam como símbolos terminais e não terminais podem ser combinados.
+* **Regras de produções**: Representa um conjunto de regras sintáticas que representam a definição da linguagem, indicam como símbolos terminais e não terminais podem ser combinados.
 
-As regras de producao sao represetnadas da seguinte forma:
+As regras de producao são representadas da seguinte forma:
 
 ```
-    {A} -> {α}
+    {A} → {α}
 ```
 
 Onde:
 
-* **A** é uma variavel - simbolo não terminal.
+* **A** é uma variável - simbolo não terminal.
 * **->** simbolo de producao .
-* **α** é a combinacao simbolos terminais e nao terminais que representam a forma como uma string vai ser formada.
+* **α** é a combinação símbolos terminais e não terminais que representam a forma como uma string vai ser formada.
 
 Veja o exemplo de uma Gramatica Livre de Contexto.
 
@@ -125,11 +126,13 @@ G = ({S}, {a, b}, P, S)
 
 P = {   
         S → aSb
-        S → Ø  
+        S → λ  
     }
 ```
 
-Essa gramatica é formada pelas temriais `a` e `b`, que são os tokens da lingaugem, como regras de produção nos temos `aSb` que indica a presenta de um `a` e `b` nas estemidades da palavras é o `Ø` que significa vazio.
+Essa gramatica é formada pelas terminais `a` e `b`, que são os tokens da linguagem, como regras de produção nos temos `aSb` que indica a presenta de um `a` e `b` nas extremidades da palavras é o simbolo `λ` que significa vazio.
+
+
 
 #### Derivacaoes
 
@@ -165,7 +168,8 @@ Como resultado temos a seguinte arvore de derivacao
 
 ![](../images/part1-derivation-tree.png)
 
-A raiz da arvore de derivacao çe sempre o simbolo inicial, os vertices interiores sao os simbolos nao termiais e os seimbolos termianis e a palavra vazia sao as folhas.
+A raiz da arvore de derivacao  sempre o simbolo inicial, os vertices interiores sao os simbolos nao termiais e os seimbolos termianis e a palavra vazia sao as folhas.
+
 
 
 #### Ambiguidade:
@@ -247,15 +251,14 @@ Veja uma comparacao entre as duas formas gramaticais
 
 ``` 
 G ({S, M, N}, {x,y}, P, S)
-P:
-S → x
-S → M
-M → MN
-N → y
-M → xy
+P {
+    S → x | M
+    M → MN | xy
+    N → y
+}
 ```
 
-###### forma de backus naur
+###### Forma de backus naur
 
 ```
 G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
@@ -267,11 +270,12 @@ G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
 > Os símbolos <, >, ::= não fazem parte da linguagem
 
 
+
 ### Forma Extendida de Backus-Naur (BNF)
 
-E um complemento da Forma de Backus-Naur que permite ao lado direto da producao seja possivel ter operadores. 
+E um complemento da Forma de Backus-Naur que permite ao lado direto da producao seja possivel ter operadores. Isso facilita a escrita das regras gramaticais pois deixa elas mais simples. 
 
-Podemos ter o seguintes operadores posssivei sao:
+Podemos ter o seguintes operadores:
 
 * Selecao:
     `(α | β)` um dos elementos entre parenteses pode ser expressos
@@ -340,7 +344,14 @@ Na notação de grafos sintáticos, símbolos terminais são representados por c
 
 ### Exemplos de gramáticas livres de contexto
 
-Nos vamos focar no estudo de GLC e entender como ela funciona, 
+Nos seção vamos focar no estudo de GLC e entender como ela funciona, 
+
+Dicas para criar uma gramática livre de contexto
+
+* Conhecer todos os tokens;
+* Especificar a gramática. Por exemplo `G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )`;
+* Criar as regra de produção;
+* Fazer a derivação;
 
 > È comum representar os o simbolos temrinais em maiusculo e o nao terminais em minusculo
 
@@ -482,13 +493,6 @@ CHAMADA → id(PARAM, PARAM)
 CHAMADA → id(id , id)
 CHAMADA → exibir(valor, desconto)
 ```
-
-Dicas para criar uma gramática livre de contexto
-
-* Conhecer todos os tokens.
-* Especificar a gramática. Por exemplo `G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )`
-* Criar a regra de produção.
-* Fazer a derivação
 
 
 ### Geradores de analisadores sintáticos
