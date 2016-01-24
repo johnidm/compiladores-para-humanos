@@ -1,13 +1,9 @@
 Analise Semantica
 ======
 
-### Introdução
-
-
 Até o momento vimos a etapa de análise léxica - que quebra o programa fonte em tokens - e a analise sintática - que validas as regras de formação da linguagem de programação.
 
 A semântica de um programa está diretamente ligada ao seu significado. A análise semântica é a terceira etapa do processo de compilação e é nesse memento que ocorre a validação de verificação de erros semânticos que até então não podem ser verificados pelas etapas anteriores.
-
 
 Frase: Não é possível representar em uma gramática livre de contexto uma regra como "Todo identificador deve ser declarado antes de ser usado", isso resume muito bem o que deve ser feito na análise semântica.O analisador semântico utiliza a árvore sintática produzida na etapa de analise sintática e a tabela de símbolos produzida e incrementada desde o início do processo de compilação. Toda essa estrutura é utilizada gerar uma arvore de sintática e uma tabela de símbolos mais elaboradas e adaptada para as próximas etapas que compreendem as tarefas do back-end do processo de compilação e que tratam da geração do código em si.
 

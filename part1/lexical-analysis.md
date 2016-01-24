@@ -1,8 +1,6 @@
 Analise Léxica
 ======
 
-### Introdução
-
 A análise léxica também conhecida como *scanner* ou leitura é a primeira fase de um processo de compilação e sua função é fazer a leitura do programa fonte, caractere a caractere, agrupar os caracteres em lexemas e produzir uma sequência de símbolos léxicos conhecidos como tokens. A sequência de tokens é enviada ser processada pela analise sintática, a próxima fase do processo de compilação .
 
 O analisador léxico deve interagir com a tabela de símbolos inserindo informações de alguns tokens, como por exemplo os identificadores. A nível de implementação a analise léxica normalmente é uma sub-rotina da análise sintática formando um único passo, porem ocorre uma divisão conceitual para simplificar a modularização do projeto de um compilador.
@@ -196,7 +194,6 @@ Sequência de tokens gerado.
 #### Passos para identificat uma sequencia de tokens em uam programcao fonte
 
 A analise lexica divide o codigo fonte em tokens que poistreiomente sao classificados de acordo com a classe no qual o token pertence, toda a classe tem uma descricao do que ela vai repreestnacar na lingaugem de programcao 
-
 
 * reconhecer a substring realcionaod ao tokem
 * Partir as strings de entradas em lexemas

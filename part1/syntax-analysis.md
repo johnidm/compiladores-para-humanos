@@ -1,8 +1,6 @@
 Analise Sintática
 ======
 
-### Introdução
-
 O Analisador sintático também conhecido como *parser* tem como tarefa principal determinar se o programa de entrada representado pelo fluxo de tokens é uma sentença valida na linguagem de programação 
 
 A analise sintática e a segunda etapa do processo de compilação e utiliza gramáticas livres de contexto para especificar a sintaxe de uma linguagem de programação.
@@ -23,7 +21,7 @@ Alguns termos são utilizados na definição de linguagens de programação.
 * **Linguagem**: É o conjunto de sentenças, Na linguagem humana são os conjuntos de palavras {compiladores, linguagem, ...}
 * **Gramática**: É uma forma de representar as regras para formação de uma linguagem.
 
-Trasendo esse concieto para linguagem de progracao nos tempos
+Trazendo esse concieto para linguagem de progracao nos temos
 
 * Alfabeto: {w, h, i, l, e, +, 1, 2, 3}
 * Simbolos: 1, 5, +, w
@@ -36,9 +34,20 @@ O analisador sintático deve ser projetado para que a análise seja feita até o
 
 O analisador léxico é desenvolvido para reconhecer os tokens fazendo uma leitura dos caracteres e obtendo a sequência de tokens, esse analisador vê o texto como uma sequência de palavras de uma linguagem regular e reconhece ele através de um autômato finito. 
 
-Já o analisador sintático vê o mesmo texto como uma sequência de sentenças que deve satisfazer as regras gramaticais. É através da gramática que podemos validar expressões criadas na linguagem de programação. O analisador sintático agrupa os tokens em frases gramaticais usadas pelo compilador com o objetivo de criar uma saída que é uma estrutura de dados que possui uma hierarquia da entrada a árvore de derivação.
+Já o analisador sintático vê o mesmo texto como uma sequência de sentenças que deve satisfazer as regras gramaticais. É através da gramática que podemos validar expressões criadas na linguagem de programação. 
+
+O analisador sintático agrupa os tokens em frases gramaticais usadas pelo compilador com o objetivo de criar uma saída que é uma estrutura de dados que possui uma hierarquia da entrada a árvore de derivação.
 
 ![](../images/ast.png)
+
+Veja no quadro abaixo a especificacao da entrada e saida fazer do compialdor vistar atpé o momento
+
+| Fase   | Entrada               | Saida              |
+|--------|-----------------------|--------------------|
+| Lexer  | Conjunto de caracters | Conjunto de tokens |
+| Parser | Conjunto de tokens    | Arvore sintatica   |
+
+
 
 Observe estrutura sintática de uma linguagem de programação. Temos as divisões dos blocos, compostos por comandos, compostos por expressões.
 
@@ -62,7 +71,11 @@ E importante destacar que a árvore de derivação representa toda a estrutura s
 
 ### Gramática Livre de Contexto
 
-A Gramática Livre de Contexto ajuda a especificar a sintaxe de uma linguagem de programação e é a base para a análise sintática de um compilador. Com ela podemos descrever a maioria das linguagens de programação usadas atualmente. Uma gramática descreve naturalmente como é possível fazer construções programa. Veja o exemplo de um comando `if-else` em Pascal que deve ter a seguinte forma.
+As linguagens de programacao em geral pertencem a uma categoria chamdad de lingaugem livres de contetos. Umas dasforma de represetnadas essas lingaugens é atrawves de Gramáticas Livres de Contexto são a base para a contrucao de analisadores sintaticos elas são usadas para especificar as regras sintaticas de uma linguagem de programação, uma linguagem regular pode ser reconhecida por uma automato finito, ja uma glc pode ser reconhecida por um automati de pilha.
+
+Outra aplicacao de GLC sao os DTD - Definicao de Tipos de Docuimentos -  utilizados por arquivos XML que descree as tags de uma forma nataural, as tags deve estar anninhas afim de lidar com o significado do texto veja o exemplo, `<produto><codigo</codigo></produto>`.
+
+Uma gramática descreve naturalmente como é possível fazer construções programa. Veja o exemplo de um comando `if-else` em Pascal que deve ter a seguinte forma.
 
 `if (expressão) then declaração else declaração ;`
 
@@ -70,9 +83,9 @@ Essa mesma forma em uma Gramática Livre de Contexto pode ser expressada da segu
 
 `declaração → if ( expressão ) then declaração else declaração ;`
 
-As linguagens regulares podem ser reconhecidas através de expressões regulares criando um analisador léxico. Uma linguagem livre de contexto pode ser reconhecida através de autômatos de pilha que descrevem a forma como podemos criar analisadores sintáticos.
+As linguagens regulares podem ser reconhecidas através de expressões regulares possibilitando a contrucao de um analisador léxico. Uma Gramatica Livre de Contexto pode ser reconhecida através de autômatos de pilha que descrevem a forma como podemos criar analisadores sintáticos.
 
-A definição de uma gramática livre de contexto pode ser representada da seguinte forma:
+A definição de uma gramática livre de contexto pode ser representada atraves dos seguintes componentes:
 
 `G = (N, T, P, S)`
 
@@ -85,31 +98,258 @@ Onde:
 
 Terminologias:
 
-* **Símbolos terminais**: símbolos básicos que formas as cadeias, são os tokens da linguagem de programação.
+* **Símbolos terminais**: Conjunto finito de símbolos básicos que formam as palavras da linguagens, são representadas pelo tokens reconhecidos pelo analisador lexico.
 
-* **Símbolos não terminais**: variáveis sintáticas utilizadas para auxiliar a definição da linguagem, são compostas de símbolos terminas e pelos próprios símbolos não terminais.
+* **Símbolos não terminais**: Conjunto finito de variáveis utilizadas para representar os conjuntos da linguagem, são formadas pelos terminas e pelos próprios símbolos não terminais.
 
-* **Regras de produções**: regras sintáticas que indicam como símbolos terminais e não terminais podem ser combinados.
+* **Símbolo inicial**: É a variável, simbolo nao terminal, que representa o inicio da definicia da linguagem. 
 
-* **Símbolo inicial**: Inicio da validação da produção representado por um símbolo não terminal. 
+* **Regras de produções**: Representa um conjunto de regras sintáticas que representam a definicao da linguagem, indicam como símbolos terminais e não terminais podem ser combinados.
 
-Derivações é a substituição de cadeias de símbolos terminais iniciando pelo símbolo inicial substituindo os símbolos não terminais pelos símbolos terminais.
+As regras de producao sao represetnadas da seguinte forma:
+
+```
+    {A} -> {α}
+```
+
+Onde:
+
+* **A** é uma variavel - simbolo não terminal.
+* **->** simbolo de producao .
+* **α** é a combinacao simbolos terminais e nao terminais que representam a forma como uma string vai ser formada.
+
+Veja o exemplo de uma Gramatica Livre de Contexto.
+
+```
+G = ({S}, {a, b}, P, S)
+
+P = {   
+        S → aSb
+        S → Ø  
+    }
+```
+
+Essa gramatica é formada pelas temriais `a` e `b`, que são os tokens da lingaugem, como regras de produção nos temos `aSb` que indica a presenta de um `a` e `b` nas estemidades da palavras é o `Ø` que significa vazio.
+
+#### Derivacaoes
+
+A derivação é a substituição do conjunto de símbolos não terminais por simbolos terminais iniciando pelo símbolo inicial, ao final desse processo o resutlado é a forma como a linguagem deve assumir.
+
+A derivacao sempre inicia pela raiz que é o simbolo inicial, durante a derivacao aplica as regras de producao para que possamos identificar que certas cadeias de palavras podem ser represetnadas na lingaugem, as regras espandem o *body* das producoes ate substituir todas palavras em simbolos terinais. É possivel respsetanr as derivacaoes em uma estrurua de arvore conhecida como arvore de derivacao.
 
 Tipos de derivação:
 
-* Mais à esquerda: trocamos os símbolos não terminais mais à esquerda.
-* Mais à direita: trocamos os símbolos não terminais mais à direita.
+* Mais à esquerda: a derivcao inicia pela troca do símbolo não terminais mais à esquerda.
+* Mais à direita: a derivcao inicia pela troca do símbolo não terminais mais à direita.
 
-Exemplos de definição de uma gramática para validar uma linguagem de programação:
+Idenpendente da direcao da derivacao, esquerda ou direita, ela deve produzir o mesmo resultado, ou seja, a mesma arovorde de derivacao, caso o resutlado seja diferente temos uma ambiguidade.
+
+#### Árvores de derivação
+
+É uma represetnacao em formato de arvores que representa a derivacao de uma sentenca, essa estrutra ira gera a arvoers de analise sintatica que representa o programa fonte é o resutaldo da analise sitatica, essa setrututa faciltia a a conversao desse programa em codigo em codigo executavel
+
+E importante ressaltar que a arovre de analise sintatica esta diretamente relacionada a existencia de derivacoes, e isso resulta es as folhas serem todas simbolos terminais.
+
+Dada as seguinte GLC
+
+```
+G = ({S}, {a, b}, P, S)
+
+P = {   
+        S → aSb
+        S → Ø  
+    }
+```
+
+Como resultado temos a seguinte arvore de derivacao
+
+![](../images/part1-derivation-tree.png)
+
+A raiz da arvore de derivacao çe sempre o simbolo inicial, os vertices interiores sao os simbolos nao termiais e os seimbolos termianis e a palavra vazia sao as folhas.
+
+
+#### Ambiguidade:
+
+Certas gramaticas permitem que uma mesma sentenca tenha mas de uma arvore de derivacao, isso torna a gramtica inadequada para a lingaugem de programacao , pois o compilador nao pode determinar a estrutura desse programa fonte e portant nao pode montar o código final, portanto se a derivca mais a esquerda ou a direita produzor maus de uma arvode essa gramatica e dita ambigua.
+
+Uma ambiguidade por ser evitada de duas formas:
+
+1.  Reescrevendo a gramatica afim de remover a ambigudiade, isso pode tornar a graamtica mais complexa
+2. Definindao ordens de prioridade na derivacao
+
+
+Veja um exemplo exemplos comum de gramatica ambiguidades.
+
+Dada a seguinte gramatica utilziada para reconhcer as principais operaoes aritemeticas. 
+
+```
+G = ({E}, {+, *, (, ), x}, P,  E) 
+
+p { 
+    E → E + E
+    E → E * E
+    E → (E)
+    E → x
+    E → Ø
+}
+```
+
+
+Suponha quye quermos valdiar a seguinten sentença `x + x * x`.
+
+• Derivação mais à esquerda
+    ∗ E ⇒ E+E ⇒ x+E ⇒ x+E∗E ⇒ x+x∗E ⇒ x+x∗x
+    ∗ E ⇒ E∗E ⇒ E+E∗E ⇒ x+E∗E ⇒ x+x∗E ⇒ x+x∗x
+
+• Derivação mais à direita
+    ∗ E ⇒ E+E ⇒ E+E∗E ⇒ E+E∗x ⇒ E+x∗x ⇒ x+x∗x
+    ∗ E ⇒ E∗E ⇒ E∗x ⇒ E+E∗x ⇒ E+x∗x ⇒ x+x∗x
+
+Observe que duas arvores sintaticas forma geradas para essa sentença, logo temos uma ambiguidades.
+
+![](../images/part1-ambiguity-tree.png)
+
+Reescrevendo essa gramatica para evitar a ambiguidade nos temos o sequinte resultado 
+
+```
+G = ({E}, {+, *, (, ), x}, P,  E) 
+
+p { 
+    E → T + E | T
+    T → x * T
+    E → x
+    E → (E) * T
+    E → (T)
+    E → Ø
+}
+```
+
+Idenpendente da direcao da derivacao nos vamos obter a setuinte arovore sintatica 
+
+![](../images/part1-solved-ambiguity-tree.png)
+
+Nao existem nennhum algiritmo que seja capaz de eliminar a ambiguidade, e exsiste gramatica onde a ambiguidade é impossivel se ser eliminada, nesse caso fasse necessario aplicas a tecnica de emiminacao de ambiguidade e modificar a gramatica.
+
+### Forma de Backus-Naur (BNF)
+
+A Forma de Backus-Naur outra maneira de representar lingaugens livres de contexto, são muito semelhantes as GLC mas possuem duas importantes diferencas apararecem quando comparamos com GLC
+
+1. O sinal `→` é substituído por `::=`. Ex: `S → α` ≡ `S ::= α`.
+2. Os simbolos não terminais devem esta entre `<` e`>`.
+
+Veja o exemplo
+
+![](../images/form-backus-naur.gif)
+
+Veja uma comparacao entre as duas formas gramaticais
+
+###### Grmatica livre de contexto
+
+``` 
+G ({S, M, N}, {x,y}, P, S)
+P:
+S → x
+S → M
+M → MN
+N → y
+M → xy
+```
+
+###### forma de backus naur
+
+```
+G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
+<S> ::= x | <M>
+<M> ::= <M> <N> | xy
+<N> ::= y
+```
+
+> Os símbolos <, >, ::= não fazem parte da linguagem
+
+
+### Forma Extendida de Backus-Naur (BNF)
+
+E um complemento da Forma de Backus-Naur que permite ao lado direto da producao seja possivel ter operadores. 
+
+Podemos ter o seguintes operadores posssivei sao:
+
+* Selecao:
+    `(α | β)` um dos elementos entre parenteses pode ser expressos
+
+    ```
+    <S> ::= a(b | c | d)e
+    ```
+
+    Pode assumir as seguites derivacoes 
+    
+    `abe`
+    `ace`
+    `ade`
+
+* Opcional
+    `[α]` o que estiver entre colchetes pode ter utilziado ou nao 
+
+    ```
+    <S> ::= a[bcd]e
+    ```
+
+    Pode assumir as seguites derivacoes 
+
+    `ae`
+    `abcde`   
+
+
+* Repeticao 0 ou mais vezes
+
+    `(α)*` o que estiver entre parentese pode repetir um numero qualquer de vezes e pode nao ser usado
+
+    ```
+    <S> ::= a(b)*c
+    ```
+
+    Pode assumir as seguites derivacoes 
+
+    `ac`
+    `abc`   
+    `abbc`   
+    `abbc`
+    `abbb...c`   
+
+* Repeticao 1 ou mais vezes
+
+    `(α)+` o que estiver entre parentese pode repetir um numero qualquer de vezes 
+
+    ```
+    <S> ::= a(b)+c
+    ```
+
+    Pode assumir as seguites derivacoes 
+
+    `abc`   
+    `abbc`   
+    `abbc`
+    `abbb...c`   
+
+![](../images/extended-BNF.gif)
+
+Outro tipo de notação usual para gramáticas é a notação de grafos sintáticos. Esta notação tem o mesmo poder de expressão de BNF, porém define uma representação visual para as regras de uma gramática livre de contexto.
+
+![](../images/graph-syntactic.jpg)
+
+Na notação de grafos sintáticos, símbolos terminais são representados por círculos e símbolos não-terminais, por retângulos. Setas são utilizadas para indicar a seqüência de expansão de um símbolo não-terminal.
 
 ### Exemplos de gramáticas livres de contexto
 
+Nos vamos focar no estudo de GLC e entender como ela funciona, 
+
+> È comum representar os o simbolos temrinais em maiusculo e o nao terminais em minusculo
+
 #### Exemplo 01 – Linguagem ab
 
-Definir a gramática: 
+Definir a gramática:
 
 ```
-G = ({LITERAL}, {a, b}, PALAVRA, LITERAL)
+G = ({S}, {a, b}, S, S)
 
 PALAVRA { 
 	LITERAL → aLITERALb | Ø 
@@ -250,27 +490,6 @@ Dicas para criar uma gramática livre de contexto
 * Criar a regra de produção.
 * Fazer a derivação
 
-### Forma Normal de Backus (BNF)
-
-Outra maneira de representar as regras de produção .
-1) → é substituído por ::=
-w → s ≡ w ::= s
-2) Os nós não terminais são palavras entre < >.
-A notação BNF é usada para definir gramáticas com as características de que o lado
-esquerdo de cada regra é composta por um único símbolo não terminal.
-Ex. G ({S, M, N}, {x,y}, P, S)
-P:
-S → x
-S → M
-M → MN
-N → y
-M → xy
-BNF
-G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
-<S> ::= x | <M>
-<M> ::= <M> <N> | xy
-<N> ::= y
-Os símbolos <, >, ::= não fazem parte da linguagem
 
 ### Geradores de analisadores sintáticos
 

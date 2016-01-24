@@ -5,11 +5,23 @@ Para integrar com o analisador léxico criado através do JFlex vamos utilizar a
 
 Vamos começar definindo a sintaxe da linguagem de programação.
 
+Lexical especification
+
 ```
-inicio 
-	para 1 ate 10 faca 
-		valor <- valor * 10 
-fim
+$programa$ {
+
+    @idade INT:
+    @nome STR:
+    
+    &imprmir(^idade, ^nome) [
+        se verdade [
+            @idade -> ^idade:
+            @nome -> ^nome;
+        ]
+    ]
+
+    %imprimir(12, ~Papitoo~):
+}
 ```
 
 Crie um novo projeto chamado `SyntacticAnalyzer` e um pacote chamado `br.com.johnidouglas`, salve o código em um arquivo chamado `program.pg`.

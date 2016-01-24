@@ -6,7 +6,6 @@ LISP - Listas simples e lista aninhas
 	$ elementos comecando pelo A segundo e a suglista B C atomo D e o quarto sublsta (E (F G) que tem um elemento (F G)
 	(E (F G))
 
-
 Algol
 PL/1
 Ada

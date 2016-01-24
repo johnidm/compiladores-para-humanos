@@ -1,5 +1,20 @@
-TAEs
+Temas para os TAEs
 
-Hierarquia_de_Chomsky
-	Eleborar uma lista de questoes sobre determiado assunto
+Eleborar uma lista de questoes sobre os assuntos abaixo
 
+A lista de ter 5 questoes
+	duas com assertivas veradeira e fala
+	duas com 4 alternativas - somente uma correta
+	uma de miltipla escolha com tres opcoes e 4 alternativas
+
+Assuntos
+
+1) Hierarquia de Chomsky
+2) Traducao Dirigida por Sintaxe
+3) DFA e NFA
+4) Nos vimos duas formas de represntar uma gramatica 
+	1- Gramatica livre de contexto
+	2- Forma de Backus-Naur
+
+	Porem existe uma terceirta forma conhecida como grafos sintaticos
+	
