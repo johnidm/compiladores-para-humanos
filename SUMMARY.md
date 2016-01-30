@@ -10,4 +10,5 @@
   * [Contruindo o primeiro analisador léxico com JFlex](part2/building-the-first-lexical-analyzer-with-JFlex.md)
   * [Utilizando o JFlex e Java CUP](part2/using-jflex-java-cup.md)
   * [Criando Gramáticas Livres de Contexto com o JFlap](part2/create-context-free-grammar-JFLAP.md)
+  * [Exemplo de uso de tradução dirigida por sintaxe](part2/example-syntax-directed-translation.md)
 * [Referências](REFERENCES.md)

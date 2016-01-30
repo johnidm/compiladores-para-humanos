@@ -45,7 +45,6 @@ As seguintes convenções serão utilizadas na linguagem **SextaFase**:
 * As funções são chamadas colocando o sinal `%` na frente do nome;
 * Nas funções os parâmetros são separados por `;` tando na declaração como na chamada;
 
-
 Agora vamos criar o arquivo de especificação léxica. Dentro do projeto crie um arquivo chamado `Lexer.lex` com o seguinte conteúdo.
 
 ```
