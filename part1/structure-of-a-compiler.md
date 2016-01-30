@@ -170,23 +170,26 @@ Os seguintes atributos costumam ser gravados na tabela de símbolos:
 * Tipo de dado: Inteiro, String, etc.
 * Tipos de retornos: no caso de métodos
 * Variáveis: tipo, endereço no texto, posição e tamanho.
-* Parâmetros formais: tipo do mecanismo de passagem - por valor ou referência.
+* Parâmetros formais: tipo do mecanismo de passagem, por valor ou referência.
 * Procedimentos/sub-rotinas: número de parâmetros.
 
-A tabela de símbolos é utilizado durante todo o processo de compilação a fim de inserir e extrair informações de forma rápida e eficiente.]
+A tabela de símbolos é utilizado durante todo o processo de compilação a fim de inserir e extrair informações de forma rápida e eficiente.
+
+> Dependendo do linguagem de programacao outras informacoes podem ser gravadas da tabela de simbolos.
 
 Podemos armazenar na tabela de símbolos também informações sobre a linha e coluna que o token foi examinado para em caso de erro o compilador passa informar a posição da falha.
 
+
 ### Árvore Sintática
 
-A árvore sintática é uma estrutura de dados em forma de árvore ou grafo que representa estrutura sintática da linguagem de programação.
+A árvore sintática é uma estrutura de dados em forma de árvore ou grafo que representa sequencia hierarquica da linguagem de programação. Essa esturura permite represetnar cada elemento do programa, os demais passos do compilador consitem em visatar os nos dessa estrutura em uma determinada ordem
 
 Veja uma exemplo de uma sentença `if` `else`
 
 ![](../images/syntax-tree-if-else-ex.gif)
 ![](../images/syntax-tree-if-else.gif)
 
-Essa representação gráfica é resultante da derivação de uma sentença, cada nó representa uma unidade sintática.
+Essa representação gráfica é resultante da derivação de uma sentença, cada nó representa uma unidade sintática, formada por um simbolo terminal ou simbolo nao terminal.
 
 ### Termos
 

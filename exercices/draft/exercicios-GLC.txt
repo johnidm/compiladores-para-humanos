@@ -1,20 +1,11 @@
+
 A -> B
 B -> 1A
 B -> 0
 
 1110 pertence a linguagem, faca a arvore de derivacao
 ---
-Supondo a gramática G = (V n , V t , P, Sentença)
-	V n = {SENTENÇA, SN, SV, ARTIGO, VERBO, SUBSTANTIVO, COMPLEMENTO}
-	V t = {aluno, o, estudou, compiladores}
-	P : SENTENÇA → SN SV
-	SN → ARTIGO SUBSTANTIVO
-	SV → VERBO COMPLEMENTO
-	COMPLEMENTO → ARTIGO SUBSTANTIVO | SUBSTANTIVO
-	ARTIGO → o
-	SUBSTANTIVO → aluno | compiladores
-	VERBO → estudou
-Derivar : “ o aluno estudou compiladores”
+
  
 ----
 
@@ -38,19 +29,8 @@ Ex. Quais as linguagens geradas para as seguintes gramáticas:
 	S ⇒ aAb ⇒ aabb
 	S ⇒ aAb ⇒ aSb ⇒ aaAbb ⇒ aaabbb
 
-L(G1) = L(G2) = {w/w ∈ {a,b} * e w = a n b n ,n>0}. Portanto G1 e G2 são equivalentes.
 
 ----
-
-4) Seja a gramática abaixo :
-<S> é o símbolo inicial
-<S> ::= <B>
-<B> ::= <C> | <C> + <D>
-<C> ::= <D> | <C> * <D> | *<D>
-<D> ::= x | (<S>) | - <D>
-a) Definir V t e V n
-b) Gere 10 sentenças para esta gramática.
-5)
 P
 S → aSBC | aBC
 CB → BC
@@ -67,16 +47,6 @@ S → Aa
 A → c
 A → Ba
 B → abc
-
-6) Mostre a linguagem gerada pelas produções da GLC abaixo e construa uma GR
-equivalente.
-G = ({A, B, S}, {a, b}, P, S)
-P:
-S → AB
-A → aA
-A → aBB
-B → Bb
-B → b
 
 Escreve uma GLC que valida o alfabeto binario compos por 0 e 1
 
@@ -100,7 +70,4 @@ onde _ deve repitir uma a n vezes
 
 S -> aS | aSbS | ^ e ambigua
  
-escreva uma gramatica livre de contexto que valida a seguinte expressa 
-
-if 2 + 4 = 0 {
-}
+Faca uma pesquisa sobre outros exemplos de gramaticas livres de contexto

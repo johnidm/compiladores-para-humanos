@@ -132,59 +132,55 @@ P = {
 
 Essa gramatica é formada pelas terminais `a` e `b`, que são os tokens da linguagem, como regras de produção nos temos `aSb` que indica a presenta de um `a` e `b` nas extremidades da palavras é o simbolo `λ` que significa vazio.
 
-
-
 #### Derivacaoes
 
-A derivação é a substituição do conjunto de símbolos não terminais por simbolos terminais iniciando pelo símbolo inicial, ao final desse processo o resutlado é a forma como a linguagem deve assumir.
+A derivação é a substituição do conjunto de símbolos não terminais por símbolos terminais começando pelo símbolo inicial, ao final desse processo o resultado é a forma como a linguagem deve assumir.
 
-A derivacao sempre inicia pela raiz que é o simbolo inicial, durante a derivacao aplica as regras de producao para que possamos identificar que certas cadeias de palavras podem ser represetnadas na lingaugem, as regras espandem o *body* das producoes ate substituir todas palavras em simbolos terinais. É possivel respsetanr as derivacaoes em uma estrurua de arvore conhecida como arvore de derivacao.
+Durante a derivação devemos aplicar as regras de producao para substituir cada simbolo não terminal por um simbolo terminal, isso permite identificar se certa cadeias de caracteres pertence a linguagem, as regras expandem todas as produções possíveis. Como resultado desse processo nos temos a arvore de derivação.
 
 Tipos de derivação:
 
-* Mais à esquerda: a derivcao inicia pela troca do símbolo não terminais mais à esquerda.
-* Mais à direita: a derivcao inicia pela troca do símbolo não terminais mais à direita.
+* Mais à esquerda: a derivação inicia pela troca do símbolo não terminais mais à esquerda.
+* Mais à direita: a derivação inicia pela troca do símbolo não terminais mais à direita.
 
-Idenpendente da direcao da derivacao, esquerda ou direita, ela deve produzir o mesmo resultado, ou seja, a mesma arovorde de derivacao, caso o resutlado seja diferente temos uma ambiguidade.
+Independente da direção da derivação, esquerda ou direita, ela deve produzir o mesmo resultado, ou seja, a mesma arvore de derivação, caso o resultado seja diferente temos uma ambiguidade.
 
 #### Árvores de derivação
 
-É uma represetnacao em formato de arvores que representa a derivacao de uma sentenca, essa estrutra ira gera a arvoers de analise sintatica que representa o programa fonte é o resutaldo da analise sitatica, essa setrututa faciltia a a conversao desse programa em codigo em codigo executavel
+É uma estrutura em formato de arvores que representa a derivação de uma sentença ou conjunto de sentenças, essa estrutura ira gera a arvores de analise sintática que representa o programa fonte e é o resultado da analise sintática, essa estrutura facilita a a conversão do programa em código objeto.
 
-E importante ressaltar que a arovre de analise sintatica esta diretamente relacionada a existencia de derivacoes, e isso resulta es as folhas serem todas simbolos terminais.
+E importante ressaltar que a arvore de analise sintática esta diretamente relacionada a existência de derivações.
 
-Dada as seguinte GLC
+Dada as seguinte GLC:
 
 ```
 G = ({S}, {a, b}, P, S)
 
 P = {   
         S → aSb
-        S → Ø  
+        S → λ  
     }
 ```
 
-Como resultado temos a seguinte arvore de derivacao
+Como resultado temos a seguinte arvore de derivação:
 
 ![](../images/part1-derivation-tree.png)
 
-A raiz da arvore de derivacao  sempre o simbolo inicial, os vertices interiores sao os simbolos nao termiais e os seimbolos termianis e a palavra vazia sao as folhas.
-
+A raiz da arvore de derivação sempre o simbolo inicial, os vértices interiores são os símbolos não terminais, os símbolos terminais e a palavra vazia são as folhas.
 
 
 #### Ambiguidade:
 
-Certas gramaticas permitem que uma mesma sentenca tenha mas de uma arvore de derivacao, isso torna a gramtica inadequada para a lingaugem de programacao , pois o compilador nao pode determinar a estrutura desse programa fonte e portant nao pode montar o código final, portanto se a derivca mais a esquerda ou a direita produzor maus de uma arvode essa gramatica e dita ambigua.
+Certas gramaticas permitem que uma mesma sentença tenha mas de uma arvore de derivação, isso torna a gramática inadequada para a linguagem de programação , pois o compilador não pode determinar a estrutura desse programa fonte e portanto não pode montar o código final, portanto se a derivação mais a esquerda ou a direita produzir maus de uma arvore essa gramatica e dita ambígua.
 
 Uma ambiguidade por ser evitada de duas formas:
 
-1.  Reescrevendo a gramatica afim de remover a ambigudiade, isso pode tornar a graamtica mais complexa
-2. Definindao ordens de prioridade na derivacao
-
+1.  Reescrevendo a gramatica afim de remover a ambiguidade, isso pode tornar a gramatica mais complexa.
+2. Definir ordens de prioridade na derivação.
 
 Veja um exemplo exemplos comum de gramatica ambiguidades.
 
-Dada a seguinte gramatica utilziada para reconhcer as principais operaoes aritemeticas. 
+Dada a seguinte gramatica utilizada para reconhecer as principais operações aritméticas:
 
 ```
 G = ({E}, {+, *, (, ), x}, P,  E) 
@@ -194,26 +190,23 @@ p {
     E → E * E
     E → (E)
     E → x
-    E → Ø
+    E → λ
 }
 ```
 
-
-Suponha quye quermos valdiar a seguinten sentença `x + x * x`.
+Suponha que queremos validar a seguinte sentença `x + x * x`.
 
 • Derivação mais à esquerda
     ∗ E ⇒ E+E ⇒ x+E ⇒ x+E∗E ⇒ x+x∗E ⇒ x+x∗x
-    ∗ E ⇒ E∗E ⇒ E+E∗E ⇒ x+E∗E ⇒ x+x∗E ⇒ x+x∗x
 
 • Derivação mais à direita
-    ∗ E ⇒ E+E ⇒ E+E∗E ⇒ E+E∗x ⇒ E+x∗x ⇒ x+x∗x
     ∗ E ⇒ E∗E ⇒ E∗x ⇒ E+E∗x ⇒ E+x∗x ⇒ x+x∗x
 
-Observe que duas arvores sintaticas forma geradas para essa sentença, logo temos uma ambiguidades.
+Observe que duas arvores sintáticas forma geradas para essa sentença, logo temos uma ambiguidades.
 
 ![](../images/part1-ambiguity-tree.png)
 
-Reescrevendo essa gramatica para evitar a ambiguidade nos temos o sequinte resultado 
+Reescrevendo essa gramatica para evitar a ambiguidade nos temos o seguinte resultado 
 
 ```
 G = ({E}, {+, *, (, ), x}, P,  E) 
@@ -224,30 +217,30 @@ p {
     E → x
     E → (E) * T
     E → (T)
-    E → Ø
+    E → λ
 }
 ```
 
-Idenpendente da direcao da derivacao nos vamos obter a setuinte arovore sintatica 
+Independente da direção da derivação nos vamos obter a seguinte arvore sintática 
 
 ![](../images/part1-solved-ambiguity-tree.png)
 
-Nao existem nennhum algiritmo que seja capaz de eliminar a ambiguidade, e exsiste gramatica onde a ambiguidade é impossivel se ser eliminada, nesse caso fasse necessario aplicas a tecnica de emiminacao de ambiguidade e modificar a gramatica.
+Não existem nenhum algoritmo que seja capaz de eliminar a ambiguidade, e existem gramaticas onde a ambiguidade é impossível se ser eliminada, nesses casos é necessário aplicas a técnicas de eliminação de ambiguidade.
 
 ### Forma de Backus-Naur (BNF)
 
-A Forma de Backus-Naur outra maneira de representar lingaugens livres de contexto, são muito semelhantes as GLC mas possuem duas importantes diferencas apararecem quando comparamos com GLC
+A Forma de Backus-Naur outra maneira de representar linguagens livres de contexto, são muito semelhantes as GLC mas possuem duas importantes diferenças aparacerem quando comparamos com GLC
 
 1. O sinal `→` é substituído por `::=`. Ex: `S → α` ≡ `S ::= α`.
-2. Os simbolos não terminais devem esta entre `<` e`>`.
+2. Os símbolos não terminais devem esta entre `<` e`>`.
 
 Veja o exemplo
 
 ![](../images/form-backus-naur.gif)
 
-Veja uma comparacao entre as duas formas gramaticais
+Veja uma comparação entre as duas formas gramaticais
 
-###### Grmatica livre de contexto
+###### Gramatica livre de contexto
 
 ``` 
 G ({S, M, N}, {x,y}, P, S)
@@ -258,7 +251,7 @@ P {
 }
 ```
 
-###### Forma de backus naur
+###### Forma de Backus-Naur
 
 ```
 G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
@@ -270,48 +263,47 @@ G = ({<S>, <M>, <N>}, {x,y}, P, <S>)
 > Os símbolos <, >, ::= não fazem parte da linguagem
 
 
+### Forma Estendida de Backus-Naur (BNF)
 
-### Forma Extendida de Backus-Naur (BNF)
-
-E um complemento da Forma de Backus-Naur que permite ao lado direto da producao seja possivel ter operadores. Isso facilita a escrita das regras gramaticais pois deixa elas mais simples. 
+E um complemento da Forma de Backus-Naur que permite ao lado direto da producao seja possível ter operadores. Isso facilita a escrita das regras gramaticais pois deixa elas mais simples. 
 
 Podemos ter o seguintes operadores:
 
-* Selecao:
+* Seleção:
     `(α | β)` um dos elementos entre parenteses pode ser expressos
 
     ```
     <S> ::= a(b | c | d)e
     ```
 
-    Pode assumir as seguites derivacoes 
+    Pode assumir as seguintes derivações 
     
     `abe`
     `ace`
     `ade`
 
 * Opcional
-    `[α]` o que estiver entre colchetes pode ter utilziado ou nao 
+    `[α]` o que estiver entre colchetes pode ter utilizado ou não 
 
     ```
     <S> ::= a[bcd]e
     ```
 
-    Pode assumir as seguites derivacoes 
+    Pode assumir as seguintes derivações 
 
     `ae`
     `abcde`   
 
 
-* Repeticao 0 ou mais vezes
+* Repetição 0 ou mais vezes
 
-    `(α)*` o que estiver entre parentese pode repetir um numero qualquer de vezes e pode nao ser usado
+    `(α)*` o que estiver entre parentese pode repetir um numero qualquer de vezes e pode não ser usado
 
     ```
     <S> ::= a(b)*c
     ```
 
-    Pode assumir as seguites derivacoes 
+    Pode assumir as seguintes derivações 
 
     `ac`
     `abc`   
@@ -319,7 +311,7 @@ Podemos ter o seguintes operadores:
     `abbc`
     `abbb...c`   
 
-* Repeticao 1 ou mais vezes
+* Repetição 1 ou mais vezes
 
     `(α)+` o que estiver entre parentese pode repetir um numero qualquer de vezes 
 
@@ -327,7 +319,7 @@ Podemos ter o seguintes operadores:
     <S> ::= a(b)+c
     ```
 
-    Pode assumir as seguites derivacoes 
+    Pode assumir as seguintes derivações 
 
     `abc`   
     `abbc`   
@@ -344,26 +336,29 @@ Na notação de grafos sintáticos, símbolos terminais são representados por c
 
 ### Exemplos de gramáticas livres de contexto
 
-Nos seção vamos focar no estudo de GLC e entender como ela funciona, 
+Nos seção vamos apresentar vários exemplos de GLC, como podemos criar uma GCL, aplicar as regras de derivação e montar a arvore de derivação.
 
-Dicas para criar uma gramática livre de contexto
+Dicas para criar uma gramática livre de contexto:
 
 * Conhecer todos os tokens;
 * Especificar a gramática. Por exemplo `G =  ( {A, B, C}, {int, id, numero, +, -}, P, A )`;
 * Criar as regra de produção;
 * Fazer a derivação;
 
-> È comum representar os o simbolos temrinais em maiusculo e o nao terminais em minusculo
+> É comum representar os o símbolos terminais em maiúsculo e o não terminais em minusculo.
+
+Na parte 2 desse *ebook* é apresentado o software JFLAP que é utilizado para criar gramaticas e fazer a suas derivações a fim de entender melhor esse conceito.
 
 #### Exemplo 01 – Linguagem ab
 
 Definir a gramática:
 
 ```
-G = ({S}, {a, b}, S, S)
+G = ({S}, {a, b}, P, S)
 
-PALAVRA { 
-	LITERAL → aLITERALb | Ø 
+P { 
+    S → aSb 
+    S → λ 
 }
 ```
 
@@ -371,107 +366,180 @@ Identificação terminologias
 
 | Descrição               |         |
 |-------------------------|---------|
-| Símbolos terminais      | a,e b   |
-| Símbolos não terminais: | LITERAL |
-| Símbolo inicial:        | LITERAL |
-| Regra de produção:      | PALAVRA |
+| Símbolos terminais      | a, b    |
+| Símbolos não terminais: | S       |
+| Símbolo inicial:        | S       |
+| Regra de produção:      | P       |
 
-A palavra `aabb pode ser gerada a partir da seguinte derivação a direita:
+A palavra `aabb` pode ser gerada a partir da seguinte derivação:
 
 ```
-LITERAL → aLITERALb 
-LITERAL → aaLITERALbb 
-LITERAL → aaØbb
+1 → aSb 
+2 → aaSbb 
+3 → aabb
 ```
 
-Com a gramática acima é possível dizer que palavra `aab` pertence linguagem? 
+Com a gramática acima é possível dizer que palavra `aab` pertence linguagem?
 
-#### Exemplo 02 – expressões matemáticas de soma e multiplicação
+#### Exemplo 02 Linguagem ab estendida
 
 Definir da gramática: 
 
 ```
-G = ({EXP}, {+, *, (, ), x}, OPR,  EXP)	
-
-OPR { 
-	EXP → EXP + EXP | EXP * EXP | (EXP) | x
+G = ({A, B, S}, {a, b}, P, S)
+P {
+    S → AB
+    A → aA
+    A → aBB
+    B → Bb
+    B → b
+    A → λ
+    B → λ
 }
 ```
 
 Identificação terminologias
 
-| Descrição               |                |
-|-------------------------|----------------|
-| Símbolos terminais      | +,, *, (, ), x |
-| Símbolos não terminais: | EXP            |
-| Símbolo inicial:        | EXP            |
-| Regra de produção:      | OPR            |
+| Descrição               |         |
+|-------------------------|---------|
+| Símbolos terminais      | a, b    |
+| Símbolos não terminais: | S, A, B |
+| Símbolo inicial:        | S       |
+| Regra de produção:      | P       |
+
+A palavra `aabbbb` pode ser gerada a partir da seguinte derivação:
+
+```
+1 → AB
+2 → aAB
+3 → aaBBB
+4 → aabBBB
+5 → aabbBB
+6 → aabbbB
+7 → aabbbb
+```
+
+Com a gramática acima é possível dizer que palavra `a` pertence linguagem?
+E o `b` pertence a linguagem?
+
+#### Exemplo 03 Linguagem ab com restrições
+
+Definir da gramática: 
+
+```
+G = ({S, A, B}, {a, b}, P, S)
+P {
+    S → aaAb
+    A → aA
+    B → λ
+}
+```
+
+Identificação terminologias
+
+| Descrição               |         |
+|-------------------------|---------|
+| Símbolos terminais      | a, b    |
+| Símbolos não terminais: | S, A, B |
+| Símbolo inicial:        | S       |
+| Regra de produção:      | P       |
+
+A palavra `aaab` pode ser gerada a partir da seguinte derivação:
+
+```
+1 → aaAb
+2 → aaaAb
+3 → aaab
+```
+
+Com a gramática acima é possível dizer que palavra `abb` pertence linguagem?
+E o `aabb` pertence a linguagem?
+
+#### Exemplo 03 Linguagem abc
+
+Definir da gramática: 
+
+```
+G = ({S, A, B, C}, {a}, P, S)
+P {
+    S → aA
+    A → aB
+    B → aC
+    C → λ
+}
+```
+
+Identificação terminologias
+
+| Descrição               |            | 
+|-------------------------|------------|
+| Símbolos terminais      | a          |
+| Símbolos não terminais: | S, A, B, C |
+| Símbolo inicial:        | S          |
+| Regra de produção:      | P          |
+
+Olhando para esse gramatica nos podemos concluir que ela somente gerar linguagem formas por `a`
+
+#### Exemplo 04 – Expressões matemáticas
+
+Definir da gramática: 
+
+```
+G = ({E, T}, {+, -, *, /,  (, ), x}, P,  E) 
+
+P { 
+    E → E + T
+    E → E - T 
+    E → T
+    T → T * F
+    T → T / F 
+    T → F
+    F → (E) 
+    F → x
+}
+```
+
+Identificação terminologias
+
+| Descrição               |                      |
+|-------------------------|----------------------|
+| Símbolos terminais      | +, -, *, /, (, ), x  |
+| Símbolos não terminais: | E, T                 |
+| Símbolo inicial:        | E                    |
+| Regra de produção:      | P                    |
 
 A expressão `(x + x) * x` pode ser derivada a partir da seguinte regra de produção:
 
 ```
-EXP → EXP * EXP 
-EXP → (EXP) * EXP 
-EXP → (EXP + EXP) * EXP 
-EXP → (x + EXP) * EXP 
-EXP → (x + x) * EXP 
-EXP → (x + x) * x
+1 → T
+2 → T * F
+3 → F * F
+4 → (E) * F
+5 → (E + T) * F
+6 → (E + T) * F
+7 → (T + T) * F
+8 → (F + T) * F
+9 → (x + T) * F
+10 → (x + F) * F
+10 → (x + x) * F
+11 → (x + x) * x
 ```
 
 É possível derivar a expressão `x - x?
-
-#### Exemplo 03 – expressões matemáticas completas
-
-Definir da gramática: 
-
-```
-G = ({EXP, OP}, {+, *, +, -, (, ), id, numero}, OPR,  EXP)
-
-OPR { 
-	EXP → EXP OP EXP | EXP → (EXP) | -EXP | id | numero
-	OP → + | - | * | /
-}
-```
-
-Identificação terminologias
-
-| Descrição               |                                  |
-|-------------------------|----------------------------------|
-| Símbolos terminais      | + , *, (, ), x, +, -, id, numero |
-| Símbolos não terminais: | EXP, OP                          |
-| Símbolo inicial:        | EXP                              |
-| Regra de produção:      | OPR                              |
-
-
-Podemos validar qualquer expressão matemática com essa gramática.
-
-Derivação a esquerda da expressão `a + b`
-
-```
-EXP → EXP OP EXP
-EXP → EXP OP id
-EXP → EXP + id
-EXP → id + id
-```
-
-Derivação a direita da expressão -1
-```
-EXP → OP EXP
-EXP → - EXP
-EXP → - numero
-```
 
 #### Exemplo 04 – Chamada de funções
 
 Definir a gramática: 
 
 ```
-G = ({CHAMADA, CHAMADA_PARAMS, PARAMS, PARAM}, {(, ), , , id}, OPR,  CHAMADA)	
+G = ({S, X, Y, Z}, {(, ), , , id}, P,  S)   
 OPR { 
-	CHAMADA → id(CHAMADA_PARAMS)
-	CHAMADA_PARAMS → (PARAMS | Ø)
-	PARAMS → PARAMS, PARAM | PARAM
-	PARAM → id
+    S → id(X)
+    X → Y
+    Y → Y, Z 
+    Y → Z
+    Z → id
+    X → λ
 }
 ```
 
@@ -479,21 +547,23 @@ Identificação terminologias
 
 | Descrição               |                                        |
 |-------------------------|----------------------------------------|
-| Símbolos terminais      | (,,),,, ,,id                           |
-| Símbolos não terminais: | CHAMADA, CHAMADA_PARAMS, PARAMS, PARAM |
-| Símbolo inicial:        | CHAMADA                                |
-| Regra de produção:      | OPR                                    |
+| Símbolos terminais      | (,), ,, ,id                            |
+| Símbolos não terminais: | S, X, Y, Z                             |
+| Símbolo inicial:        | S                                |
+| Regra de produção:      | P                                    |
 
-Derivação a esquerda de exibir(valor, desconto)
+Derivação da sentença `exibir(valor, desconto)`
+
 ```
-CHAMADA → id(CHAMADA_PARAMS)
-CHAMADA → id(PARAMS, PARAM)
-CHAMADA → id(PARAM, PARAM)
-CHAMADA → id(PARAM, PARAM)
-CHAMADA → id(id , id)
-CHAMADA → exibir(valor, desconto)
+1 → exibir(X)
+2 → exibir(Y)
+3 → exibir(Y, Z)
+4 → exibir(Z, Z)
+5 → exibir(valor, Z)
+6 → exibir(valor, desconto)
 ```
 
+Também é possível derivar `print(nome)` e `print()`.
 
 ### Geradores de analisadores sintáticos
 
@@ -504,3 +574,4 @@ O funcionamento é semelhante aos analisadores léxicos. Um arquivo com as
 especificações sintáticas é criado e através de comandos o analisador sintático é gerado.
 
 A saída é um arquivo de código com a implementação do analisador sintático.
+
