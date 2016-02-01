@@ -80,12 +80,15 @@ Sentenças:
 
 Especificação das regras de produção:
 
+
+```
 S → SS
 S → ()
 S → (S)
 S → []
 S → [S]
 S → λ
+```
 
 Sentenças:
 

@@ -140,8 +140,8 @@ Durante a derivação devemos aplicar as regras de produção para substituir ca
 Tipos de derivação:
 
 * Top-Down:Examina os símbolos terminais da esquerda para a direita - forma a árvore sintatica de cima para baixo.
-    - L(eft-to-right) L(eft-most-derivation) => LL
- 
+    - L(eft-to-right) L(eft-most-derivation) => LL 
+
 * Bottom-Up: Examina os símbolos terminais da direita para a esquerda - forma a árvore sintatica de baixo para cima
     - S(imple) L(eft-to-right) R(ight-most-derivation) => SLR
     - L(eft-to-right) R(ight-most-derivation) => LR
