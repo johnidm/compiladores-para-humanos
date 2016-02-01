@@ -216,7 +216,7 @@ Reescrevendo essa gramatica para evitar a ambiguidade, temos o seguinte resultad
 ```
 G = ({E}, {+, *, (, ), x}, P,  E) 
 
-p { 
+P { 
     E → T + E | T
     T → x * T
     E → x
@@ -225,10 +225,6 @@ p {
     E → λ
 }
 ```
-
-Independente da direção da derivação, vamos obter a seguinte arvore sintática. 
-
-![](../images/part1-solved-ambiguity-tree.png)
 
 Não existe algoritmo capaz de eliminar a ambiguidade, nesses casos é necessário aplicas a técnicas de eliminação de ambiguidade.
 
