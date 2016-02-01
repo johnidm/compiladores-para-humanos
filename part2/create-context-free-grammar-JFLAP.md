@@ -61,7 +61,7 @@ Nas etapas seguintes nos vamos utilizar vários exemplos de gramaticas em sequen
 
 #### Exemplo 01 - Linguagem formado por parenteses
 
-Especificação das regras de produção
+Especificação das regras de produção:
 
 ```  
 S → SS
@@ -70,8 +70,7 @@ S → ()
 S → λ
 ```
 
-Sentenças
-
+Sentenças:
 
 * `()()` - Válida
 * `()())` - Inválida
@@ -79,7 +78,7 @@ Sentenças
 
 #### Exemplo 02 - Linguagem formado por parenteses e colchetes
 
-Especificação das regras de produção
+Especificação das regras de produção:
 
 S → SS
 S → ()
@@ -88,7 +87,7 @@ S → []
 S → [S]
 S → λ
 
-Sentenças
+Sentenças:
 
 
 * `()` - Válida
@@ -101,7 +100,7 @@ Sentenças
 
 #### Exemplo 03 - Linguagem formada por pares de  letras
 
-Especificação das regras de produção
+Especificação das regras de produção:
 
 ```  
 S → aSb
@@ -117,7 +116,7 @@ Sentenças:
 
 #### Exemplo 04 - Linguagem formada por uma combinação de letras
 
-Especificação das regras de produção
+Especificação das regras de produção:
 
 ```
 S → SaSc
@@ -139,7 +138,7 @@ Sentenças:
 
 #### Exemplo 04 - Linguagem para operações de soma e multiplicação 
 
-Especificação das regras de produção
+Especificação das regras de produção:
 
 ```
 S → x
