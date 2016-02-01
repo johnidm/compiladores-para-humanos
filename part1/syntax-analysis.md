@@ -147,7 +147,7 @@ Tipos de derivação:
     - L(eft-to-right) R(ight-most-derivation) => LR
     - L(ook) A(head) L(eft-to-right) R(ight-most-derivation) => LALR
 
-![])(../images/part1-structure-parsing-techniques.png)
+![](../images/part1-structure-parsing-techniques.png)
 
 Independente do algortimo utilizado a derivação deve produzir o mesmo resultado, ou seja, a mesma árvore de derivação, caso o resultado seja diferente temos uma ambiguidade.
 
