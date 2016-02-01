@@ -109,7 +109,7 @@ S → ab
 S → λ
 ```
 
-Sentenças
+Sentenças:
 
 * `ab` -Válida
 * `abab` - Inválida
@@ -128,6 +128,8 @@ S → bS
 S → λ
 ```
 
+Sentenças:
+
 * `ac` - Válida
 * `aac` - Válida
 * `aaac` - Válida
@@ -139,16 +141,19 @@ S → λ
 
 Especificação das regras de produção
 
+```
 S → x
 S → xAx
 S → (S)
 A → +
 A → *
+```
 
+Sentenças:
 
-*  `x+x` - Válida
-*  `x*x` - Valida
-*  `x-x` - Inválida
+* `x+x` - Válida
+* `x*x` - Valida
+* `x-x` - Inválida
 * `+x` - Inválida
 
 
