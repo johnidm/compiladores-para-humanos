@@ -392,9 +392,7 @@ G = ({A, B, S}, {a, b}, P, S)
 P {
     S → AB
     A → aA
-    A → aBB
-    B → Bb
-    B → b
+    B → bB
     A → λ
     B → λ
 }
@@ -409,16 +407,13 @@ Identificação terminologias:
 | Símbolo inicial:        | S       |
 | Regra de produção:      | P       |
 
-A palavra `aabbbb` pode ser gerada a partir da seguinte derivação:
+A palavra `abb` pode ser gerada a partir da seguinte derivação:
 
 ```
 1 → AB
 2 → aAB
-3 → aaBBB
-4 → aabBBB
-5 → aabbBB
-6 → aabbbB
-7 → aabbbb
+3 → abB
+4 → abb
 ```
 
 Com a gramática acima é possível dizer que palavra `a` pertence linguagem?
@@ -433,7 +428,7 @@ G = ({S, A, B}, {a, b}, P, S)
 P {
     S → aaAb
     A → aA
-    B → λ
+    A → λ
 }
 ```
 
@@ -457,7 +452,7 @@ A palavra `aaab` pode ser gerada a partir da seguinte derivação:
 Com a gramática acima é possível dizer que palavra `abb` pertence linguagem?
 E o `aabb` pertence a linguagem?
 
-#### Exemplo 03 Linguagem abc
+#### Exemplo 03 Linguagem a
 
 Definir da gramática: 
 
