@@ -3,7 +3,7 @@ Criando Gramáticas Livres de Contexto com o JFlap
 
 O JFLAP, Java Formal Languages & Automata Package, é uma ferramenta que utiliza recursos visuais para demonstrar conceitos básicos de Linguagens Formais e Autômatos Finitos.
 
-Com o JFLAP é possível representar diversas variações de autômatos finitos, máquinas de Turing, expressões regulares (REX), escrever e montar árvores de derivação de gramáticas livres de contexto entre outros assuntos relacionados ao estuado de Linguagens Formais e Autômatos Finitos.
+Com o JFLAP é possível representar diversas variações de autômatos finitos, máquinas de Turing, expressões regulares, escrever e montar árvores de derivação de gramáticas livres de contexto entre outros assuntos relacionados ao estuado de Linguagens Formais e Autômatos Finitos.
 
 Para mais detalhes dos recursos e de como usar o JFALP acesse o tutorial oficial disponível em http://www.jflap.org/tutorial/.
 

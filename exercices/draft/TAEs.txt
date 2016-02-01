@@ -11,10 +11,16 @@ Assuntos
 
 1) Hierarquia de Chomsky
 2) Traducao Dirigida por Sintaxe
-3) DFA e NFA
+3) Automato finito deterministico DFA e não deterministico NFA
 4) Nos vimos duas formas de represntar uma gramatica 
 	1- Gramatica livre de contexto
 	2- Forma de Backus-Naur
 
-	Porem existe uma terceirta forma conhecida como grafos sintaticos
+	Porem existe uma terceirta forma conhe
+cida como grafos sintaticos, explique o que é e como podemos representar 
 	
+5) Tipos de tratamento de erros em compilacao
+	a) modo panico
+	b) 
+
+6) Automatos de pilha
