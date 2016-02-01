@@ -522,7 +522,7 @@ A expressão `(x + x) * x` pode ser derivada a partir da seguinte regra de produ
 11 → (x + x) * x
 ```
 
-É possível derivar a expressão `x - x?
+É possível derivar a expressão `x - x`?
 
 #### Exemplo 04 – Chamada de funções
 
