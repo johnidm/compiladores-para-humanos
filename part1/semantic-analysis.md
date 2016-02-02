@@ -13,11 +13,51 @@ As validações que não podem ser executadas pelas etapas anteriores devem ser 
 
 A análise semântica percorre a árvore sintática relaciona os identificadores com seus dependentes de acordo com a estrutura hierarquica.
 
-#### inferência de tipos
+Essa etapa também captura informações sobre o programa fonte para que as fases subsequentes gerar o código objeto, um importante componente da analise semântica é a verificação de tipos, nela o compilador verifica se cada operador recebe os operandos permitidos e especificados na linguagem fonte.
+
+Um exemplo que ilustra muito bem essa etapa de validação de tipos é a atribuição de objetos de tipos ou classe diferentes. Em alguns casos, o compilador realiza a conversão automática de um tipo para outro que seja adequado à aplicação do operador. Por exemplo a expressão.
+
+```
+var s: String;
+s := 2 + ‘2’;
+```
+
+Veja o exemplo de um código em Object Pascal:
+
+```
+function Soma(a, b : Integer) : Integer;
+var 
+  i : Integer;
+begin
+  i := a + b;
+  Result := i;
+end;
+```
+
+No exemplo acima o analisador semântico de ter uma série de preocupações para validar o significado de cada regra de produção.
+
+Vamos utilizar como exemplo a regra de atribuição: 
+
+```
+i := a + b;
+```
+
+* O identificador `i` foi declarado?
+* O identificador `i` é uma variável?
+* Qual o escopo da variável `i`?
+* Qual é o tipo da variável `i`?
+* O tipo da variável `i` é compatível com os demais identificadores, operadores?
+
+Os tipo de dados são muito importantes nessa etapa da compilação, eles são uma notações que as linguagens de programação utilizam para representar um conjunto de valores. Com base nos tipos o analisador semântico pode definir quais valores podem ser manipulados, isso é conhecido com *type checking*.
+
+#### Inferência de tipos
 
 O sistema de tipos de dados podem ser divididos em dois grupos: sistemas dinâmicos e sistemas estáticos. Muitas das linguagens utilizam o sistema estático, esse sistema é predominante em linguagens compiladas, pois essa informação é utilizada durante a compilação e simplifica o trabalho do compilador.
 
-Algumas linguagens utilizam um mecanismo muito interessantes chamado inferência de tipos, que permite a uma variavel assumir varios tipos durante o seu ciclo de vida, isso permite que a ela possa ter varios varios valores. Linguagens de programação como  **Haskel** tira proveito desse mecanismo. Nesses casos o compilador infere o tipo da variável em tempo de execução, esse tipo de mecanismos esta diretamente relacionado ao mecanismo de *Generics* do Java e Delphi Language. A validação de tipos passa a ser realizada em tempo de execucao. 
+* Sistema de tipo estático: Linguagem como C, Java, Pascal obrigam o programador a definir os tipos das variáveis e retorno de funções, o compilador pode fazer varias checagens de tipo em tempo de compilação.
+* Sistema de tipo dinâmico: Variáveis e retorno de funções não possuem declaração de tipos, como exemplo temos linguagens como Python , Perl e PHP.
+
+Algumas linguagens utilizam um mecanismo muito interessantes chamado inferência de tipos, que permite a uma variavel assumir varios tipos durante o seu ciclo de vida, isso permite que a ela possa ter varios varios valores. Linguagens de programação como  **Haskel** tira proveito desse mecanismo. Nesses casos o compilador infere o tipo da variável em tempo de execução, esse tipo de mecanismos esta diretamente relacionado ao mecanismo de *Generics* do Java e Delphi Language. A validação de tipos passa a ser realizada em tempo de execucao.
 
 #### Principais erros semânticos:
 
@@ -101,42 +141,3 @@ func foo() {
 ###### Detectar o uso correto de comandos de controle de fluxo:
 
 Comandos como `continue` e `break` executam saltos na execucao de códigos, esse comandos deve ser utilizados em instruções que permitem os saltos.
-
-Essa etapa também captura informações sobre o programa fonte para que as fases subsequentes gerar o código objeto, um importante componente da analise semântica é a verificação de tipos, nela o compilador verifica se cada operador recebe os operandos permitidos e especificados na linguagem fonte.
-
-Um exemplo que ilustra muito bem essa etapa de validação de tipos é a atribuição de objetos de tipos ou classe diferentes. Em alguns casos, o compilador realiza a conversão automática de um tipo para outro que seja adequado à aplicação do operador. Por exemplo a expressão.
-
-```
-var s: String;
-s := 2 + ‘2’;
-```
-
-Veja o exemplo de um código em Object Pascal:
-
-```
-function Soma(a, b : Integer) : Integer;
-var 
-  i : Integer;
-begin
-  i := a + b;
-  Result := i;
-end;
-```
-
-No exemplo acima o analisador semântico de ter uma série de preocupações para validar o significado de cada regra de produção.
-
-Vamos utilizar como exemplo a regra de atribuição: 
-
-```
-i := a + b;
-```
-
-* O identificador `i` foi declarado?
-* O identificador `i` é uma variável?
-* Qual o escopo da variável `i`?
-* Qual é o tipo da variável `i`?
-* O tipo da variável `i` é compatível com os demais identificadores, operadores?
-
-
-Os tipo de dados são muito importantes nessa etapa da compilação, eles são uma notações que as linguagens de programação utilizam para representar um conjunto de valores. Com base nos tipos o analisador semântico pode definir quais valores podem ser manipulados, isso é conhecido com *type checking*.
-
