@@ -61,9 +61,9 @@ onde:
 
 * `3.1416` é um lexema que casa com o padrão do token `numero`.
 
-Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que ira identificar a ocorrência de cada lexema e identificar cada cadeias de carácter casando com o padrão. 
-
-Também podemos utilizar um gerador de analisar léxico que gera automaticamente o algoritmo para reconhecer os lexemas.
+Para implementar um analisador léxico é necessário ter uma descrição dos lexemas, então, podemos escrever o código que irá identificar a ocorrência de cada lexema e identificar cada cadeia de caractere casando com o padrão.
+ 
+Também podemos utilizar um gerador de análise léxica que gera automaticamente o algoritmo para reconhecer os lexemas.
 
 Expressões regulares são um mecanismo importante para especificar os padrões de lexemas.
 
@@ -73,19 +73,19 @@ Os tokens são símbolos léxicos reconhecidos através de um padrão.
 
 Os tokens podem ser divididos em dois grupos:
 
-* Tokens simples: São tokens que não tem valor associado pois a classe do token já a descreve. Exemplo: palavras reservadas, operadores, delimitadores - `<if,>`, `<else>`, `<+,>`.
+* Tokens simples: são tokens que não têm valor associado pois a classe do token já a descreve. Exemplo: palavras reservadas, operadores, delimitadores: `<if,>`, `<else>`, `<+,>`.
 
-* Tokens com argumento: são tokens que tem valor associado e corresponde a elementos da linguagem definidos pelo programador. Exemplo: identificadores, constantes numéricas - `<id, 3>`, `<numero, 10>`, `<literal, Olá Mundo>` .
+* Tokens com argumento: são tokens que têm valor associado e corresponde a elementos da linguagem definidos pelo programador. Exemplo: identificadores, constantes numéricas - `<id, 3>`, `<numero, 10>`, `<literal, Olá Mundo>` .
 
 Um token possui a seguinte estrutura:
 
 `<nome-token, valor-atributo>`
 
-Onde o nome do token corresponde a uma classificação do token, por exemplo: numero, identificador, const. E o valor do atributo corresponde a um valor qualquer que pode ser atribuído ao token, por exemplo o valor de entrada na tabela de simbolos.
+Onde o nome do token corresponde a uma classificação do token, por exemplo: numero, identificador, const. E o valor do atributo corresponde a um valor qualquer que pode ser atribuído ao token, por exemplo o valor de entrada na tabela de símbolos.
 
 ### Exemplo de analise léxica
 
-Suponha que tenhamos o seguinte trecho de código.
+Suponha que tenhamos o seguinte trecho de código:
 
 ```
 total = entrada * saida() + 2
@@ -101,13 +101,13 @@ Temos os seguintes tokens classificados:
 * `<=, >`  operador de atribuição, sem necessidade de um valor para o atributo.
 * `<id, 20>` : apontador 20 da tabela de símbolos e classe do token `id`.
 * `<*, >` :  operador de multiplicação, sem necessidade de um valor para o atributo.
-* `<id,30>` : apontador 20 da tabela de símbolos e classe do token `id`.
+* `<id,30>` : apontador 30 da tabela de símbolos e classe do token `id`.
 * `<+, >` :  operador de soma, sem necessidade de um valor para o atributo.
 * `<(, >`: Delimitador de função.
 * `<), >`: Delimitador de função.
-* `<numero, 2>` :  token numero, com valor para o atributo 2 indicado o valor do numero (constante numérica).
+* `<numero, 2>` :  token número, com valor para o atributo 2 indicado o valor do número (constante numérica).
 
-A seguir é apresentado alguns exemplos do resultado da análise léxica de um arquivo fonte.
+A seguir são apresentados alguns exemplos do resultado da análise léxica de um arquivo fonte.
 
 #### Exemplo 1
 
@@ -115,12 +115,12 @@ Código fonte
 
 ```
 while indice < 10 do
-    indice:= total + índice;
+    indice:= total + indice;
 ```
 
 Sequência de tokens
 
-`<while,><id,7> <<,><numero,10><do,><id,7><:=,><id,12><+,><id, 7><;, >`
+`<while,> <id,7> <<,> <numero,10> <do,> <id,7> <:=,> <id,12> <+,> <id, 7> <;, >`
 
 Tabela de símbolos
 
@@ -160,7 +160,7 @@ a[index] = 4 + 2
 
 Sequência de tokens
 
-`<id, 1> <[,> <id, 2> <],> <=,> <numero, 43> <+,> <numero, 2>`
+`<id, 1> <[,> <id, 2> <],> <=,> <numero, 4> <+,> <numero, 2>`
 
 Tabela de símbolos
 
@@ -172,7 +172,7 @@ Tabela de símbolos
 
 #### Exemplo 4
 
-Suponha que tenhamos a seguinte linha de código.
+Suponha que tenhamos a seguinte linha de código:
 
 `position = initial + rate * 60`
 
@@ -180,30 +180,30 @@ Mapeamento de tokens.
 
 | Lexema   | Símbolo | Significado   | Tabela de simbolos | Token         |
 |----------|---------|---------------|--------------------|---------------|
-| position | ID      | Identificador | 1                  | <Idt, 1>      |
+| position | id      | Identificador | 1                  | <Idt, 1>      |
 | =        |         |               |                    | <=, simbolo>  |
-| initial  | ID      | Identificador | 2                  | <Idt, 2>      |
+| initial  | id      | Identificador | 2                  | <Idt, 2>      |
 | +        |         |               |                    | <+, operador> |
-| rate     | ID      | Identificador | 3                  | <Idt, 3>      |
+| rate     | id      | Identificador | 3                  | <Idt, 3>      |
 | *        |         |               |                    | <*, operador> |
-| 60       | Numero  | Inteiro       | 4                  | <Número, 4>   |
+| 60       | numero  | Inteiro       | 4                  | <Número, 4>   |
 
 
 Sequência de tokens gerado. 
 
-`<ID, 1> <=> <ID, 2> <+> <ID, 3> <*> <Numero, 4>`
+`<id, 1> <=> <id, 2> <+> <id, 3> <*> <numero, 4>`
 
-#### Passos para identificar uma sequencia de tokens
+#### Passos para identificar uma sequência de tokens
 
-A analise léxica divide o código fonte em tokens que posteriormente são classificados de acordo com a classe no qual o token pertence, toda a classe tem uma descrição do que ela representa na linguagem de programação. 
+A análise léxica divide o código fonte em tokens que posteriormente são classificados de acordo com a classe no qual o token pertence. Toda classe tem uma descrição do que ela representa na linguagem de programação. 
 
-Veja as etapas para contribuir um analisador léxico:
+Veja as etapas para construir um analisador léxico:
 
-* Reconhecer a substring relacionada ao tokem através de um padrão;
-* Partir as strings de entradas em lexemas separando ela do restante dos arquivo fonte;
-* Identificar o e classificar o token de cada lexema;
+* Reconhecer a *substring* relacionada ao token através de um padrão;
+* Partir as strings de entrada em lexemas separando-as do restante dos arquivo fonte; e
+* Identificar e classificar o token de cada lexema.
 
-Suponha que temos a seguinte linha de código escrito em linguagem Java:
+Suponha que tenhamos a seguinte linha de código escrita em linguagem Java:
 
 ```
 x = 0
@@ -216,33 +216,33 @@ A entrada para o analisador léxico é a seguinte:
 
 `x = 0\nwhile (x < 10) {\n\tx++;\n}`
 
-Observe a presença do `\n` e do `\t` que representam respectivamente o carácter nova linha e tabulação.
+Observe a presença do `\n` e do `\t` que representam, respectivamente, o caractere Nova Linha e Tabulação.
 
 Com base nesse trecho de código nos podemos concluir que:
 
-* Possui 10 ocorrências de caracteres em branco - incluindo nova, linha, tabulação e espaço em branco;
-* Possui 1 ocorrências de palavras reservadas;
+* Possui 10 ocorrências de caracteres em branco - incluindo nova linha, tabulação e espaço em branco;
+* Possui 1 ocorrência de palavras reservadas;
 * Possui 3 ocorrências de identificadores do identificador `x`;
-* Possui 2 ocorrências de números;
-* Possui 7 ocorrências outros caracteres - representados por `=`, `(`, `)`, `{`, `}`, `++` e `;`;
+* Possui 2 ocorrências de números; e
+* Possui 7 ocorrências de outros caracteres - representados por `=`, `(`, `)`, `{`, `}`, `++` e `;`.
 
-O analisador léxico realiza tarefas relativamente simples que basicamente agrupam caracteres para formar as palavras que compõe a linguagem de programação.
+O analisador léxico realiza tarefas relativamente simples que basicamente agrupam caracteres para formar as palavras que compõem a linguagem de programação.
 
 ### Erros léxicos
 
-A análise léxica é muito prematura para identificar alguns erros de compilação, veja o exemplo abaixo.
+A análise léxica é muito prematura para identificar alguns erros de compilação, veja o exemplo abaixo:
 
 `fi (a == “123”) ...`
 
 O analisador léxico não consegue identificar o erro da instrução listada acima, pois ele não consegue identificar que em determinada posição deve ser declarado a palavra reservada `if` ao invés de `fi`. Essa verificação somente é possível ser feita na análise sintática.
 
-Porem é importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possíveis.
+Porem é importante ressaltar que o compilador deve continuar o processo de compilação afim de encontrar o maior número de erros possível.
 
-Uma situação comum de erro léxico e a presença de caracteres que não pertence a nenhum padrão conhecido da linguagem, como por exemplo o caractere `¢`. Nesse caso o analisador léxico de sinalizar um erro informado a posição desse caractere.
+Uma situação comum de erro léxico é a presença de caracteres que não pertencem a nenhum padrão conhecido da linguagem, como por exemplo o caractere `¢`. Nesse caso o analisador léxico deve sinalizar um erro informando a posição desse caractere.
 
 ### Expressões regulares
 
-Expressões regulares ou **regex** são uma forma simples e flexível de identificar cadeias de caracteres em palavras. Elas são escritas em uma linguagem formal que pode ser interpretada por um processador de expressão regular que examina o texto e identifica partes que casam com a especificação dada, são muito utilizadas para validar entradas de dados, fazer buscas, e extrair informações de textos. As expressões regulares não validam dados apenas verificam se um texto está em uma determinado padrão.
+-> Expressões regulares ou **regex** são uma forma simples e flexível de identificar cadeias de caracteres em palavras. Elas são escritas em uma linguagem formal que pode ser interpretada por um processador de expressão regular que examina o texto e identifica partes que casam com a especificação dada, são muito utilizadas para validar entradas de dados, fazer buscas, e extrair informações de textos. As expressões regulares não validam dados, apenas verificam se um texto está em uma determinado padrão. <-
 
 As expressões regulares são formadas por metacarateres que definem padrões para obter o casamento entre uma **regex** e um texto.
 
