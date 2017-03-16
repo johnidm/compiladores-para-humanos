@@ -41,7 +41,7 @@ Veja uma série de exemplos relacionados a identificação dos termos.
 
 onde: 
 
-* `printf` e `score` são lexemas que casão com o padrão `identificador`.   
+* `printf` e `score` são lexemas que casam com o padrão `identificador`.   
 
 * `Total = %d\n` é um lexema que casa com o padrão `literal`.
 
