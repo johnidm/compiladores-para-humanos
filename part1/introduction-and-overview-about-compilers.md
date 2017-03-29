@@ -21,7 +21,7 @@ Existem dois princípios fundamentais na construção de compiladores:
 
 As etapas de compilação são complexas e exigiam um esforço significativo, os primeiros compiladores eram escritos em binário e salvos na memória ROM, hoje nós temos um conjunto de ferramentas que facilitam a criação e manutenção de compiladores, muitas dessas ferramentas são escritas em linguagem como Java, C e C++ e já automatizam boa parte da construção de um compilador.
 
-Essas ferramentas geram códigos que podem ser incluídos no projeto do compilador. Um exemplo são os geradores de analisadores léxicos, que com base em expressões reguladores geram uma algoritmo capaz de identificar os elementos léxicos de uma linguagem de programação. 
+Essas ferramentas geram códigos que podem ser incluídos no projeto do compilador. Um exemplo são os geradores de analisadores léxicos, que com base em expressões regulares geram um algoritmo capaz de identificar os elementos léxicos de uma linguagem de programação. 
 
 O compilador precisa traduzir um conjunto infinito de programas escrito em uma linguagem de programação é o resultado desse processo deve ser um código eficiente que deve ser executado em diversas arquiteturas de processadores.
 
@@ -33,7 +33,7 @@ Podemos definir uma linguagem comumente chamada de língua ou idioma como um mei
 
 Todo o software executado em um computador foi escrito em alguma linguagem e antes que ele possa executar instruções diretamente no processador um programa deve ser utilizado para traduzir essa linguagem em um formato que possa ser entendido e executado pelo computador, esse programa é chamado de compilador. 
 
-As linguagens de programação são projetadas para permitir que seres humanos expressem processos computacionais em uma sequencia de operações, por exemplo ler um arquivo e imprimir o seu conteúdo em alguns dispositivo, uma impressora por exemplo.
+As linguagens de programação são projetadas para permitir que seres humanos expressem processos computacionais em uma sequência de operações, por exemplo ler um arquivo e imprimir o seu conteúdo em algum dispositivo, uma impressora por exemplo.
 
 Os programas executados no computador são sequências de 0 e 1 que representam valores inteiros, ponto flutuante, strings, etc., ou ainda instrução que indicam o que o computador deve fazer. A memória do computador é dividida em partes que possuem endereços únicos, todo o programa armazenado na memória é executado pela CPU que possui registradores que guardam dados temporários utilizados em operações. 
 
@@ -77,35 +77,35 @@ Através das linguagens de programação, consegue-se:
 * Melhoria da interface homem/máquina;
 * Redução no custo e tempo necessário para o desenvolvimento de programas;
 
-O primeiros passos para tornar a linguagem mais inteligível por humanos ocorreu na década de 50 com o desenvolvimento de linguagens simbólicas ou assembly. As instruções em Assembly representavam mnemônicos das instruções de máquina, mais tarde surgiram ferramentas conhecidas como macro assemblers que permitiam abreviaturas parametrizadas de uma sequencia de instruções Assembly.
+Os primeiros passos para tornar a linguagem mais inteligível por humanos ocorreu na década de 50 com o desenvolvimento de linguagens simbólicas ou *assembly*. As instruções em Assembly representavam mnemônicos das instruções de máquina, mais tarde surgiram ferramentas conhecidas como macro assemblers que permitiam abreviaturas parametrizadas de uma sequência de instruções Assembly.
 
-O surgimento das linguagens de programação como o FORTRAM e Cobol influenciaram o desenvolvimento de compiladores pois permitiam que construções de alto nível fossem possíveis de serem escritas de forma mais fácil.Posteriormente com o surgimento de novas linguagem de programação com recursos cada vez mais inovadores os compiladores se tornaram ferramentas muito mais sofisticadas.
+O surgimento das linguagens de programação como o FORTRAM e Cobol influenciaram o desenvolvimento de compiladores pois permitiam que construções de alto nível fossem possíveis de serem escritas de forma mais fácil. Posteriormente com o surgimento de novas linguagem de programação com recursos cada vez mais inovadores os compiladores se tornaram ferramentas muito mais sofisticadas.
 
-Os programadores que utilizam linguagem de baixo nível tem mais controle sobre a execução de seus programas e podem produzir um código mais eficiente, mas esse programas são difíceis de serem escritos e executados em outras máquinas. 
+Os programadores que utilizam linguagem de baixo nível têm mais controle sobre a execução de seus programas e podem produzir um código mais eficiente, mas esses programas são difíceis de serem escritos e executados em outras máquinas. 
 
 Com a evolução dos compiladores os programas escritos em linguagem de alto nível podem ser otimizados para que sejam tão eficientes quanto programas escritos em linguagens de baixo nível. Linguagens de alto nível possuem recursos como laços, tipos de dados, controle de fluxo, etc. que facilitam a escrita de programas. Esses recursos são traduzidos para linguagens de baixo nível e executadas diretamente nos processadores através de instruções de máquina. 
 
-A criação de uma linguagem de programação depende do domínio da aplicação a que ela se propões, isso também é um motivador para o surgimento de novas linguagens. Embora muitas surgiram com propósitos específicos e comum uma linguagem ter muitas características e ser empregada em vários domínios de aplicação. 
+A criação de uma linguagem de programação depende do domínio da aplicação a que ela se propões, isso também é um motivador para o surgimento de novas linguagens. Embora muitas surgiram com propósitos específicos e comum uma linguagem ter muitas características e ser empregada em vários domínios de aplicação. 
 
-Veja no quado abaixo alguns exemplos de domínios de aplicação e suas necessidades.
+Veja no quando abaixo alguns exemplos de domínios de aplicação e suas necessidades.
 
 ![](../images/part1-application-domain-languages.png)
 
-Muitas vezes temos que tomar a decisão de utilizar uma determinada linguagem de programação  em um projeto, embora possa parecer fácil aprender uma nova linguagem, obter um nível considerável de expertise não é trivial. Não existe uma linguagem melhor ou pior não é confortável fazer comparações diretas, o processo de escolha de uma linguagem deve analisar os recursos que cada uma oferece como solução aos problemas que o domínio da aplicação possui.
+Muitas vezes temos que tomar a decisão de utilizar uma determinada linguagem de programação em um projeto, embora possa parecer fácil aprender uma nova linguagem, obter um nível considerável de expertise não é trivial. Não existe uma linguagem melhor ou pior não é confortável fazer comparações diretas, o processo de escolha de uma linguagem deve analisar os recursos que cada uma oferece como solução aos problemas que o domínio da aplicação possui.
 
-Quando geramos um compilador para uma linguagem de programação nós já temos uma linguagem que pode ser utilizada e manutenida, vamos supor que criamos uma linguagem chamada **Legal**, essa linguagem foi concebida com base em uma já existente, Python por exemplo - uma característica muito comum no surgimento de uma nova linguagem é ele ser proposta com base em outras - é importante ressaltar que quando a linguagem **Legal** já esta completa e com ela podemos gerar seu próprio compilador nós temos um ciclo autossuficiente.
+Quando geramos um compilador para uma linguagem de programação nós já temos uma linguagem que pode ser utilizada e manutenida, vamos supor que criamos uma linguagem chamada **Legal**, essa linguagem foi concebida com base em uma já existente, Python por exemplo - uma característica muito comum no surgimento de uma nova linguagem é ele ser proposta com base em outras - é importante ressaltar que quando a linguagem **Legal** já estiver completa e com ela pudermos gerar seu próprio compilador, nós teremos um ciclo autossuficiente.
 
 ### Tradutores 
 
 Os tradutores são sistemas que aceitam como entrada um programa escrito em uma linguagem e produzem como resultado um programa equivalente na mesma linguagem ou em linguagens diferentes. Os tradutores podem ser classificados em:
 
-* **Montadores**: também chamados de assemblers, eles mapeiam instruções em linguagem simbólica para instruções em linguagem de máquina. Disasembler ou desmontadores fazer o processo inverso.
+* **Montadores**: também chamados de *assemblers*, eles mapeiam instruções em linguagem simbólica para instruções em linguagem de máquina. *Disassembler* ou desmontadores fazer o processo inverso.
 * **Macro assemblers**: funcionam da mesma forma que os montadores, porém podem ser criados “macros” que representam uma sequência de comandos em linguagem simbólica.
 * **Compiladores**: mapeiam programas escritos em linguagem de alto nível para linguagem simbólica ou de máquina. 
-* **Pré-compiladores**: também chamados de pré-processadores ou filtros são programas que estendem a sintaxe de uma linguagem de alto nível com o objetivo de fazer a conversão entre duas linguagem de alto nível.
+* **Pré-compiladores**: também chamados de pré-processadores ou filtros, são programas que estendem a sintaxe de uma linguagem de alto nível com o objetivo de fazer a conversão entre duas linguagens de alto nível.
 * **Interpretadores**: Possuem como entrada uma linguagem intermediária ou a própria linguagem fonte, e um programa compilado produz o efeito de execução.
 
-#### Compiladores x Interpretadores
+#### Compiladores vs. Interpretadores
 
 Diferente do compilador o interpretador recebe como estrada uma especificação executável e produz com saída a execução dessa especificação, linguagens com PHP, Scheme, Python são interpretadas.
 
@@ -117,11 +117,11 @@ No esquema abaixo podemos ter uma ideia macro das diferenças de funcionamento d
 
 Os compiladores e interpretadores possuem muitas características em comum, pois podem executar as mesmas tarefas, como por exemplo analisar o programa e determinar se ele é valido ou não, porem os interpretadores são um tipo de tradutor no qual algumas fases do compilador são substituídas por um programa que executa o código produzindo o seu efeito.
 
-Um caso muito interessante é o da linguagem Java que combina compilação e interpretação. Temos o processo de compilação que gera um formato de código chamado de *bytecode*, e o processo de interpretação feito do *bytecode* pela Java Virtual Machine ou JVM. Outro detalhe de implementação feito na JVM e em muitos interpretadores é um processo chamado de JIT - Just in Time - que permite que algumas instruções, as mais utilizadas, sejam compiladas para para código de máquina a fim de otimizar a sua execução.
+Um caso muito interessante é o da linguagem Java que combina compilação e interpretação. Temos o processo de compilação que gera um formato de código chamado de *bytecode*, e o processo de interpretação feito do *bytecode* pela Java Virtual Machine ou JVM. Outro detalhe de implementação feito na JVM e em muitos interpretadores é um processo chamado de JIT - Just in Time - que permite que algumas instruções, as mais utilizadas, sejam compiladas para código de máquina a fim de otimizar a sua execução.
 
 O interpretador pode ser divido em dois tipos:
 
-* Interpretador puro: Cada instrução é "quebrada" em tokens, analisada, verificada semanticamente e interpretada cada vez que é executada. Como exemplo temos interpretadores de comandos *shell*.
+* Interpretador puro: Cada instrução é "quebrada" em *tokens*, analisada, verificada semanticamente e interpretada cada vez que é executada. Como exemplo temos interpretadores de comandos *shell*.
 * Interpretadores mistos: Traduzem todo o script em código intermediário e depois interpretam esse código.
 
 Um programa objeto gerado por um compilador é muito mais rápido do que um programa executado por um interpretador, porem um interpretador oferece melhores opções para diagnosticar erros, pois executa instrução por instrução.
@@ -138,14 +138,14 @@ Essa divisão de fases tem como objetivo dar uma visão explicita e detalhada do
 
 Caso o compilador tenha sido cuidadosamente projeto podemos produzir compiladores de diferentes linguagens fonte para diferentes máquinas alvo, combinando diferentes estrutura de *front-end* para um único *back-end* ou um único *front-end* para diferentes *back-ends*. 
 
-O processo de compilação inicia com o **analisador léxico** que varre todo o programa fonte e transforma o texto em um fluxo de tokens, nessa fase é cria a **tabela de símbolos**. Logo em seguida vem a **análise sintática** que lê o fluxo de tokens e valida a estrutura do programa criando a **árvore sintática**, a terceira fase e a **análise semântica** responsável por garantir as regras semânticas. Todas essa fases fazem parte da tarefa de análise.
+O processo de compilação inicia com o **analisador léxico** que varre todo o programa fonte e transforma o texto em um fluxo de *tokens*, nessa fase é cria a **tabela de símbolos**. Logo em seguida vem a **análise sintática** que lê o fluxo de *tokens* e valida a estrutura do programa criando a **árvore sintática**, a terceira fase e a **análise semântica** responsável por garantir as regras semânticas. Todas essas fases fazem parte da tarefa de análise.
 
-A próxima fase e a **geração de código intermediário** que cria uma abstração do código, logo após vem a fase de **otimização do código** e por fim a **geração do código objeto** que tem como objetivo gerar o código de baixo nível baseado na arquitetura da máquina alvo. Essas fases fazem parte da tarefa de síntese
+A próxima fase e a **geração de código intermediário** que cria uma abstração do código, logo após vem a fase de **otimização do código** e por fim, a **geração do código objeto** que tem como objetivo gerar o código de baixo nível baseado na arquitetura da máquina alvo. Essas fases fazem parte da tarefa de síntese
 
 
 ### Termos
 
-[^1] Desmontador: também chamado de desassemblador faz o processo inverso ao montador, ou seja, pega o código de máquina e transforma em código Assembly. 
+[^1] Desmontador: também chamado de *desassembler* faz o processo inverso ao montador, ou seja, pega o código de máquina e transforma em código Assembly. 
 
 [^2] Mnemônicos: são símbolos que substituem o padrão de bits. Como exemplo o ADD equivale a soma e em bits significa 00100011.
 
