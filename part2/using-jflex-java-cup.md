@@ -7,6 +7,28 @@ Vocë pode obter mais detalhes do funcionamento do Java Cup em http://www2.cs.tu
 
 Ambas as ferramentas utilizam a linguagem de programação Java, vocë pode criar um projeto Java utilizando alguma IDE de desenvolvimento de sua preferencia, nos vamos apresentar apenas as partes relevantes na construção do analisador léxico e sintático omitindo detalhes do projeto.
 
+Nessa etapa vamos utilizar o Maven para gerir as dependências, então para criar o projeto na IDE Eclipse faça `File -> New > Other > Maven > Maven Project`, escolha um nome de sua preferência e crie o projeto. Para essa etapa **não** é necessário baixar as bibliotecas manualmente ou configurar variáveis de ambiente.
+
+No arquivo pom.xml acrescente as depedências do JFlex e Java CUP conforme abaixo:
+```
+<dependencies>
+		<!-- https://mvnrepository.com/artifact/de.jflex/jflex -->
+		<dependency>
+			<groupId>de.jflex</groupId>
+			<artifactId>jflex</artifactId>
+			<version>1.8.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/edu.princeton.cup/java-cup -->
+		<dependency>
+			<groupId>edu.princeton.cup</groupId>
+			<artifactId>java-cup</artifactId>
+			<version>10k</version>
+		</dependency>
+
+	</dependencies>
+```
+
 A construção de uma linguagem de programação deve iniciar pela definição léxica, abaixo é apresentado um fragmento de código escrito na linguagem que vamos construir que vai se chamar**SextaFase**.
 
 ```
@@ -217,6 +239,59 @@ data_types ::= INTEGER_TYPE | STRING_TYPE;
 
 Esse arquivo contém as especificações sintáticas, que nada mais é do que a gramática da linguagem de programação. Da mesma forma que o analisador léxico gerado pelo Jflex, o analisador sintático também irá gerar código Java para validar a sintaxe da linguagem de programação.
 
+Agora precisamos gerar o analisador léxico e o analisador sintático. Vamos criar duas classes para auxiliar esse processo.
+
+Crie uma classe chamada `GenerateParser` e defina o seu método main conforme abaixo:
+```
+package src.sintatico;
+
+import java.io.IOException;
+import java.nio.file.Paths;
+import java_cup.internal_error;
+
+
+public class GenerateParser {
+
+	public static void main(String[] args) throws internal_error, IOException, Exception {
+	
+		String rootPath = Paths.get("").toAbsolutePath().toString();
+		String subPath = "/src/main/java/src/sintatico/";
+
+		String file[] = {rootPath+subPath + "Parser.cup"};
+
+		java_cup.Main.main(file);
+
+	}
+}
+```
+> Observe o nome do pacote e ajuste conforme o que você estiver usando. Altere a variável `subPath` conforme o caminho de seu projeto.
+
+
+Crie uma classe chamada `GenerateLexer` e defina o seu método main conforme abaixo:
+```
+package src.sintatico;
+
+import java.nio.file.Paths;
+
+public class GenerateLexer {
+
+	public static void main(String[] args) {
+		
+		String rootPath = Paths.get("").toAbsolutePath().toString();
+		String subPath = "/src/main/java/src/sintatico/";
+
+		String file[] = {rootPath+subPath + "Lexer.lex"};
+
+		jflex.Main.main(file);
+		
+	}
+
+}
+```
+> Novamente observe o nome do pacote e ajuste conforme o que você estiver usando. Altere a variável `subPath` conforme o caminho de seu projeto.
+
+Execute as duas classes (`GenerateLexer` e `GenerateParser`) e atualize o projeto. Com isso foram gerados os arquivos de código Java `Lexer.java`, `Parser.java` e `Sym.java`. Esses arquivos vão fazer parte do compilador.
+
 Para finalizar o projeto da linguagem de programação vamos criar uma classe que vai executar o compilador.
 
 
@@ -249,24 +324,6 @@ public class Main {
 
 > Você pode alterar o nome da classe Java para outro qualquer, nesse exemplo nos estamos utilizando o nome `Main`.
 
-Essa classe vai executar o compilador da linguagem.
+Essa classe vai executar o compilador da linguagem. Teste, provoque erros sintáticos e verifique a saída no console.
 
-Todo o código para o projeto do compilador esta pronto, agora no precisamos gerar o analisador léxico e o analisador sintático. Isso deve ser feito através da linha de comando utilizando o JFlex e o Java Cup.
-
-Acesse o programa de linha de comando e navegue até o diretório onde os arquivos `lex` e `cup`  estão.
-
-Por exemplo:
-
-```
-cd /home/johni/Projects/compiler/sextafase-language/src/
-```
-
-Depois você deve localizar o diretório onde os arquivo `jar` do JFlex e Java Cup estão, e executar as seguintes linhas de código.
-
-```
-java -jar /home/johni/Projects/compiler/vendor/jflex-1.6.1.jar Lexer.lex
-
-java -jar /home/johni/Projects/compiler/vendor/java-cup-11a.jar -parser Parser -symbols Sym Parser.cup
-```
-
-Foram gerados os arquivos de código Java `Lexer.java`, `Parser.java` e `Sym.java`. Esses arquivos vão fazer parte do compilador.
+Código completo em repositórios de terceiros: `https://github.com/RomeuRocha/analisador-lexico-e-sintatico`
