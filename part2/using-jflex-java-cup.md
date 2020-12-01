@@ -11,21 +11,20 @@ Nessa etapa vamos utilizar o Maven para gerir as dependências, então para cria
 
 No arquivo pom.xml acrescente as depedências do JFlex e Java CUP conforme abaixo:
 ```
-<dependencies>
+	<dependencies>
 		<!-- https://mvnrepository.com/artifact/de.jflex/jflex -->
 		<dependency>
 			<groupId>de.jflex</groupId>
 			<artifactId>jflex</artifactId>
 			<version>1.8.2</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/edu.princeton.cup/java-cup -->
+		<!-- https://mvnrepository.com/artifact/com.github.vbmacher/java-cup -->
 		<dependency>
-			<groupId>edu.princeton.cup</groupId>
+			<groupId>com.github.vbmacher</groupId>
 			<artifactId>java-cup</artifactId>
-			<version>10k</version>
+			<version>11b</version>
 		</dependency>
-
+		
 	</dependencies>
 ```
 
@@ -239,56 +238,64 @@ data_types ::= INTEGER_TYPE | STRING_TYPE;
 
 Esse arquivo contém as especificações sintáticas, que nada mais é do que a gramática da linguagem de programação. Da mesma forma que o analisador léxico gerado pelo Jflex, o analisador sintático também irá gerar código Java para validar a sintaxe da linguagem de programação.
 
-Agora precisamos gerar o analisador léxico e o analisador sintático. Vamos criar duas classes para auxiliar esse processo.
+Agora precisamos gerar o analisador léxico e o analisador sintático. Vamos criar três classes para auxiliar esse processo.
+
+Crie uma classe chamada `Generate` conforme abaixo:
+```
+package src.sintatico;
+
+import java.nio.file.Paths;
+
+public class Generate {
+private final static String SUB_PATH = "/src/main/java/src/sintatico/";
+    
+    public static String[] getPath(String filename) {
+        String rootPath = Paths.get("").toAbsolutePath().toString();
+    	
+    	String file[] = {rootPath+SUB_PATH + filename};
+    
+        return file;
+    }
+}
+```
+> Observe o nome do pacote e ajuste conforme o que você estiver usando. Altere o atributo `subPath` conforme o caminho de seu projeto.
+
 
 Crie uma classe chamada `GenerateParser` e defina o seu método main conforme abaixo:
 ```
 package src.sintatico;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java_cup.internal_error;
-
 
 public class GenerateParser {
 
 	public static void main(String[] args) throws internal_error, IOException, Exception {
 	
-		String rootPath = Paths.get("").toAbsolutePath().toString();
-		String subPath = "/src/main/java/src/sintatico/";
-
-		String file[] = {rootPath+subPath + "Parser.cup"};
-
-		java_cup.Main.main(file);
+		String file[] = Generate.getPath("Parser.cup");
+		java_cup.Main.main(file); 
 
 	}
 }
 ```
-> Observe o nome do pacote e ajuste conforme o que você estiver usando. Altere a variável `subPath` conforme o caminho de seu projeto.
+> Observe o nome do pacote e ajuste conforme o que você estiver usando.
 
 
 Crie uma classe chamada `GenerateLexer` e defina o seu método main conforme abaixo:
 ```
 package src.sintatico;
 
-import java.nio.file.Paths;
-
 public class GenerateLexer {
 
 	public static void main(String[] args) {
 		
-		String rootPath = Paths.get("").toAbsolutePath().toString();
-		String subPath = "/src/main/java/src/sintatico/";
-
-		String file[] = {rootPath+subPath + "Lexer.lex"};
-
+		String file[] = Generate.getPath("Lexer.lex");
 		jflex.Main.main(file);
 		
 	}
-
 }
 ```
-> Novamente observe o nome do pacote e ajuste conforme o que você estiver usando. Altere a variável `subPath` conforme o caminho de seu projeto.
+> Novamente observe o nome do pacote e ajuste conforme o que você estiver usando.
 
 Execute as duas classes (`GenerateLexer` e `GenerateParser`) e atualize o projeto. Com isso foram gerados os arquivos de código Java `Lexer.java`, `Parser.java` e `Sym.java`. Esses arquivos vão fazer parte do compilador.
 
